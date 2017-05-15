@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BlogApp">
+<head>
+    <meta charset="UTF-8">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/> -->
+    <link href="Bootstrap.css" rel="stylesheet"/>
+
+    <script src ="angular.js"></script>
+    <script src="app.js"></script>
+    <title>My First angular app</title>
+
+</head>
+<body>
+    <div> <h1> Blog </h1></div>
+    <div class="container-fluid">
+        <div ng-controller="BlogPostController">
+            <br/>
+        Title:
+        <input ng-model="post.title" class="form-control"/>
+        Body:
+        <textarea ng-model="post.body" class="form-control"></textarea>
+        <button ng-click="addPost(post)" class="btn btn-block btn-primary">Post</button>
+            <button ng-click="updatePosts(post)" class="btn btn-block btn-success">Update Post</button>
+        <ul class="list-group">
+            <li ng-repeat="post in posts" class="list-group-item">
+                <span ng-click = "deletePosts($index)" class="pull-right">&times;</span>
+                <span ng-click = "selectPost($index)" class="pull-right">&checkmark;</span>
+                <h3>{{post.title}}</h3>
+                <p>
+                    {{post.body}}
+                    <br/>
+                    <label>
+                    Date posted : {{post.date | date}}
+                    </label>
+                </p>
+
+            </li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>
