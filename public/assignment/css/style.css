@@ -1,7 +1,42 @@
-input.form-control {
+input.form-control ,textarea.form-control{
     margin-bottom: 5px;
 }
 
 body {
-    padding-top: 36px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top{
+    padding-right: 15px;
+}
+
+.navbar-default {
+    background-color: black;
+    border-color: black;
+}
+
+.navbar-default .navbar-brand{
+    color: white;
+}
+
+.navbar-default .navbar-link {
+    color: white;
+}
+
+.navbar-header{
+    width: 100%;
+}
+
+.navbar.navbar-default a {
+    color: white;
+}
+
+.row {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.row.navbar-text{
+    width: 100%;
 }
