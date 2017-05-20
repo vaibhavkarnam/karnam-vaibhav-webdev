@@ -13,14 +13,14 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="page-list.html" class="navbar-brand">
+            <a href="widget-list.html" class="navbar-brand">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
             <a class="navbar-brand" href="#">
-                Edit Page
+                Widget Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-list.html" class="navbar-link">
+                <a href="widget-list.html" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
@@ -30,12 +30,19 @@
 </nav>
 
 <div class="container-fluid">
-    <label for="name">Name</label>
-    <input id = "name" class="form-control" value="Blog Post" placeholder="Blog Post"/>
-    <label for="title">Title</label>
-    <input id = "title" class="form-control" value="GIZMODO" placeholder="GIZMODO"/>
-        <a href="page-list.html" class="btn btn-block btn-danger">Delete</a>
-    </div>
+        <label for="name">Name</label>
+        <input id = "name" class="form-control"/>
+        <label for="text">Text</label>
+        <input id = "text" class="form-control"/>
+    <label for="url">URL</label>
+    <input id = "url" class="form-control" placeholder="https://i.kinja-img.com/gawker-media/image/upload/sl2x0fbwcollqbfbwuy9.jpg"/>
+    <label for="width">Width</label>
+    <input id = "width" class="form-control" placeholder="100%"/>
+    <label for="file">Upload</label>
+        <input id="file" multiple type="file" class="form-control"/>
+        <a href="widget-list.html" class="btn btn-block btn-primary">Upload Image</a>
+        <a href="widget-list.html" class="btn btn-block btn-danger">Delete</a>
+</div>
 
 
 
@@ -75,6 +82,7 @@
         </p>
     </div>
 </nav>
+
 
 </body>
 </html>
