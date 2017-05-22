@@ -54,7 +54,7 @@ nav.navbar.navbar-default.navbar-fixed-bottom{
     position: absolute;
     right: 15px;
     background: white;
-    opacity: 0.8;
+    opacity: 0.9;
     padding: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -108,4 +108,7 @@ nav.navbar.navbar-default.navbar-fixed-top >
 }
 .embed-responsive-4by3 {
     padding-bottom: 75%;
+}
+.embed-responsive-16by9 > .wd-widgets > .wd-widgets-toolbar{
+    margin-right: -15px;
 }
