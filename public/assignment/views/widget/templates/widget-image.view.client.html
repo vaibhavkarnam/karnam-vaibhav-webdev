@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Title</title>
-<link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="../css/style.css" rel="stylesheet"/>
+<link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../../css/style.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
 <div class="navbar-header">
     <div class="navbar-brand">
-        <a href="../widget/widget-list.html" class="navbar-link">
+        <a href="widget-list.view.client.html" class="navbar-link">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <a href="#">
@@ -21,7 +21,7 @@
         </a>
     </div>
     <p class="navbar-text pull-right">
-        <a href="widget-list.html" class="navbar-link">
+        <a href="widget-list.view.client.html" class="navbar-link">
 <span class="glyphicon glyphicon-ok">
 </span>
         </a>
@@ -31,19 +31,17 @@
 
 <div class="container-fluid">
     <label for="name">Name</label>
-    <input id = "name" class="form-control" value="Top Heading" placeholder="facebook"/>
+    <input id = "name" class="form-control"/>
     <label for="text">Text</label>
-    <input id = "text" class="form-control" value="US senate reaches compromise" placeholder="US senate reaches compromise"/>
-    <label for="text">text</label>
-    <select id="size" class="form-control">
-        <option>1 (XXLarge)</option>
-        <option>2 (XLarge)</option>
-        <option>3 (Large)</option>
-        <option>5 (Medium)</option>
-        <option>6 (Small)</option>
-        <option>7 (XSmall)</option>
-    </select>
-    <a href="widget-list.html" class="btn btn-block btn-danger">Delete</a>
+    <input id = "text" class="form-control"/>
+<label for="url">URL</label>
+<input id = "url" class="form-control" placeholder="https://i.kinja-img.com/gawker-media/image/upload/sl2x0fbwcollqbfbwuy9.jpg"/>
+<label for="width">Width</label>
+<input id = "width" class="form-control" placeholder="100%"/>
+<label for="file">Upload</label>
+    <input id="file" multiple type="file" class="form-control"/>
+    <a href="#" class="btn btn-block btn-primary">Upload Image</a>
+    <a href="widget-list.view.client.html" class="btn btn-block btn-danger">Delete</a>
 </div>
 
 
@@ -78,7 +76,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
 <div class="navbar-header">
     <p class="navbar-text pull-right">
-        <a href="../user/profile.html" class="navbar-link">
+        <a href="../../user/templates/profile.view.client.html" class="navbar-link">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </p>
