@@ -17,107 +17,33 @@
 </div>
 </nav>
 
+
+
 <div class="container-fluid">
-<div class="wd-widgets">
+<div ng-repeat="widget in model.widgets" class="wd-widgets">
 <div class="wd-widgets-toolbar">
     <a href="widget-heading.view.client.html">
     <span class="glyphicon glyphicon-cog"></span>
     </a>
     <span class="glyphicon glyphicon-align-justify"></span>
 </div>
-<h1>GIZMODO</h1>
-</div>
-<div class="wd-widgets">
-<div class="wd-widgets-toolbar">
-    <a href="widget-heading.view.client.html">
-    <span class="glyphicon glyphicon-cog"></span>
-    </a>
-    <span class="glyphicon glyphicon-align-justify"></span>
-</div>
-<h3>Over the past nine months, the number of US cases of an emerging, multi-drug resistant
-    fungus has ballooned from 7 to more than 122</h3>
-</div>
-<div class="wd-widgets">
-<div class="wd-widgets-toolbar">
-    <a href="widget-image.view.client.html">
-    <span class="glyphicon glyphicon-cog"></span>
-    </a>
-    <span class="glyphicon glyphicon-align-justify"></span>
-</div>
-<img src="https://i.kinja-img.com/gawker-media/image/upload/sl2x0fbwcollqbfbwuy9.jpg">
-</div>
-<div class="wd-widgets">
-<div class="wd-widgets-toolbar">
-    <a href="widget-heading.view.client.html">
-    <span class="glyphicon glyphicon-cog"></span>
-    </a>
-    <span class="glyphicon glyphicon-align-justify"></span>
-</div>
-<p>The Arctic is the <a href="http://gizmodo.com/the-arctic-is-in-such-bad-shape-that-scientists-propose-1792384678"
-                        rel="nofollow">fastest-warming place</a> on our
-    <a href="http://gizmodo.com/2016s-new-temperature-record-proves-climate-change-is-m-1791339997"
-       rel="nofollow">overheated planet</a>, but so far, its polar opposite has managed to stay pretty cool.
-    Why is Antarctica warming so slowly compared with the Arctic? The answer is complicated, but a new study
-    suggests we’re overlooking a basic reality of geometry.<br></p>
-<p>Parts of our round Earth are flat; others are rugged and mountainous. Antarctica is a diverse
-    landscape of <a href="https://en.wikipedia.org/wiki/Transantarctic_Mountains" target="_blank"
-                    rel="noopener">snow-covered mountains</a>, gaping chasms,
-    <a href="http://gizmodo.com/we-just-found-out-antarctica-is-covered-in-rivers-1794394985#_ga=2.149780725.215497461.1495197406-1520736541.1475842057"
-       rel="nofollow">rivers, lakes, and waterfalls</a>, with the
-    highest average elevation of any continent. Marc Salzmann,  researcher at the Institute for
-    Meteorology at the University of Leipzig, thinks that extra height helps explain why Antarctica is warming up slowly,
-    while the Arctic
-    <a href="http://gizmodo.com/the-arctic-completely-failed-its-2016-report-card-1790061121#_ga=2.149780725.215497461.1495197406-1520736541.1475842057"
-       rel="nofollow">sizzles away like a popsicle in the summer sun</a>.</p>
-</div>
-<div class="embed-responsive embed-responsive-16by9" >
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/j7Q0uDsZtS0"
-            frameborder="0" allowfullscreen>
-    </iframe>
-    <div class="wd-widgets">
-        <div class="wd-widgets-toolbar">
-            <a href="widget-youtube.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-    </div>
+
+    <div ng-include="model.widgetUrl(widget)"></div>
+    <!--<div ng-switch="widget.widgetType">-->
+        <!---->
+        <!--<div ng-switch-when="HEADING">-->
+            <!--<div ng-include="'views/widget/templates/widget-list-heading.view.client.html'"></div>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="IMAGE">-->
+            <!--<div ng-include="'views/widget/templates/widget-list-image.view.client.html'"></div>-->
+       <!--</div>-->
+        <!--<div ng-switch-when="YOUTUBE">-->
+            <!--<iframe width="100%" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="HTML" ng-bind-html="model.trust(widget.text)">-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 </div>
 
-<!--<nav class="navbar navbar-default navbar-fixed-bottom">
-<div class="container">
-<div class="row navbar-text">
-<div class="col-xs-3 text-center">
-    <a href="#">
-        <span class="glyphicon glyphicon-ok"></span>
-    </a>
-</div>
-<div class="col-xs-3 text-center">
-    <a href="#">
-        <span class="glyphicon glyphicon-plus"></span>
-    </a>
-</div>
-<div class="col-xs-3 text-center">
-    <a href="#">
-        <span class="glyphicon glyphicon-star"></span>
-    </a>
-</div>
-<div class="col-xs-3 text-center">
-    <a href="#">
-        <span class="glyphicon glyphicon-heart"></span>
-    </a>
-</div>
-</div>
-</div>
-</nav> -->
-
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-<div class="navbar-header">
-<p class="navbar-text pull-right">
-    <a href="../../user/templates/profile.view.client.html" class="navbar-link">
-        <span class="glyphicon glyphicon-user"></span>
-    </a>
-</p>
-</div>
-</nav>
+<div ng-include="'views/common/footer.view.client.html'"></div>
