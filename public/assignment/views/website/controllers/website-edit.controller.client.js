@@ -15,6 +15,7 @@
         function init() {
             model.websites = websiteService.findAllWebsitesForUser(model.userId);
             model.website = websiteService.findWebsiteById(model.websiteId);
+            model.newWebsite = angular.copy(model.website);
         }
         init();
 

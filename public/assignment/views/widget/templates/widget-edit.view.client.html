@@ -1,22 +1,22 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="navbar-header">
-<div class="navbar-brand">
-    <a href="../../page/templates/page-list.view.client.html" class="navbar-link">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a href="#">
-        Widgets
-    </a>
-</div>
-<p class="navbar-text pull-right">
-    <a href="widget-chooser.view.client.html" class="navbar-link">
-<span class="glyphicon glyphicon-plus">
-</span>
-    </a>
-</p>
-</div>
-</nav>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <div class="navbar-brand">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}">
+                Widget Edit
+            </a>
+        </div>
+        <p class="navbar-text pull-right">
+            <a href=" ng-click = model.websiteUpdate(model.websiteId, model.website)" class="navbar-link">
+<span class="glyphicon glyphicon-ok">
+</span>
+            </a>
+        </p>
+    </div>
+</nav>
 
 
 <div class="container-fluid">
@@ -28,21 +28,24 @@
     <span class="glyphicon glyphicon-align-justify"></span>
 </div>
 
-    <div ng-include="model.widgetUrl(widget)"></div>
-    <!--<div ng-switch="widget.widgetType">-->
-        <!---->
-        <!--<div ng-switch-when="HEADING">-->
-            <!--<div ng-include="'views/widget/templates/widget-list-heading.view.client.html'"></div>-->
-        <!--</div>-->
-        <!--<div ng-switch-when="IMAGE">-->
-            <!--<div ng-include="'views/widget/templates/widget-list-image.view.client.html'"></div>-->
-       <!--</div>-->
-        <!--<div ng-switch-when="YOUTUBE">-->
-            <!--<iframe width="100%" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>-->
-        <!--</div>-->
-        <!--<div ng-switch-when="HTML" ng-bind-html="model.trust(widget.text)">-->
-        <!--</div>-->
-    <!--</div>-->
+    <!--<div ng-include="model.widgetUrl(widget)"></div> -->
+
+
+
+<div ng-switch="widget.widgetType">
+
+    <div ng-switch-when="HEADING">
+        <div ng-include="'views/widget/templates/widget-list-heading.view.client.html'"></div>
+    </div>
+    <div ng-switch-when="IMAGE">
+        <div ng-include="'views/widget/templates/widget-list-image.view.client.html'"></div>
+   </div>
+    <div ng-switch-when="YOUTUBE">
+        <iframe width="100%" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div ng-switch-when="HTML" ng-bind-html="model.trust(widget.text)">
+    </div>
+</div>
 </div>
 </div>
 
