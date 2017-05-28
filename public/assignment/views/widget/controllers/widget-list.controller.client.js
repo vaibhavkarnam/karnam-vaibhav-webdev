@@ -1,9 +1,9 @@
 (function () {
     angular
         .module('WAM')
-        .controller('widget_listController', widget_listController);
+        .controller('WidgetListController', WidgetListController);
 
-    function widget_listController($sce) {
+    function WidgetListController($routeParams, $sce, WidgetService) {
         var model = this;
 
         var widgets = [
@@ -19,6 +19,9 @@
         ];
 
         model.widgets = widgets;
+        model.userId = $routeParams['userId'];
+        model.websiteId = $routeParams.websiteId;
+        model.pageId = $routeParams.pageId;
         model.trust = trust;
         model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         model.widgetUrl = widgetUrl;

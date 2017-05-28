@@ -25,6 +25,7 @@
         var model = this;
 
         model.userId = $routeParams['userId'];
+        model.websiteId = $routeParams.websiteId;
         model.pageId = $routeParams.pageId;
         model.pageDelete = pageDelete;
         model.pageUpdate = pageUpdate;
@@ -35,8 +36,8 @@
         }
         init();
 
-        function pageUpdate(pageId) {
-            PageService.updatePage(pageId);
+        function pageUpdate(pageId, page) {
+            PageService.updatePage(pageId, page);
             $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
 
@@ -47,22 +48,22 @@
 
     }
 
-    function NewPageController($routeParams, websiteService, $location){
+    function NewPageController($routeParams, PageService, $location){
 
         var model = this;
 
         model.userId = $routeParams['userId'];
-        model.createWebsite = createWebsite;
+        model.websiteId=$routeParams.websiteId;
+        model.createPage = createPage;
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            model.page = PageService.findPageById(model.pageId);
         }
         init();
 
-        function createWebsite(website) {
-            website.developerId = model.userId;
-            websiteService.createWebsite(website);
-            $location.url('/user/'+model.userId+'/website');
+        function createPage(page) {
+            PageService.createPage(model.websiteId, page);
+            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/');
 
         }
     }

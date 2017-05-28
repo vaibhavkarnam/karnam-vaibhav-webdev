@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Title</title>
-<link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="../../css/style.css" rel="stylesheet"/>
-</head>
-<body>
 
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="navbar-header">
 <div class="navbar-brand">
-    <a href="page-list.view.client.html" class="navbar-link">
+    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
         <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     <a href="#">
@@ -21,7 +10,7 @@
     </a>
 </div>
 <p class="navbar-text pull-right">
-    <a href="page-list.view.client.html" class="navbar-link">
+    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page" ng-click = "model.createPage(page)" class="navbar-link">
 <span class="glyphicon glyphicon-ok">
 </span>
     </a>
@@ -31,9 +20,9 @@
 
 <div class="container-fluid">
 <label for="name">Name</label>
-<input id = "name" class="form-control" placeholder="Blog Post"/>
+<input id = "name" ng-model="page.name" class="form-control" placeholder="Blog Post"/>
 <label for="title">Title</label>
-<input id = "title" class="form-control" placeholder="GIZMODO"/>
+<input id = "title" ng-model="page.description" class="form-control" placeholder="GIZMODO"/>
 </div>
 
 
@@ -65,15 +54,4 @@
 </div>
 </nav> -->
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-<div class="navbar-header">
-<p class="navbar-text pull-right">
-    <a href="../../user/templates/profile.view.client.html" class="navbar-link">
-        <span class="glyphicon glyphicon-user"></span>
-    </a>
-</p>
-</div>
-</nav>
-
-</body>
-</html>
+<div ng-include="'views/common/footer.view.client.html'"></div>

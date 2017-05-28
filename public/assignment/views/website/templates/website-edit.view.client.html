@@ -6,7 +6,7 @@
             <a href="#!/user/{{model.userId}}/website" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a href="#" class="hidden-xs">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}" class="hidden-xs">
                 Websites
             </a>
         </div>
@@ -27,7 +27,7 @@
             </a>
         </div>
         <p class="navbar-text pull-right">
-            <a ng-click ="model.website(model.websiteId)" class="navbar-link">
+            <a ng-click ="model.websiteUpdate(model.websiteId, model.website)" class="navbar-link">
 <span class="glyphicon glyphicon-ok">
 </span>
             </a>
@@ -66,7 +66,7 @@
 
             </div>
             <div class="col-xs-3">
-                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                <a  href="#!/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </div>

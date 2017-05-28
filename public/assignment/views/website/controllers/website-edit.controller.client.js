@@ -8,8 +8,9 @@
         var model = this;
 
         model.userId = $routeParams['userId'];
-        model.websiteId = $routeParams.websiteId;
+        model.websiteId = $routeParams['websiteId'];
         model.websiteDelete = websiteDelete;
+        model.websiteUpdate = websiteUpdate;
 
         function init() {
             model.websites = websiteService.findAllWebsitesForUser(model.userId);
@@ -20,6 +21,11 @@
         function websiteDelete(websiteId) {
             websiteService.deleteWebsite(websiteId);
             $location.url('/user/'+model.userId+'/website');
+        }
+
+        function websiteUpdate(websiteId, website) {
+            websiteService.updateWebsite(websiteId, website);
+            $location.url('/user/'+model.userId+'/website/');
         }
     }
 })();
