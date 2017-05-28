@@ -7,7 +7,7 @@
         </a>
     </div>
     <p class="navbar-text pull-right">
-        <a href="profile.view.client.html" class="navbar-link">
+        <a href="#!/user/{{model.userId}}" class="navbar-link">
       <span class="glyphicon glyphicon-ok">
       </span>
         </a>
@@ -42,13 +42,4 @@
    href="#!/login">Logout</a>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-<div class="navbar-header">
-    <p class="navbar-text pull-right">
-        <a href="/profile.view.client.html" class="navbar-link">
-            <span class="glyphicon glyphicon-user"></span>
-        </a>
-    </p>
-</div>
-</nav>
-
+<div ng-include="'views/common/footer.view.client.html'"></div>

@@ -1,0 +1,84 @@
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-header">
+<div class="navbar-brand">
+    <a href="#!/user/{{model.userId}}/website" class="navbar-link">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+        Pages
+    </a>
+</div>
+<p class="navbar-text pull-right">
+    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new" class="navbar-link">
+<span class="glyphicon glyphicon-plus">
+</span>
+    </a>
+</p>
+</div>
+</nav>
+
+<div class="container-fluid">
+<ul class="list-group">
+<li class="list-group-item active">
+    <div class="row">
+        <div class="col-xs-9">
+            Name
+        </div>
+        <div class="col-xs-3">
+
+        </div>
+    </div>
+</li>
+    <li ng-repeat="page in model.pages" class="list-group-item">
+        <div class="row">
+            <div class="col-lg-5 col-md-7 col-xs-9">
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page/{{page._id}}/widget">
+                    {{page.name}}
+                </a>
+            </div>
+            <div class="col-lg-2 visible-lg">
+
+            </div>
+            <div class="col-md-2 hidden-sm hidden-xs">
+
+            </div>
+            <div class="col-xs-3">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">
+<div class="container">
+<div class="row navbar-text">
+    <div class="col-xs-3 text-center">
+        <a href="#">
+            <span class="glyphicon glyphicon-ok"></span>
+        </a>
+    </div>
+    <div class="col-xs-3 text-center">
+        <a href="#">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+    <div class="col-xs-3 text-center">
+        <a href="#">
+            <span class="glyphicon glyphicon-star"></span>
+        </a>
+    </div>
+    <div class="col-xs-3 text-center">
+        <a href="#">
+            <span class="glyphicon glyphicon-heart"></span>
+        </a>
+    </div>
+</div>
+</div>
+</nav> -->
+
+<div ng-include="'views/common/footer.view.client.html'"></div>

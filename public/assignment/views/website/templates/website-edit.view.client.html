@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-xs-4 hidden-xs">
         <div class="navbar-brand">
-            <a href="website-list.view.client.html" class="navbar-link">
+            <a href="#!/user/{{model.userId}}/website" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
             <a href="#" class="hidden-xs">
@@ -11,14 +11,14 @@
             </a>
         </div>
         <p class="navbar-text pull-right">
-            <a href="website-new.view.client.html" class="navbar-link">
+            <a href="#!/user/{{model.userId}}/website/new" class="navbar-link">
 <span class="glyphicon glyphicon-plus">
 </span>
             </a>
         </p>
     </div>
     <div class="col-xs-12 col-sm-8">
-        <a href="../../user/templates/profile.view.client.html">
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left navbar-brand visible-xs"></span>
         </a>
         <div class="navbar-brand pull-left">
@@ -27,7 +27,7 @@
             </a>
         </div>
         <p class="navbar-text pull-right">
-            <a href="website-list.view.client.html" class="navbar-link">
+            <a ng-click ="model.website(model.websiteId)" class="navbar-link">
 <span class="glyphicon glyphicon-ok">
 </span>
             </a>
@@ -52,62 +52,26 @@
         </div>
     </div>
 </li>
-<li class="list-group-item">
-    <div class="row">
-        <div class="col-xs-9">
-            <a href="../../page/page-list.html">
-                Address Book App
-            </a>
+    <li ng-repeat="website in model.websites" class="list-group-item">
+        <div class="row">
+            <div class="col-lg-5 col-md-7 col-xs-9">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    {{website.name}}
+                </a>
+            </div>
+            <div class="col-lg-2 visible-lg">
+
+            </div>
+            <div class="col-md-2 hidden-sm hidden-xs">
+
+            </div>
+            <div class="col-xs-3">
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </div>
         </div>
-        <div class="col-xs-3">
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </div>
-    </div>
-</li>
-<li class="list-group-item">
-    <div class="row">
-        <div class="col-xs-9">
-            <a href="../../page/page-list.html">
-                Blogger
-            </a>
-        </div>
-        <div class="col-xs-3">
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </div>
-    </div>
-</li>
-<li class="list-group-item">
-    <div class="row">
-        <div class="col-xs-9">
-            <a href="../../page/page-list.html">
-                Blogging App
-            </a>
-        </div>
-        <div class="col-xs-3">
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </div>
-    </div>
-</li>
-<li class="list-group-item">
-    <div class="row">
-        <div class="col-xs-9">
-            <a href="../../page/page-list.html">
-                Script Testing App
-            </a>
-        </div>
-        <div class="col-xs-3">
-            <a href="website-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </div>
-    </div>
-</li>
+    </li>
 </ul>
 </div>
 <div class="col-xs-12 col-sm-8">
@@ -148,13 +112,4 @@ Connect with friends from around the world"></textarea>
 </div>
 </div>
 </nav> -->
-
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
-<div class="navbar-header">
-<p class="navbar-text pull-right">
-    <a href="../../user/templates/profile.view.client.html" class="navbar-link">
-        <span class="glyphicon glyphicon-user"></span>
-    </a>
-</p>
-</div>
-</nav>
+<div ng-include="'views/common/footer.view.client.html'"></div>

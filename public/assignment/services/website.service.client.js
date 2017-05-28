@@ -9,6 +9,7 @@
         this.findWebsiteById = findWebsiteById;
         this.deleteWebsite = deleteWebsite;
         this.createWebsite = createWebsite;
+        this.updateWebsite = updateWebsite;
 
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -52,6 +53,14 @@
 
             return results;
 
+        }
+        
+        function updateWebsite(websiteId, website) {
+            var website_old = findWebsiteById(websiteId);
+            website_old.name = website.name;
+            website_old.developerId = website.developerId;
+            website_old.description = website.description;
+            
         }
     }
 })();

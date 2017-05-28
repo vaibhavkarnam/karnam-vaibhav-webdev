@@ -1,9 +1,9 @@
 (function () {
     angular
         .module('WAM')
-        .controller('website_listController', website_listController);
+        .controller('WebsiteListController', WebsiteListController);
 
-    function website_listController($routeParams, websiteService){
+    function WebsiteListController($routeParams, websiteService){
 
         var model = this;
 

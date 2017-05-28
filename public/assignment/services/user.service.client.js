@@ -15,11 +15,13 @@
             createUser: createUser,
             findUserbyId: findUserbyId,
             findUserbyUsername: findUserbyUsername,
-            findUserbyCredentials : findUserbyCredentials
+            findUserbyCredentials : findUserbyCredentials,
+            updateUser: updateUser,
+            deleteUser:deleteUser
         };
 
         return api;
-
+        
         function createUser(user) {
             user._id = (new Date()).getTime() + "";
             user.created = new Date();
@@ -57,6 +59,20 @@
 
             }
             return null;
+        }
+
+        function updateUser(userId, user) {
+            var user_old = findUserbyId(userId);
+            user_old.username = user.username;
+            user_old.password = user.password;
+            user_old.firstName = user.firstName;
+            user_old.lastName = user.lastName;
+        }
+        
+        function deleteUser(userId) {
+            var user_old = findUserbyId(userId);
+            var index = users.indexOf(user_old);
+            users.splice(index, 1);
         }
     }
     
