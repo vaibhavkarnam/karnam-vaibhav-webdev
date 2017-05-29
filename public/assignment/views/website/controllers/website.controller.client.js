@@ -20,6 +20,7 @@
             model.websites = websiteService.findAllWebsitesForUser(model.userId);
             model.website = websiteService.findWebsiteById(model.websiteId);
             model.newWebsite = angular.copy(model.website);
+            model.newWebsites = angular.copy(model.websites);
         }
         init();
 
@@ -43,6 +44,7 @@
 
         function init() {
             model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            model.newWebsites = angular.copy(model.websites);
         }
         init();
 
@@ -58,6 +60,7 @@
 
         function init() {
             model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            model.newWebsites = angular.copy(model.websites);
         }
         init();
 
