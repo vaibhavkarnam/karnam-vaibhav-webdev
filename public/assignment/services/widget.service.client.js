@@ -5,11 +5,14 @@
 
     function WidgetService() {
 
-        this.createWidget = createWidget;
+
         this.findWidgetsByPageId = findWidgetsByPageId;
         this.deleteWidget = deleteWidget;
         this.updateWidget = updateWidget;
         this.findWidgetById = findWidgetById;
+        this.createWidgetHeader = createWidgetHeader;
+        this.createWidgetImage = createWidgetImage;
+        this.createWidgetYoutube = createWidgetYoutube;
 
         var widgets = [
             { "_id": "123", "widgetType": "HEADING", "pageId": "546", "size": 2, "text": "GIZMODO"},
@@ -24,13 +27,30 @@
         ];
 
 
-        function createWidget(pageId, widget) {
-            new_widget = { "_id": "", "widgetType": "", "pageId": "", "width": "", "url": ""};
-            new_widget._id = (new Date()).getTime() + "";
-            widget._id = (new Date()).getTime()+"";
+        function createWidgetHeader(pageId, widget) {
+            widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "", "text": ""};
+            widget._id = (new Date()).getTime() + "";
             widget.pageId = pageId;
             widgets.push(widget);
+            return widget._id
         }
+
+        function createWidgetImage(pageId, widget) {
+            widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "", "url": ""};
+            widget._id = (new Date()).getTime() + "";
+            widget.pageId = pageId;
+            widgets.push(widget);
+            return widget._id
+        }
+
+        function createWidgetYoutube(pageId, widget) {
+            widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "", "url": ""};
+            widget._id = (new Date()).getTime() + "";
+            widget.pageId = pageId;
+            widgets.push(widget);
+            return widget._id
+        }
+
 
         function deleteWidget(widgetId) {
             var widget = findWidgetById(widgetId);
