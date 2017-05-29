@@ -10,7 +10,7 @@
             </a>
         </div>
         <p class="navbar-text pull-right">
-            <a href=" ng-click = model.websiteUpdate(model.websiteId, model.website)" class="navbar-link">
+            <a ng-click = "model.widgetUpdate(model.widget)" class="navbar-link">
 <span class="glyphicon glyphicon-ok">
 </span>
             </a>
@@ -19,34 +19,21 @@
 </nav>
 
 
-<div class="container-fluid">
-<div ng-repeat="widget in model.widgets" class="wd-widgets">
-<div class="wd-widgets-toolbar">
-    <a href="widget-heading.view.client.html">
-    <span class="glyphicon glyphicon-cog"></span>
-    </a>
-    <span class="glyphicon glyphicon-align-justify"></span>
-</div>
+
 
     <!--<div ng-include="model.widgetUrl(widget)"></div> -->
 
-
-
-<div ng-switch="widget.widgetType">
+<div ng-switch="model.widget.widgetType">
 
     <div ng-switch-when="HEADING">
-        <div ng-include="'views/widget/templates/widget-list-heading.view.client.html'"></div>
+        <div ng-include="'views/widget/editors/widget-heading.view.client.html'"></div>
     </div>
     <div ng-switch-when="IMAGE">
-        <div ng-include="'views/widget/templates/widget-list-image.view.client.html'"></div>
+        <div ng-include="'views/widget/editors/widget-image.view.client.html'"></div>
    </div>
     <div ng-switch-when="YOUTUBE">
-        <iframe width="100%" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
+        <div ng-include="'views/widget/editors/widget-youtube.view.client.html'"></div>
     </div>
-    <div ng-switch-when="HTML" ng-bind-html="model.trust(widget.text)">
-    </div>
-</div>
-</div>
 </div>
 
 <div ng-include="'views/common/footer.view.client.html'"></div>

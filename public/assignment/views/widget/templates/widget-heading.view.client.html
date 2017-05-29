@@ -1,68 +1,8 @@
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="navbar-header">
-    <div class="navbar-brand">
-        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}">
-            Widget Edit
-        </a>
-    </div>
-    <p class="navbar-text pull-right">
-        <a href=" ng-click = model.widgetUpdate(model.widget)" class="navbar-link">
-<span class="glyphicon glyphicon-ok">
-</span>
-        </a>
-    </p>
+<div ng-model="model.widget.size" ng-switch="widget.size">
+    <h1 ng-switch-when="1">{{widget.text}}</h1>
+    <h2 ng-switch-when="2">{{widget.text}}</h2>
+    <h3 ng-switch-when="3">{{widget.text}}</h3>
+    <h4 ng-switch-when="4">{{widget.text}}</h4>
+    <h5 ng-switch-when="5">{{widget.text}}</h5>
+    <h6 ng-switch-when="6">{{widget.text}}</h6>
 </div>
-</nav>
-
-<div class="container-fluid">
-    <label for="name">Name</label>
-    <input id = "name" ng-model="model.widget.name" class="form-control" placeholder="facebook"/>
-    <label for="text">Text</label>
-    <input id = "text" ng-model="model.widget.text" class="form-control" placeholder="US senate reaches compromise"/>
-    <label for="size">Size</label>
-    <select id="size" ng-model="model.widget.size" class="form-control">
-        <option>1 (XXLarge)</option>
-        <option>2 (XLarge)</option>
-        <option>3 (Large)</option>
-        <option>5 (Medium)</option>
-        <option>6 (Small)</option>
-        <option>7 (XSmall)</option>
-    </select>
-    <a ng-click="model.widgetDelete(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
-</div>
-
-
-
-<!--<nav class="navbar navbar-default navbar-fixed-bottom">
-<div class="container">
-    <div class="row navbar-text">
-        <div class="col-xs-3 text-center">
-            <a href="#">
-                <span class="glyphicon glyphicon-ok"></span>
-            </a>
-        </div>
-        <div class="col-xs-3 text-center">
-            <a href="#">
-                <span class="glyphicon glyphicon-plus"></span>
-            </a>
-        </div>
-        <div class="col-xs-3 text-center">
-            <a href="#">
-                <span class="glyphicon glyphicon-star"></span>
-            </a>
-        </div>
-        <div class="col-xs-3 text-center">
-            <a href="#">
-                <span class="glyphicon glyphicon-heart"></span>
-            </a>
-        </div>
-    </div>
-</div>
-</nav> -->
-
-<div ng-include="'views/common/footer.view.client.html'"></div>
-

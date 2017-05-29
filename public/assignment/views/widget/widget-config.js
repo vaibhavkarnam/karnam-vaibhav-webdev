@@ -17,10 +17,11 @@
                 controllerAs: 'model'
             })
             .when('/user/:userId/website/:websiteId/page/:pageId/widget/:wgid', {
-                templateUrl: 'views/widget/templates/widget-youtube.view.client.html',
+                templateUrl: 'views/widget/templates/widget-edit.view.client.html',
                 controller: 'EditWidgetController',
                 controllerAs: 'model'
             })
+
     }
 
 })();
