@@ -14,7 +14,7 @@
         model.websiteId = $routeParams['websiteId'];
 
         function init() {
-            model.pages = PageService.findPageByWebsiteId(model.websiteId);
+            model.pages = angular.copy(PageService.findPageByWebsiteId(model.websiteId));
         }
         init();
 
@@ -32,7 +32,7 @@
 
 
         function init() {
-            model.page = PageService.findPageById(model.pageId);
+            model.page = angular.copy(PageService.findPageById(model.pageId));
         }
         init();
 
@@ -57,7 +57,7 @@
         model.createPage = createPage;
 
         function init() {
-            model.page = PageService.findPageById(model.pageId);
+            model.page = angular.copy(PageService.findPageById(model.pageId));
         }
         init();
 

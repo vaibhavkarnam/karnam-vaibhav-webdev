@@ -10,7 +10,7 @@
 
          model.userId = $routeParams['userId'];
 
-        model.user = userService.findUserbyId(model.userId);
+        model.user = angular.copy(userService.findUserbyId(model.userId));
 
 
     }

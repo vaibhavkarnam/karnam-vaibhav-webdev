@@ -18,7 +18,7 @@
 
 
         function init() {
-            model.widgets = WidgetService.findWidgetsByPageId(model.pageId);
+            model.widgets = angular.copy(WidgetService.findWidgetsByPageId(model.pageId));
         }
         init();
 
@@ -52,7 +52,7 @@
         model.widgetDelete = widgetDelete;
 
         function init() {
-            model.widget = WidgetService.findWidgetById(model.widgetId);
+            model.widget = angular.copy(WidgetService.findWidgetById(model.widgetId));
         }
 
         init();
@@ -99,7 +99,7 @@
             model.createWidgetYoutube = createWidgetYoutube;
 
             function init() {
-                model.widget = WidgetService.findWidgetById(model.widgetId);
+                model.widget = angular.copy(WidgetService.findWidgetById(model.widgetId));
             }
 
             init();

@@ -17,8 +17,8 @@
         model.websiteUpdate = websiteUpdate;
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
-            model.website = websiteService.findWebsiteById(model.websiteId);
+            model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
+            model.website = angular.copy(websiteService.findWebsiteById(model.websiteId));
             model.newWebsite = angular.copy(model.website);
             model.newWebsites = angular.copy(model.websites);
         }
@@ -43,7 +43,7 @@
         model.userId = $routeParams['userId'];
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
             model.newWebsites = angular.copy(model.websites);
         }
         init();
@@ -59,7 +59,7 @@
         model.createWebsite = createWebsite;
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
             model.newWebsites = angular.copy(model.websites);
         }
         init();
