@@ -14,7 +14,13 @@
         model.websiteId = $routeParams['websiteId'];
 
         function init() {
-            model.pages = angular.copy(PageService.findPageByWebsiteId(model.websiteId));
+
+            PageService
+                .findPageByWebsiteId(model.websiteId)
+                .then(function (pages) {
+                    model.pages = pages;
+                });
+            // model.pages = angular.copy(PageService.findPageByWebsiteId(model.websiteId));
         }
         init();
 
@@ -32,20 +38,35 @@
 
 
         function init() {
-            model.page = angular.copy(PageService.findPageById(model.pageId));
+            PageService
+                .findPageByWebsiteId(model.websiteId)
+                .then(function (pages) {
+                    model.pages = pages;
+                })
+            PageService
+                .findPageById(model.pageId)
+                .then(function (page) {
+                    model.page = page;
+                })
+            // model.page = angular.copy(PageService.findPageById(model.pageId));
         }
         init();
 
         function pageUpdate(pageId, page) {
-            PageService.updatePage(pageId, page);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+            PageService
+                .updatePage(pageId, page)
+                .then(function () {
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+                })
         }
 
         function pageDelete(pageId) {
-            PageService.deletePage(pageId);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+            PageService
+                .deletePage(pageId)
+                .then(function () {
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+                })
         }
-
     }
 
     function NewPageController($routeParams, PageService, $location){
@@ -57,14 +78,23 @@
         model.createPage = createPage;
 
         function init() {
-            model.page = angular.copy(PageService.findPageById(model.pageId));
+            PageService
+                .findPageByWebsiteId(model.websiteId)
+                .then(function (pages) {
+                    model.pages = pages;
+                })
+            // model.page = angular.copy(PageService.findPageById(model.pageId));
         }
         init();
 
         function createPage(page) {
-            PageService.createPage(model.websiteId, page);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/');
-
+            page._id = (new Date()).getTime()+"";
+            page.websiteId = model.websiteId;
+            PageService
+                .createPage(model.websiteId, page)
+                .then(function () {
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+                })
         }
     }
 

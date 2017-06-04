@@ -24,21 +24,36 @@
                 return;
             }
 
-            var found = userService.findUserbyUsername(username);
-
-            if(found != null ){
-                //model.message = "Welcome " + username;
+             userService
+                 .findUserbyUsername(username)
+                 .then(function () {
                 model.error = "Sorry that username is taken";
-            }
-            else {
-               var newUser = {
-                   username: username,
-                   password: password
+            },function () {
+                var newUser = {
+                    username: username,
+                    password: password
                 };
 
-                newUser = userService.createUser(newUser);
-                $location.url('/user/' + newUser._id);
-            }
+               return userService
+                    .createUser(newUser);
+            })
+                 .then(function (user) {
+                     $location.url('/user/' + user._id);
+                 });
+
+            // if(found != null ){
+            //     //model.message = "Welcome " + username;
+            //     model.error = "Sorry that username is taken";
+            // }
+            // else {
+            //    var newUser = {
+            //        username: username,
+            //        password: password
+            //     };
+            //
+            //     newUser = userService.createUser(newUser);
+            //     $location.url('/user/' + newUser._id);
+            // }
         }
     }
 

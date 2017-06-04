@@ -7,11 +7,25 @@
     <input id = "text" ng-model="model.widget.text" class="form-control"/>
 <label for="url">URL</label>
 <input id = "url" class="form-control" ng-model="model.widget.url" placeholder="https://i.kinja-img.com/gawker-media/image/upload/sl2x0fbwcollqbfbwuy9.jpg"/>
-<label for="width">Width</label>
-<input id = "width" ng-model="model.widget.width" class="form-control" placeholder="100%"/>
-<label for="file">Upload</label>
-    <input id="file" multiple type="file" class="form-control"/>
-    <a href="#" class="btn btn-block btn-primary">Upload Image</a>
+
+    <a href="#!/widget/:widgetId/search" ng-class="btn bt">
+        Search
+    </a>
+
+    <form action="/api/upload"   method="post" enctype="multipart/form-data">
+        <input  name="myFile"    type="file" class="form-control"/>
+        <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+        <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
+        <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+        <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
+        <input  name="widgetId"  value="{{model.widgetId}}"   style="display: none"/>
+        <button type="submit"  multiple type="file"  class="btn btn-block btn-primary">Upload Image</button>
+    </form>
+
+    <!--<input id = "width" ng-model="model.widget.width" class="form-control" placeholder="100%"/>-->
+<!--<label for="file">Upload</label>-->
+    <!--<input id="file" multiple type="file" class="form-control"/>-->
+    <!--<a href="#" class="btn btn-block btn-primary">Upload Image</a>-->
     <a ng-click="model.widgetDelete(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
 </div>
 

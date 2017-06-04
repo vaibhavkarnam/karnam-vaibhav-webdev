@@ -3,9 +3,12 @@
 <html lang="en" ng-app="WAM">
 <head>
 
+<script src="vendor/jquery/jquery.js"></script>
+<script src="vendor/jquery/jquery-ui.js"></script>
 <script src="vendor/angular/angular.min.js"></script>
 <script src="app.js"></script>
 <!-- <script src="config.js"></script>  -->
+
 
 <!-- config files -->
 <script src = "views/user/user-config.js"></script>
@@ -30,6 +33,7 @@
 <!-- widget controllers -->
 
 <script src="views/widget/controllers/widget.controller.client.js"></script>
+<script src="views/widget/controllers/flickr.controller.client.js"></script>
 
 <!-- services -->
 
@@ -37,6 +41,7 @@
 <script src="services/website.service.client.js"></script>
 <script src="services/page.service.client.js"></script>
 <script src="services/widget.service.client.js"></script>
+<script src="services/flickr.service.client.js"></script>
 
 <script src="vendor/angular/angular-route.min.js"></script>
 
@@ -70,8 +75,8 @@
 
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
 <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

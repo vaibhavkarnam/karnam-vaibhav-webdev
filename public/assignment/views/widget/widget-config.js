@@ -21,6 +21,11 @@
                 controller: 'EditWidgetController',
                 controllerAs: 'model'
             })
+            .when('/user/:userId/website/:websiteId/page/:pageId/widget/:wgid/search', {
+                templateUrl: 'views/widget/templates/widget-flickr-search.view.client.html',
+                controller: 'flickrController',
+                controllerAs: 'model'
+            })
 
     }
 

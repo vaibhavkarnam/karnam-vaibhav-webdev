@@ -17,22 +17,41 @@
         model.websiteUpdate = websiteUpdate;
 
         function init() {
-            model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
-            model.website = angular.copy(websiteService.findWebsiteById(model.websiteId));
-            model.newWebsite = angular.copy(model.website);
-            model.newWebsites = angular.copy(model.websites);
+            websiteService
+                .findAllWebsitesForUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites;
+                });
+            websiteService
+                .findWebsiteById(model.websiteId)
+                .then(function (website) {
+                    model.website = website;
+                });
+
+            // model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
+            // model.website = angular.copy(websiteService.findWebsiteById(model.websiteId));
+            // model.newWebsite = angular.copy(model.website);
+            // model.newWebsites = angular.copy(model.websites);
         }
         init();
 
-        function websiteDelete(websiteId) {
-            websiteService.deleteWebsite(websiteId);
-            $location.url('/user/'+model.userId+'/website');
-        }
-
-        function websiteUpdate(websiteId, website) {
-            websiteService.updateWebsite(websiteId, website);
-            $location.url('/user/'+model.userId+'/website/');
-        }
+         function websiteDelete(websiteId) {
+             websiteService
+                 .deleteWebsite(websiteId)
+                 .then(function () {
+                     $location.url('/user/'+model.userId+'/website');
+                 });
+        //     $location.url('/user/'+model.userId+'/website');
+         }
+        //
+         function websiteUpdate(websiteId, website) {
+             websiteService
+                 .updateWebsite(websiteId, website)
+                 .then(function () {
+                     $location.url('/user/'+model.userId+'/website/');
+                 });
+        //     $location.url('/user/'+model.userId+'/website/');
+         }
     }
 
 
@@ -43,8 +62,15 @@
         model.userId = $routeParams['userId'];
 
         function init() {
-            model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
-            model.newWebsites = angular.copy(model.websites);
+
+            websiteService
+                .findAllWebsitesForUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites;
+                });
+            
+            // model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
+            // model.newWebsites = angular.copy(model.websites);
         }
         init();
 
@@ -59,16 +85,25 @@
         model.createWebsite = createWebsite;
 
         function init() {
-            model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
-            model.newWebsites = angular.copy(model.websites);
+            websiteService
+                .findAllWebsitesForUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites;
+                });
+
+            // model.websites = angular.copy(websiteService.findAllWebsitesForUser(model.userId));
+            // model.newWebsites = angular.copy(model.websites);
         }
         init();
 
         function createWebsite(website) {
             website.developerId = model.userId;
-            websiteService.createWebsite(website);
-            $location.url('/user/'+model.userId+'/website');
-
+            website._id = (new Date()).getTime()+"";
+            websiteService
+                .createWebsite(website)
+                .then(function () {
+                    $location.url('/user/'+model.userId+'/website');
+                });
         }
     }
 
