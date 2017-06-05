@@ -89,6 +89,17 @@ var app = require('../../express');
     }
 
 
+function findWidgetByIdServer(req, res) {
+    var widgetId = req.params['widgetId']
+    for (var u in widgets) {
+        if (widgets[u]._id === widgetId) {
+            res.send(widgets[u]);
+            return;
+        }
+    }
+    res.sendStatus(404);
+}
+
     function updateWidget(req, res) {
 
         // var website = req.body;
@@ -132,10 +143,16 @@ var app = require('../../express');
         var size = myFile.size;
         var mimetype = myFile.mimetype;
 
-        widget = findWidgetById(widgetId);
-        widget.url = '/assignment/uploads' + filename;
 
-        var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
+        for (var u in widgets) {
+            if (widgets[u]._id === widgetId) {
+                var widget = widgets[u];
+                break;
+            }
+        }
+        widget.url = '../../public/assignment/uploads' + filename;
+
+        var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
 
         res.redirect(callbackUrl);
     }

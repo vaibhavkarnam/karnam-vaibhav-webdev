@@ -1,7 +1,6 @@
 var express1 = require ('express');
 var app = express1();
 
-
 var app = require('./express');
 
 
@@ -15,11 +14,11 @@ app.use(express1.static(__dirname + '/public'));
 require ('./test/app')(app);
 
 
-
 var ourapp = require('./lectures/evening/angular/app');
 ourapp(app);
 
 require ('./assignment/app');
+
 
 var port = process.env.PORT || 3000;
 

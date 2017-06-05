@@ -17,7 +17,7 @@
         // model.trust = trust;
         // model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
          //model.widgetUrl = widgetUrl;
-         model.widgetId = $routeParams.widgetId;
+         model.widgetId = $routeParams.wgid;
 
 
      function searchPhotos(searchTerm) {
@@ -37,11 +37,11 @@
      }
 
 
-        function selectPhoto(photo) {
-            var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
-            url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
+        function selectPhoto(photo,widget) {
+            var url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server;
+            url +="/"+photo.id+"_"+photo.secret+"_b.jpg";
             WidgetService
-                .updateWidget(model.websiteId, model.pageId, model.widgetId, {url: url})
+                .updateWidget(widget)
                 .then(function () {
                     $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
                 });

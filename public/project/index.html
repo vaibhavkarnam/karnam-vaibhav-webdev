@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WAMA">
 <head>
     <meta charset="UTF-8">
+    <script src="../assignment/vendor/jquery/jquery.js"></script>
+    <script src="../assignment/vendor/jquery/jquery-ui.js"></script>
+    <script src="../assignment/vendor/angular/angular.min.js"></script>
+    <script src="../assignment/vendor/angular/angular-route.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="xml2json.js"></script>
+
+    <script src ="controllers/flickr.controller.client.js"></script>
+    <script src = "services/flickr.service.client.js"></script>
+
+    <link href="../assignment/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../assignment/vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assignment/vendor/bootstrap/theme.css" rel="stylesheet">
+    <link href="../assignment/views/css/style.css" rel="stylesheet"/>
+
     <title>Project Home Page</title>
 </head>
 <body>
-    <h1>Project Home Page</h1>
+<div class="container-fluid" ng-controller="searchController as model">
+    <h1>address</h1>
+
+    <label for="street1">Street1</label>
+    <input ng-model="street1"
+           id = "street1"
+           type="text"
+           class="form-control"
+           placeholder="123"/>
+
+    <label for="street2">Street2</label>
+    <input ng-model="street2"
+           id="street2"
+           type="text"
+           class="form-control"
+           placeholder="STREET2"/>
+    <label for="street3">Street3</label>
+    <input ng-model="street3"
+           id="street3"
+           type="text"
+           class="form-control"
+           placeholder="STREET3"/>
+    <label for="city">City</label>
+    <input ng-model="city"
+           id="city"
+           type="text"
+           class="form-control"
+           placeholder="Boston"/>
+    <label for="state">State</label>
+    <input ng-model="state"
+           id="state"
+           type="text"
+           class="form-control"
+           placeholder="MA"/>
+    <a ng-click="model.searchAddress(street1, street2, street3, city, state)"
+       class="btn btn-primary btn-block">
+        SearchAddress</a>
+    {{model.data}}
+
+</div>
 </body>
 </html>

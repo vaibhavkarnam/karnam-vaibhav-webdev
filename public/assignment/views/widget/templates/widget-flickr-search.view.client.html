@@ -9,7 +9,7 @@
 </div>
     <div class="row">
         <div class="col-xs-4" ng-repeat="photo in model.photos.photo">
-            <img ng-click="model.selectPhoto(photo)"
+            <img ng-click="model.selectPhoto(photo, model.widgetId)"
                  ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
         </div>
     </div>
