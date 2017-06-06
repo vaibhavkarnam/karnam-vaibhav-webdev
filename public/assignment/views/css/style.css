@@ -112,3 +112,17 @@ nav.navbar.navbar-default.navbar-fixed-top >
 .embed-responsive-16by9 > .wd-widgets > .wd-widgets-toolbar{
     margin-right: -15px;
 }
+
+#searchButton
+{
+   margin-top: 5px;
+}
+
+#widgetlist
+{
+    margin-top: 10px;
+}
+
+#flickr{
+    padding: 5px;
+}

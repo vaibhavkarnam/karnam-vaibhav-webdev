@@ -25,7 +25,7 @@ app.get('/api/assignment/widget/:widgetId', findWidgetById);
 app.post('/api/assignment/page/:pageId/widget', createWidget);
 app.put('/api/assignment/widget/:widgetId', updateWidget);
 app.delete('/api/assignment/widget/:widgetId', deleteWidget);
-app.post("/api/upload", upload.single('myFile'), uploadImage);
+app.post("/api/upload/", upload.single('myFile'), uploadImage);
 
 
 function findWidgetsByPageId(req, res) {
@@ -124,14 +124,11 @@ function uploadImage(req, res) {
 
 
     for (var u in widgets) {
-        console.log("inside");
         if (widgets[u]._id === widgetId) {
-            console.log("inside for");
             var widget = widgets[u];
         }
     }
     widget.url = '/assignment/uploads/' + filename;
-    console.log(widget.url);
 
     var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
 

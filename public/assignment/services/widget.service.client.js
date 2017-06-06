@@ -31,7 +31,7 @@ function WidgetService($http) {
 
     function createWidgetImage(pageId, widget) {
 
-        widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "", "url": "", "text": "", "name": "" };
+        widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "100%", "url": "", "text": "", "name": "" };
         widget.pageId = pageId;
         widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
@@ -44,7 +44,7 @@ function WidgetService($http) {
 
     function createWidgetYoutube(pageId, widget) {
 
-        widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "", "url": "", "text": "", "name": ""};
+        widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "url": "", "text": "", "name": ""};
         widget.pageId = pageId;
         widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";

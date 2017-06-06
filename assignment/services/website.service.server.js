@@ -11,10 +11,10 @@ var websites = [
 ];
 
 app.get('/api/assignment/user/:userId/website', findAllWebsitesForUser);
-app.get('/api/assignment/user/userId/website/:websiteId', findWebsiteById);
-app.post('/api/assignment/user/userId', createWebsite);
-app.put('/api/assignment/user/userId/website/:websiteId', updateWebsite);
-app.delete('/api/assignment/user/userId/website/:websiteId', deleteWebsite);
+app.get('/api/assignment/website/:websiteId', findWebsiteById);
+app.post('/api/assignment/user/:userId/website', createWebsite);
+app.put('/api/assignment/website/:websiteId', updateWebsite);
+app.delete('/api/assignment/website/:websiteId', deleteWebsite);
 
 function findAllWebsitesForUser(req, res) {
 var results = [];

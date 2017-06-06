@@ -1,11 +1,11 @@
 (function () {
 angular
     .module('WAM')
-    .controller('flickrController', flickrController)
+    .controller('FlickrImageSearchController', FlickrImageSearchController)
 
 
 
-function flickrController($routeParams, $sce, flickrService, WidgetService, $location) {
+function FlickrImageSearchController($routeParams, $sce, flickrService, WidgetService, $location) {
     var model = this;
 
     model.searchPhotos = searchPhotos;
@@ -17,9 +17,16 @@ function flickrController($routeParams, $sce, flickrService, WidgetService, $loc
     // model.trust = trust;
     // model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
      //model.widgetUrl = widgetUrl;
-     model.widgetId = $routeParams.widgetId;
+     model.widgetId = $routeParams.wgid;
 
-
+function init() {
+    WidgetService
+        .findWidgetById(model.widgetId)
+        .then(function (widget) {
+            model.widget = widget;
+        })
+}
+init();
  function searchPhotos(searchTerm) {
 
      console.log(searchTerm);
@@ -38,10 +45,12 @@ function flickrController($routeParams, $sce, flickrService, WidgetService, $loc
 
 
     function selectPhoto(photo) {
+     console.log(photo);
         var url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server;
         url +="/"+photo.id+"_"+photo.secret+"_b.jpg";
+        model.widget.url = url;
         WidgetService
-            .updateWidget(model.websiteId, model.pageId, model.widgetId, {url: url})
+            .updateWidget(model.widgetId, model.widget)
             .then(function () {
                 $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
             });

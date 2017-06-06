@@ -7,20 +7,22 @@
     <input id = "text" ng-model="model.widget.text" class="form-control"/>
 <label for="url">URL</label>
 <input id = "url" class="form-control" ng-model="model.widget.url" placeholder="https://i.kinja-img.com/gawker-media/image/upload/sl2x0fbwcollqbfbwuy9.jpg"/>
+<label for="width">Width</label>
+    <input id = "width" class="form-control" ng-model="model.widget.width" placeholder="100%"/>
 
-    <a href="#!/widget/:widgetId/search" ng-class="btn bt">
-        Search
-    </a>
-
-    <form action="/api/upload"   method="post" enctype="multipart/form-data">
+    <form action="/api/upload/"   method="post" enctype="multipart/form-data">
         <input  name="myFile"    type="file" class="form-control"/>
-        <input  name="width"     ng-model="model.widget.width" value="model.widget.width" style="display: none"/>
-        <input  name="userId"    ng-model="model.userId" value="model.userId"   style="display: none"/>
-        <input  name="websiteId" ng-model="model.websiteId" value="model.websiteId"   style="display: none"/>
-        <input  name="pageId"    ng-model="model.pageId" value="model.pageId"   style="display: none"/>
-        <input  name="widgetId"  ng-model="model.widgetId" value="model.widgetId"   style="display: none"/>
+        <input  name="width"    value={{model.widget.width}} style="display: none"/>
+        <input  name="userId"   value={{model.userId}} style="display: none"/>
+        <input  name="websiteId"  value={{model.websiteId}}   style="display: none"/>
+        <input  name="pageId"    value={{model.pageId}}   style="display: none"/>
+        <input  name="widgetId"   value={{model.widgetId}}   style="display: none"/>
         <button type="submit"  multiple type="file"  class="btn btn-block btn-primary">Upload Image</button>
     </form>
+
+    <a id = "searchButton" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search" class="btn btn-block btn-success form-control">
+        Search
+    </a>
 
     <!--<input id = "width" ng-model="model.widget.width" class="form-control" placeholder="100%"/>-->
 <!--<label for="file">Upload</label>-->

@@ -23,7 +23,7 @@
             })
             .when('/user/:userId/website/:websiteId/page/:pageId/widget/:wgid/search', {
                 templateUrl: 'views/widget/templates/widget-flickr-search.view.client.html',
-                controller: 'flickrController',
+                controller: 'FlickrImageSearchController',
                 controllerAs: 'model'
             })
 
