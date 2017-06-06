@@ -5,7 +5,7 @@
 
 
 
-    function flickrController($routeParams, $sce, flickrService, WidgetService) {
+    function flickrController($routeParams, $sce, flickrService, WidgetService, $location) {
         var model = this;
 
         model.searchPhotos = searchPhotos;
@@ -17,7 +17,7 @@
         // model.trust = trust;
         // model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
          //model.widgetUrl = widgetUrl;
-         model.widgetId = $routeParams.wgid;
+         model.widgetId = $routeParams.widgetId;
 
 
      function searchPhotos(searchTerm) {
@@ -37,11 +37,11 @@
      }
 
 
-        function selectPhoto(photo,widget) {
+        function selectPhoto(photo) {
             var url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server;
             url +="/"+photo.id+"_"+photo.secret+"_b.jpg";
             WidgetService
-                .updateWidget(widget)
+                .updateWidget(model.websiteId, model.pageId, model.widgetId, {url: url})
                 .then(function () {
                     $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
                 });

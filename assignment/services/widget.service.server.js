@@ -1,7 +1,7 @@
 var app = require('../../express');
 
     var multer = require('multer'); // npm install multer --save
-    var upload = multer({dest: __dirname + '../../public/assignment/uploads'});
+    var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
 
 
     var widgets = [
@@ -145,12 +145,14 @@ function findWidgetByIdServer(req, res) {
 
 
         for (var u in widgets) {
+            console.log("inside");
             if (widgets[u]._id === widgetId) {
+                console.log("inside for");
                 var widget = widgets[u];
-                break;
             }
         }
-        widget.url = '../../public/assignment/uploads' + filename;
+        widget.url = '/assignment/uploads/' + filename;
+        console.log(widget.url);
 
         var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
 
