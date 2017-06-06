@@ -1,31 +1,31 @@
 (function () {
-    angular
-        .module('WAM')
-        .controller('loginController', loginController);
+angular
+    .module('WAM')
+    .controller('loginController', loginController);
 
-    function loginController($location, userService) {
+function loginController($location, userService) {
 
-        var model = this;
+    var model = this;
 
-        model.login = login;
+    model.login = login;
 
-        function login(username, password) {
+    function login(username, password) {
 
-            userService
-                .findUserbyCredentials(username, password)
-                .then(function (found) {
+        userService
+            .findUserbyCredentials(username, password)
+            .then(function (found) {
 
-                if(found != null ){
-                    //model.message = "Welcome " + username;
-                    $location.url('/user/' + found._id)
-                }
-                else {
-                    model.message = "Sorry " + username + " not found";
-                }
-            });
+            if(found != null ){
+                //model.message = "Welcome " + username;
+                $location.url('/user/' + found._id)
+            }
+            else {
+                model.message = "Sorry " + username + " not found";
+            }
+        });
 
-        }
     }
+}
 
 
 })();
