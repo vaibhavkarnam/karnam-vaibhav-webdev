@@ -13,16 +13,19 @@ function loginController($location, userService) {
 
         userService
             .findUserbyCredentials(username, password)
-            .then(function (found) {
+            .then(
+                function (found) {
 
-            if(found != null ){
-                //model.message = "Welcome " + username;
-                $location.url('/user/' + found._id)
-            }
-            else {
-                model.message = "Sorry " + username + " not found";
-            }
-        });
+                    if(found != null ){
+                        //model.message = "Welcome " + username;
+                        $location.url('/user/' + found._id)
+                }
+
+                },
+                function (error) {
+
+                    model.message = "Sorry " + username + " not found";
+                });
 
     }
 }
