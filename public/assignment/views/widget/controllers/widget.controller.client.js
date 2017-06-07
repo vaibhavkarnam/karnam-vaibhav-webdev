@@ -4,19 +4,6 @@ angular
     .controller('WidgetListController', WidgetListController)
     .controller('EditWidgetController', EditWidgetController)
     .controller('NewWidgetController', NewWidgetController)
-    .directive('wdDraggable', wdDraggable);
-
-function wdDraggable() {
-
-    function linkFunction(scope, element) {
-        $(element).sortable();
-    }
-
-    return{
-        link: linkFunction
-    }
-
-}
 
 
 function WidgetListController($routeParams, $sce, WidgetService) {
@@ -28,6 +15,7 @@ function WidgetListController($routeParams, $sce, WidgetService) {
     model.trust = trust;
     model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
     model.widgetUrl = widgetUrl;
+    model.SortWidgets = SortWidgets;
 
 
     function init() {
@@ -40,6 +28,12 @@ function WidgetListController($routeParams, $sce, WidgetService) {
 
     }
     init();
+
+
+    function SortWidgets (initalPos, finalPos) {
+        WidgetService
+            .WidgetsOrder(model.pageId, initalPos, finalPos);
+    }
 
     function widgetUrl(widget) {
         var url = 'views/widget/templates/widget-'+widget.widgetType.toLowerCase()+'.view.client.html';

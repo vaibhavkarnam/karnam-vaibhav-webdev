@@ -14,11 +14,12 @@ function WidgetService($http) {
     this.createWidgetHeader = createWidgetHeader;
     this.createWidgetImage = createWidgetImage;
     this.createWidgetYoutube = createWidgetYoutube;
+    this.WidgetsOrder = WidgetsOrder;
 
 
 
     function createWidgetHeader(pageId, widget) {
-        widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "", "text": "", "name": ""};
+        widget = { "_id": "","index":0, "widgetType": "HEADING", "pageId": "", "size": "", "text": "", "name": ""};
         widget.pageId = pageId;
         widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
@@ -31,7 +32,7 @@ function WidgetService($http) {
 
     function createWidgetImage(pageId, widget) {
 
-        widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "100%", "url": "", "text": "", "name": "" };
+        widget = { "_id": "", "index":0, "widgetType": "IMAGE", "pageId": "", "width": "100%", "url": "", "text": "", "name": "" };
         widget.pageId = pageId;
         widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
@@ -44,7 +45,7 @@ function WidgetService($http) {
 
     function createWidgetYoutube(pageId, widget) {
 
-        widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "url": "", "text": "", "name": ""};
+        widget = { "_id": "", "index":0,  "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "url": "", "text": "", "name": ""};
         widget.pageId = pageId;
         widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
@@ -95,5 +96,12 @@ function WidgetService($http) {
             })
 
     }
+
+    function WidgetsOrder(pageId, index1, index2) {
+        var url = '/api/page/' + pageId + '/widget?initial=' + index1 + "&final=" + index2;
+
+        return $http.put(url);
+    }
+
 }
 })();

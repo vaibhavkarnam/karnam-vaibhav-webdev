@@ -19,7 +19,7 @@
 
 
 
-<div wd-draggable>
+<div wbdvsortable callback="model.SortWidgets(InitalPos, FinalPos)">
 <div ng-repeat="widget in model.widgets" class="wd-widgets">
 <div class="wd-widgets-toolbar">
     <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
