@@ -5,6 +5,12 @@
 
     function searchService($http) {
 
+
+        var house = [
+            {"zpid" : "2104272801", "street1":"198", "street2" : "Hillside", "street3":"Street", "city":"boston", "state":"ma"}
+            ];
+
+
         this.searchAddress = searchAddress;
         this.getHouse = getHouse;
 
@@ -32,7 +38,6 @@
 
 
         function getHouse() {
-
         }
     }
 })();

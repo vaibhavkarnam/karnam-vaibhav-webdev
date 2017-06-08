@@ -9,18 +9,6 @@
         var model = this;
         model.zpid = $routeParams.zpid;
 
-
-        init(
-            function getHouse() {
-
-            }
-        )
-
-
-
-
-
-
     }
 
 })();
