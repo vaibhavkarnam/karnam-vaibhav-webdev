@@ -5,7 +5,7 @@
 
 
 
-    function searchController(searchService) {
+    function searchController(searchService, $location) {
         var model = this;
 
         model.searchAddress = searchAddress;
@@ -21,8 +21,13 @@
                 //  data = data.substring(0,data.length - 1);
                 // data =
 
-
                  model.data = response.data;
+
+                 model.zpid = model.data.searchresults.response.results.result.zpid;
+
+                 console.log(model.zpid);
+
+                     $location.url('/searchresults/'+model.zpid);
 
              });
 

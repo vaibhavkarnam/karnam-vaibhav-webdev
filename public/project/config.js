@@ -6,11 +6,11 @@
     function configuration($routeProvider) {
 
         $routeProvider
-            .when('/', {
-                templateUrl: 'index.html',
-                controller: 'searchController',
-                controllerAs: 'model'
-            });
+            .when('/searchresults/:zpid', {
+                            templateUrl: 'views/searchresults.view.client.html',
+                            controller: 'searchresultsController',
+                            controllerAs: 'model'
+                        });
     }
 
 })();

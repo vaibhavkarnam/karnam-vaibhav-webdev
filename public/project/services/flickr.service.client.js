@@ -6,6 +6,7 @@
     function searchService($http) {
 
         this.searchAddress = searchAddress;
+        this.getHouse = getHouse;
 
        // var urlBase = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT";
 
@@ -26,6 +27,11 @@
                         return aftCnv;
                     }
                 });
+
+        }
+
+
+        function getHouse() {
 
         }
     }
