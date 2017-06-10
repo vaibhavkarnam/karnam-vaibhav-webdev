@@ -11,11 +11,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // configure a public directory to host static content
 app.use(express1.static(__dirname + '/public'));
 
-require ('./test/app')(app);
+//require ('./test/app')(app);
 
 
-var ourapp = require('./lectures/evening/angular/app');
-ourapp(app);
+//var ourapp = require('./lectures/evening/angular/app');
+//ourapp(app);
 
 require ('./assignment/app');
 

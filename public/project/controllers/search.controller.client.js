@@ -16,7 +16,6 @@
          searchService
              .searchAddress(street1,street2,street3,city,state)
              .then(function(response) {
-                 console.log(response.data);
                 //  data = response.data.replace("jsonFlickrApi(","");
                 //  data = data.substring(0,data.length - 1);
                 // data =
@@ -25,7 +24,6 @@
 
                  model.zpid = model.data.searchresults.response.results.result.zpid;
 
-                 console.log(model.zpid);
 
                      $location.url('/searchresults/'+model.zpid);
 

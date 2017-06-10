@@ -25,10 +25,9 @@
                Name
             </div>
             <div class="col-lg-2 visible-lg">
-               Created
             </div>
             <div class="col-md-2 hidden-sm hidden-xs">
-                Accessed
+                Zipcode
             </div>
             <div class="col-xs-3">
 
@@ -38,13 +37,14 @@
     <li  class="list-group-item">
         <div class="row">
             <div class="col-lg-5 col-md-7 col-xs-9">
-                    {{model.zpid}}
+                <a ng-click ="model.searchProperty(model.zpid)" class=" glyphicon glyphicon-link">
+                    {{model.name}}
+                </a>
             </div>
             <div class="col-lg-2 visible-lg">
-                {{website.created | date}}
             </div>
             <div class="col-md-2 hidden-sm hidden-xs">
-                {{website.accessed | date}}
+                {{model.zipcode}}
             </div>
             <div class="col-xs-3">
                 <a href="#!/user/{{model.zpid}}">

@@ -1,11 +1,11 @@
 (function () {
     angular
         .module('WAMA')
-        .controller('searchresultsController', searchresultsController);
+        .controller('propertyDetailsController', propertyDetailsController);
 
 
 
-    function searchresultsController($routeParams, resultsService, $location) {
+    function propertyDetailsController($routeParams, resultsService, $location) {
         var model = this;
         model.searchProperty = searchProperty;
         model.zpid = $routeParams.zpid;
@@ -15,13 +15,7 @@
             resultsService
                 .searchResults(model.zpid)
                 .then(function (response) {
-                    console.log(response.data);
-
-                    model.name = response.data.zestimate.response.address.street;
-
-                    console.log(model.name);
-                    model.zipcode = response.data.zestimate.response.address.zipcode;
-
+                    model.details = response.data;
                 })
 
         }
@@ -37,9 +31,7 @@
                     model.name = response.data.zestimate.response.address.street;
 
                     console.log(model.name);
-                    model.zipcode = response.data.zestimate.response.address.zipcode
-
-                    $location.url('/searchresults/'+model.zpid+'/details');
+                    model.zipcode = response.data.zestimate.response.address.zipcode;
                 })
         }
     }

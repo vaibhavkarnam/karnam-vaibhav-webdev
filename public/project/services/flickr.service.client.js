@@ -1,7 +1,8 @@
 (function () {
     angular
         .module('WAMA')
-        .service('searchService', searchService);
+        .service('searchService', searchService)
+        .service('resultsService', resultsService);
 
     function searchService($http) {
 
@@ -12,7 +13,6 @@
 
 
         this.searchAddress = searchAddress;
-        this.getHouse = getHouse;
 
        // var urlBase = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT";
 
@@ -35,9 +35,29 @@
                 });
 
         }
-
-
-        function getHouse() {
-        }
     }
+
+    function resultsService($http) {
+
+        this.searchResults = searchResults;
+
+        var urlBase = "http://www.zillow.com/webservice/GetZestimate.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&zpid=ZPID"
+
+        function searchResults(zpid) {
+            var url = urlBase
+                .replace("ZPID", zpid)
+            return $http.get(url,
+                {
+                    transformResponse: function (cnv) {
+                        var x2js = new X2JS();
+                        var aftCnv = x2js.xml_str2json(cnv);
+                        return aftCnv;
+                    }
+                });
+
+        }
+
+
+    }
+
 })();
