@@ -11,6 +11,26 @@
             controller: 'searchController',
             controllerAs: 'model'
         })
+            .when('/login', {
+                templateUrl: 'views/user/login.view.client.html',
+                controller: 'loginController',
+                controllerAs: 'model'
+            })
+            .when('/register', {
+                templateUrl: 'views/user/register.view.client.html',
+                controller: 'registerController',
+                controllerAs: 'model'
+            })
+            .when('/profile/view', {
+                templateUrl: 'views/user/profile.view.client.html',
+                controller: 'registerController',
+                controllerAs: 'model'
+            })
+            .when('/profile/edit', {
+                templateUrl: 'views/user/profile-edit.view.client.html',
+                controller: 'registerController',
+                controllerAs: 'model'
+            })
         .when('/searchresults/:zpid', {
                         templateUrl: 'views/searchresults.view.client.html',
                         controller: 'searchresultsController',

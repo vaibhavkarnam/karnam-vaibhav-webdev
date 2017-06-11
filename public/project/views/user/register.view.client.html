@@ -1,0 +1,45 @@
+
+<div class="container">
+
+    <header>
+        <h1>Join Us!</h1>
+
+    </header>
+    <section>
+        <div id="container_demo" >
+            <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="wrapper">
+                    <form  action="mysuperscript.php" autocomplete="on">
+                        <h1> Sign up </h1>
+                        <p>
+                            <label for="usernamesignup" class="uname" >Your username</label>
+                            <input ng-model="username" id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                        </p>
+                        <p>
+                            <label for="emailsignup" class="youmail"  > Your email</label>
+                            <input ng-model="email" id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/>
+                        </p>
+                        <p>
+                            <label for="passwordsignup" class="youpasswd" >Your password </label>
+                            <input ng-model="password" id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                        </p>
+                        <p>
+                            <label for="passwordsignup_confirm" class="youpasswd" >Please confirm your password </label>
+                            <input ng-model="password2" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                        </p>
+                        <p class="signin button">
+                            <input ng-click="model.register(username, password, password2)" type="submit" value="Sign up"/>
+                        </p>
+                        <p class="change_link">
+                            Already a member ?
+                            <a href="#!/login" class="to_register">Go and log in </a>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+
+    </section>
+</div>
