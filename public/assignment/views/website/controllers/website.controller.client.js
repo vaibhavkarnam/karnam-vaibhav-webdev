@@ -62,6 +62,7 @@ function WebsiteListController($routeParams, websiteService){
             .findAllWebsitesForUser(model.userId)
             .then(function (websites) {
                 model.websites = websites;
+                console.log(model.websites)
             });
 
     }
@@ -88,10 +89,10 @@ function NewWebsiteController($routeParams, websiteService, $location){
     init();
 
     function createWebsite(website) {
-        website.developerId = model.userId;
-        website._id = (new Date()).getTime()+"";
+         //website.developerId = model.userId;
+         //website._id = (new Date()).getTime()+"";
         websiteService
-            .createWebsite(website)
+            .createWebsite(model.userId, website)
             .then(function () {
                 $location.url('/user/'+model.userId+'/website');
             });

@@ -85,8 +85,8 @@ function NewPageController($routeParams, PageService, $location){
     init();
 
     function createPage(page) {
-        page._id = (new Date()).getTime()+"";
-        page.websiteId = model.websiteId;
+       // page._id = (new Date()).getTime()+"";
+       // page.websiteId = model.websiteId;
         PageService
             .createPage(model.websiteId, page)
             .then(function () {

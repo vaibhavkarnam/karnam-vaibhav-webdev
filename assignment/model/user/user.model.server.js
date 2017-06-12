@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var userSchema = require('./user.schema.server');
 //var db = require('../../app')
-var userModel = mongoose.model('GraduateUserModel', userSchema);
+var userModel = mongoose.model('userModel', userSchema);
 
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
@@ -22,6 +22,7 @@ function deleteWebsite(userId, websiteId) {
             var index = user.websites.indexOf(websiteId);
             user.websites.splice(index, 1);
             return user.save();
+            return;
         });
 }
 
@@ -36,7 +37,6 @@ function addWebsite(userId, websiteId) {
 
 function createUser(user) {
     return userModel.create(user);
-    console.log("collection")
 }
 
 function findUserById(userId) {

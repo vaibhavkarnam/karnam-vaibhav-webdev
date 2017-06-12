@@ -9,10 +9,10 @@ if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
 
 mongoose.connect(connectionString);
 
-var db = mongoose.connection;
-db.once('open',function () {
-    console.log("open");
-});
+// var db = mongoose.connection;
+// db.once('open',function () {
+//     console.log("open");
+// });
 
 
 mongoose.Promise = require('q').Promise;
