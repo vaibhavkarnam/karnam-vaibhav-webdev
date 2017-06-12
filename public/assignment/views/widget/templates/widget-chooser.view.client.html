@@ -30,9 +30,8 @@
             <!--YouTube-->
         <!--</a>-->
     <!--</li>-->
-
-    <li ng-repeat="widgetType in model.widgetType">
-        <a href="#" ng-click="model.createWidget(widgetType.widgetType)">
+    <li class="list-group-item" ng-repeat="widgetType in model.widgetType">
+        <a ng-click="model.createWidget(widgetType.widgetType)" class="navbar-link">
             {{widgetType.text}}
         </a>
     </li>
