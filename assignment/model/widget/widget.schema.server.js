@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var widgetSchema = mongoose.Schema({
     _page: { type: mongoose.Schema.Types.ObjectId, ref: 'GraduatePageModel' },
-    type: { type: String, enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT'], required: true },
+    type: { type: String, enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'TEXT'], required: true },
     name: String,
     text: String,
     placeholder: String,
@@ -16,7 +16,7 @@ var widgetSchema = mongoose.Schema({
     icon: String,
     deletable: Boolean,
     formatted: Boolean,
-    order: { type: Number },
+    order: { type: Number, default: 0 },
     dateCreated: { type: Date, default: Date.now() }
 }, { collection: 'widget'});
 

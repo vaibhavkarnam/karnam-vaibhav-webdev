@@ -7,6 +7,14 @@ if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
     connectionString += '@ds011495.mlab.com:11495/heroku_l08l5qhv'; // user yours
 }
 
+if(process.env.MLAB_USERNAME) {
+    connectionString = process.env.MLAB_USERNAME + ":" +
+        process.env.MLAB_PASSWORD + "@" +
+        process.env.MLAB_HOST + ':' +
+        process.env.MLAB_PORT + '/' +
+        process.env.MLAB_APP_NAME;
+}
+
 mongoose.connect(connectionString);
 
 // var db = mongoose.connection;
