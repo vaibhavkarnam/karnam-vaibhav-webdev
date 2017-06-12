@@ -25,7 +25,7 @@ function updateWebsite(websiteId, newWebsite) {
 function deleteWebsiteFromUser(userId, websiteId) {
     return websiteModel
         .remove({_id: websiteId})
-        .then(function (status) {
+        .then(function () {
             return userModel
                 .deleteWebsite(userId, websiteId);
             return;

@@ -16,7 +16,7 @@ app.get('/api/assignment/user/:userId/website', findAllWebsitesForUser);
 app.get('/api/assignment/website/:websiteId', findWebsiteById);
 app.post('/api/assignment/user/:userId/website', createWebsite);
 app.put('/api/assignment/website/:websiteId', updateWebsite);
-app.delete('/api/assignment/website/:websiteId', deleteWebsite);
+app.delete('/api/assignment/user/:userId/website/:websiteId', deleteWebsite);
 
 function findAllWebsitesForUser(req, res) {
 // var results = [];
@@ -41,6 +41,7 @@ function createWebsite(req, res) {
 
     var website = req.body;
     var userId = req.params.userId;
+    console.log(userId);
     websiteModel
         .createWebsiteForUser(userId, website)
         .then(function (website) {
@@ -52,12 +53,14 @@ function createWebsite(req, res) {
 function deleteWebsite(req, res) {
     var websiteId = req.params.websiteId;
     var userId = req.params.userId;
+    console.log(userId);
     websiteModel
         .deleteWebsiteFromUser(userId, websiteId)
-        .then(function (status) {
-            res.json(status);
+        .then(function (response) {
+            res.json(response);
         });
 }
+
 
 function findWebsiteById(req, res) {
 // var websiteId = req.params['websiteId']

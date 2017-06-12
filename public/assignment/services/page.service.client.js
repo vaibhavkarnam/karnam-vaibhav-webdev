@@ -20,7 +20,7 @@ function PageService($http) {
 
 
     function createPage(websiteId, page) {
-        page._id = (new Date()).getTime()+"";
+        //page._id = (new Date()).getTime()+"";
         var url = "/api/assignment/website/"+websiteId+"/page";
         return $http.post(url, page)
             .then(function (response) {

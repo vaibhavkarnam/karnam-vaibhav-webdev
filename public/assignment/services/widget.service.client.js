@@ -19,9 +19,9 @@ function WidgetService($http) {
 
 
     function createWidgetHeader(pageId, widget) {
-        widget = { "_id": "","index":0, "widgetType": "HEADING", "pageId": "", "size": "", "text": "", "name": ""};
-        widget.pageId = pageId;
-        widget._id = (new Date()).getTime()+"";
+         widget = { "_id": "","index":0, "widgetType": "HEADING", "pageId": "", "size": "", "text": "", "name": ""};
+        // widget.pageId = pageId;
+        // widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
         return $http.post(url, widget)
             .then(function (response) {
@@ -33,8 +33,8 @@ function WidgetService($http) {
     function createWidgetImage(pageId, widget) {
 
         widget = { "_id": "", "index":0, "widgetType": "IMAGE", "pageId": "", "width": "100%", "url": "", "text": "", "name": "" };
-        widget.pageId = pageId;
-        widget._id = (new Date()).getTime()+"";
+        // widget.pageId = pageId;
+        // widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
         return $http.post(url, widget)
             .then(function (response) {
@@ -46,8 +46,8 @@ function WidgetService($http) {
     function createWidgetYoutube(pageId, widget) {
 
         widget = { "_id": "", "index":0,  "widgetType": "YOUTUBE", "pageId": "", "width": "100%", "url": "", "text": "", "name": ""};
-        widget.pageId = pageId;
-        widget._id = (new Date()).getTime()+"";
+        // widget.pageId = pageId;
+        // widget._id = (new Date()).getTime()+"";
         var url = "/api/assignment/page/"+pageId+"/widget";
         return $http.post(url, widget)
             .then(function (response) {

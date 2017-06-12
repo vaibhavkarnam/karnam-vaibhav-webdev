@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 
 var pageSchema = mongoose.Schema({
-    _user: {type: mongoose.Schema.Types.ObjectId, ref: "GraduateUserModel"},
+    _website: { type: mongoose.Schema.Types.ObjectId, ref: 'GraduateWebsiteModel' },
     name: String,
+    title: String,
     description: String,
-    dateCreated: {type: Date, default: Date.now}
-}, {collection: 'graduate_website'});
+    createdOn: { type: Date, default: Date.now() },
+    widgets: [ {type: mongoose.Schema.Types.ObjectId, ref: 'WidgetModel' } ],
+}, { collection: 'page'});
 
-module.exports = websiteSchema;
+module.exports = pageSchema;
