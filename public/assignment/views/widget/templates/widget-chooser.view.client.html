@@ -15,21 +15,28 @@
 
 <div class="container-fluid">
 <ul class="list-group">
-    <li class="list-group-item">
-                <a ng-click= "model.createWidgetHeader(widget)" class="navbar-link">
-                    Header
-                </a>
-    </li>
-    <li class="list-group-item">
-        <a ng-click= "model.createWidgetImage(widget)" class="navbar-link">
-            Image
+    <!--<li class="list-group-item">-->
+                <!--<a ng-click= "model.createWidget(model.widgetType)" class="navbar-link">-->
+                    <!--Header-->
+                <!--</a>-->
+    <!--</li>-->
+    <!--<li class="list-group-item">-->
+        <!--<a ng-click= "model.createWidget(widget)" class="navbar-link">-->
+            <!--Image-->
+        <!--</a>-->
+    <!--</li>-->
+    <!--<li class="list-group-item">-->
+        <!--<a ng-click= "model.createWidget(widget)" class="navbar-link">-->
+            <!--YouTube-->
+        <!--</a>-->
+    <!--</li>-->
+
+    <li ng-repeat="widgetType in model.widgetType">
+        <a href="#" ng-click="model.createWidget(widgetType.widgetType)">
+            {{widgetType.text}}
         </a>
     </li>
-    <li class="list-group-item">
-        <a ng-click= "model.createWidgetYoutube(widget)" class="navbar-link">
-            YouTube
-        </a>
-    </li>
+
 </ul>
 </div>
 
