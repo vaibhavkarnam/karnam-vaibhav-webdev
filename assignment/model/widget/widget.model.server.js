@@ -16,7 +16,7 @@ module.exports = widgetModel;
 function createWidget(pageId, widget) {
     widget._page = pageId;
     // widget._order = findAllWidgetsForPage(pageId).data.length;
-    console.log(widgetModel.findAllWidgetsForPage(pageId));
+    //console.log(widgetModel.findAllWidgetsForPage(pageId));
     return widgetModel
         .create(widget)
         .then(function (widget) {
@@ -65,9 +65,11 @@ function widgetReorder(pageId, initialPos, finalPos) {
                     if (( i>= initialPos && i <= finalPos) ||
                         (i >= finalPos && i <= initialPos))
                     {
-                        if (i == finalPos)
+                        if (i == initialPos) {
                             widgets[i].order = finalPos;
-                        else if (initial > finalPos) {
+                            console.log(widgets[i].order);
+                        }
+                        else if (initialPos > finalPos) {
                             widgets[i].order += i + 1;}
                         else
                             {
