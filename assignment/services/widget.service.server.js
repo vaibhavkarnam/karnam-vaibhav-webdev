@@ -36,7 +36,6 @@ function findWidgetsByPageId(req, res) {
     var pageId = req.params['pageId'];
     widgetModel
         .findAllWidgetsForPage(pageId)
-        .sort({order: 1})
         .then(function (widgets) {
                 res.json(widgets);
             }, function (error) {
@@ -46,49 +45,48 @@ function findWidgetsByPageId(req, res) {
 }
 
 function WidgetReOrder(req, res) {
-if (req.query['initial'] && req.query['final']) {
-    var initial = parseInt(req.query['initial']);
-    var final = parseInt(req.query['final']);
-    var pageId = req.params['pageId'];
-  //  var results = findWidgets(pageId);
-    // if (initial >= 0 && final < results.length)
-    // {
-    //     var oldindex, newindex, newPos;
-    //
-    //     if (initial < final) {
-    //         oldindex = initial;
-    //         newindex = final;
-    //         newPos = -1;
-    //     } else {
-    //         oldindex = final;
-    //         newindex = initial;
-    //         newPos = 1;
-    //     }
-    //     for (var i=oldindex; i <= newindex; i++)
-    //     {
-    //         if (i === initial)
-    //             results[i].index = final;
-    //         else
-    //             results[i].index += newPos;
-    //     }
-    //
-    //     res.sendStatus(200);
-    //     return;
-    // }
-    widgetModel
-        .widgetReorder(pageId, initial, final)
-        .then(function (status) {
-                res.sendStatus(200);
-            }, function (error) {
-                res.json(error);
-            }
-        );
+    if (req.query['initial'] && req.query['final']) {
+        var initial = parseInt(req.query['initial']);
+        var final = parseInt(req.query['final']);
+        var pageId = req.params['pageId'];
+        //  var results = findWidgets(pageId);
+        // if (initial >= 0 && final < results.length)
+        // {
+        //     var oldindex, newindex, newPos;
+        //
+        //     if (initial < final) {
+        //         oldindex = initial;
+        //         newindex = final;
+        //         newPos = -1;
+        //     } else {
+        //         oldindex = final;
+        //         newindex = initial;
+        //         newPos = 1;
+        //     }
+        //     for (var i=oldindex; i <= newindex; i++)
+        //     {
+        //         if (i === initial)
+        //             results[i].index = final;
+        //         else
+        //             results[i].index += newPos;
+        //     }
+        //
+        //     res.sendStatus(200);
+        //     return;
+        // }
+        widgetModel
+            .widgetReorder(pageId, initial, final)
+            .then(function (status) {
+                    res.sendStatus(200);
+                }, function (error) {
+                    res.json(error);
+                }
+            );
+    }
+    else {
+        res.sendStatus(404);
+    }
 }
-else {
-    res.sendStatus(404);
-}
-}
-
 
 function createWidget(req, res) {
 // var pageId = req.params['pageId'];
@@ -100,16 +98,16 @@ function createWidget(req, res) {
     var pageId = req.params['pageId'];
     var widget = req.body;
     console.log("creating widget");
-    widgetModel
-        .createWidget(pageId, widget)
-        .then(function (widget) {
-                res.json(widget);
-            }, function (error) {
-                res.json(error);
-            }
-        );
+    widgetModel.findAllWidgetsForPage(pageId).then(function (results) {
+        widget.order =results.length;
+        widgetModel.createWidget(pageId, widget)
+            .then(
+                function (widget) {
+                    res.json(widget);
+                }
+            );
+    });
 }
-
 
 function deleteWidget(req, res) {
 //

@@ -28,12 +28,14 @@ function createWidget(pageId, widget) {
 
 function findAllWidgetsForPage(pageId) {
     return widgetModel
-        .find({_page: pageId});
+        .find({_page: pageId})
+        .sort({order:1})
+        .exec();
 }
 
 function findWidgetById(widgetId) {
     return widgetModel
-        .findById(widgetId);
+        .findOne({_id: widgetId});
 }
 
 function updateWidget(widgetId, widget) {
@@ -48,7 +50,7 @@ function deleteWidget(widgetId) {
 
 function updateWidgetUrl(widgetId, url) {
     return widgetModel
-        .findById(widgetId)
+        .findOne({_id: widgetId })
         .then(function (widget) {
                 widget.url = url;
                 return widget.save();
@@ -57,32 +59,34 @@ function updateWidgetUrl(widgetId, url) {
 }
 
 
-function widgetReorder(pageId, initialPos, finalPos) {
+function widgetReorder(pageId,start,end){
     return widgetModel.find({ _page: pageId })
         .sort({order: 1})
-        .then(function (widgets) {
+        .then(
+            function (widgets) {
+
                 for (var i in widgets) {
-                    if (( i>= initialPos && i <= finalPos) ||
-                        (i >= finalPos && i <= initialPos))
-                    {
-                        if (i == initialPos) {
-                            widgets[i].order = finalPos;
-                            console.log(widgets[i].order);
+
+                    if ((i >= start && i <= end) ||
+                        (i >= end && i <= start)) {
+
+                        if (i == start)
+                            widgets[i].order = end;
+                        else if (start > end) {
+                            widgets[i].order += i + 1;
                         }
-                        else if (initialPos > finalPos) {
-                            widgets[i].order += i + 1;}
-                        else
-                            {
+                        else {
                             widgets[i].order = i - 1;
                         }
                     }
-                    else
-                        {
+                    else {
                         widgets[i].order = i;
                     }
+
                     widgets[i].save();
                 }
+
                 return;
             }
-        )
+        );
 }

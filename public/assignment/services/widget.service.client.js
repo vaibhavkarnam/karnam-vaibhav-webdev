@@ -129,7 +129,7 @@ function WidgetService($http) {
     }
 
     function WidgetsOrder(pageId, index1, index2) {
-        var url = '/api/page/'+pageId+'/widget?initial='+index1+"&final="+index2;
+        var url = "/api/page/"+pageId+"/widget?initial="+index1+"&final="+index2;
         return $http.put(url);
     }
 
