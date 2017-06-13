@@ -15,23 +15,6 @@ var widgetTypes = [
 
 ];
 
-
-var widgets = [
-{"_id": "123", "index": 0, "widgetType": "HEADING", "pageId": "546", "size": 2, "text": "GIZMODO", "name": "GIZMODO"},
-{"_id": "234", "index": 1, "widgetType": "HEADING", "pageId": "546", "size": 4, "text": "Lorem ipsum", "name": "GIZMODO"},
-{
-"_id": "345", "index": 3, "widgetType": "IMAGE", "pageId": "546", "width": "100%",
-"url": "http://lorempixel.com/400/200/", "name": "GIZMODO", "text": "GIZMODO"
-},
-{"_id": "456", "index": 4, "widgetType": "HTML", "pageId": "546", "text": "<p>Lorem ipsum</p>", "name": "GIZMODO"},
-{"_id": "567","index": 5, "widgetType": "HEADING", "pageId": "546", "size": 4, "text": "Lorem ipsum", "name": "GIZMODO"},
-{
-"_id": "678","index": 6, "widgetType": "YOUTUBE", "pageId": "546", "width": "100%",
-"url": "https://youtu.be/AM2Ivdi9c4E", "name": "GIZMODO", "text": "GIZMODO"
-},
-{"_id": "789", "index": 7, "widgetType": "HTML", "pageId": "546", "text": "<p>Lorem ipsum</p>", "name": "GIZMODO"}
-];
-
 app.get('/api/assignment/page/:pageId/widget', findWidgetsByPageId);
 app.get('/api/assignment/widget/:widgetId', findWidgetById);
 app.post('/api/assignment/page/:pageId/widget', createWidget);
@@ -48,9 +31,7 @@ function findWidgetTypes(req, res) {
 function findWidgetsByPageId(req, res) {
 
 // var pageId = req.params['pageId'];
-//
 // var results = findWidgets(pageId);
-//
 // res.json(results);
     var pageId = req.params['pageId'];
     widgetModel
@@ -104,29 +85,9 @@ if (req.query['initial'] && req.query['final']) {
         );
 }
 else {
-    res.sendStatus(400);
+    res.sendStatus(404);
 }
 }
-
-function findWidgets(pageId) {
-
-var results = [];
-
-for (var u in widgets) {
-
-    if (widgets[u].pageId === pageId) {
-        results.push(widgets[u]);
-    }
-
-}
- results.sort(function (index1, index2) {
-   return index1.index > index2.index;
-});
-
-return results;
-}
-
-
 
 
 function createWidget(req, res) {

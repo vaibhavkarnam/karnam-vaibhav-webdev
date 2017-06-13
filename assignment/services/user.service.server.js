@@ -2,13 +2,6 @@ var app = require('../../express');
 
 var userModel = require('../model/user/user.model.server');
 
-var users = [
-{_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder",  email: "alice@abc.com"},
-{_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley", email: "bob@abc.com"  },
-{_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia", email: "charly@abc.com"  },
-{_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi", email: "jannuzi@abc.com" }
-];
-
 app.get('/api/assignment/user/:userId', findUserById);
 app.get('/api/assignment/user', findAllUsers);
 app.post('/api/assignment/user', createUser);

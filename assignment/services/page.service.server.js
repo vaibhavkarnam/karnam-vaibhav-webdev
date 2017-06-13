@@ -2,13 +2,6 @@ var app = require('../../express');
 
 var pageModel = require('../model/page/page.model.server');
 
-var pages = [
-{ "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-{ "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-{ "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" },
-{ "_id": "546", "name": "Post 4", "websiteId": "567", "description": "Lorem" }
-];
-
 app.get('/api/assignment/website/:websiteId/page', findPageByWebsiteId);
 app.get('/api/assignment/page/:pageId', findPageById);
 app.post('/api/assignment/website/:websiteId/page', createPage);

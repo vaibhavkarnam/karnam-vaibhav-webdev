@@ -26,12 +26,14 @@ function createPage(websiteId, page) {
 
 function findAllPagesForWebsite(websiteId) {
     return pageModel
-        .find({_website: websiteId});
+        .find({_website: websiteId})
+        .populate('_website')
+        .exec();
 }
 
 function findPageById(pageId) {
     return pageModel
-        .findOne({_id: pageId});
+        .findById(pageId);
 }
 
 function updatePage(pageId, page) {

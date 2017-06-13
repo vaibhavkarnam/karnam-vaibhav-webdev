@@ -33,7 +33,7 @@ function findAllWidgetsForPage(pageId) {
 
 function findWidgetById(widgetId) {
     return widgetModel
-        .findOne({_id: widgetId});
+        .findById(widgetId);
 }
 
 function updateWidget(widgetId, widget) {
@@ -48,7 +48,7 @@ function deleteWidget(widgetId) {
 
 function updateWidgetUrl(widgetId, url) {
     return widgetModel
-        .findOne({_id: widgetId })
+        .findById(widgetId)
         .then(function (widget) {
                 widget.url = url;
                 return widget.save();
