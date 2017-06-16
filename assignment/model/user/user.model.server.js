@@ -16,15 +16,11 @@ userModel.deleteWebsite = deleteWebsite;
 module.exports = userModel;
 
 function deleteWebsite(userId, websiteId) {
-    console.log("deleting");
     console.log(userId);
     return userModel
         .findById(userId)
         .then(function (user) {
             var index = user.websites.indexOf(websiteId);
-            console.log(userId);
-            console.log(index);
-            console.log(user);
             user.websites.splice(index, 1);
             return user.save();
         });

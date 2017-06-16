@@ -91,7 +91,7 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
 
     function widgetDelete(widgetId) {
         WidgetService
-            .deleteWidget(widgetId)
+            .deleteWidget(model.pageId, widgetId)
             .then(function (response) {
                 $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
             });

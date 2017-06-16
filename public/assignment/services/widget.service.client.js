@@ -88,9 +88,9 @@ function WidgetService($http) {
     // }
 
 
-    function deleteWidget(widgetId) {
+    function deleteWidget(pageId, widgetId) {
 
-        var url = "/api/assignment/widget/"+widgetId;
+        var url = "/api/assignment/page/"+pageId+"/widget/"+widgetId;
         return $http.delete(url);
             // .then(function (response) {
             //     return response.data;

@@ -20,9 +20,12 @@
                 //  data = data.substring(0,data.length - 1);
                 // data =
 
-                 model.data = response.data;
+             //    console.log(response);
 
-                 model.zpid = model.data.searchresults.response.results.result.zpid;
+                 model.data = response.root.children[2].children[0].children[0];
+                console.log(model.data);
+
+                 model.zpid = response.root.children[2].children[0].children[0].children[0].content;
 
 
                      $location.url('/searchresults/'+model.zpid);

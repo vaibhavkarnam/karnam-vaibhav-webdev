@@ -15,12 +15,12 @@
             resultsService
                 .searchResults(model.zpid)
                 .then(function (response) {
-                    console.log(response.data);
+                    console.log(response);
 
-                    model.name = response.data.zestimate.response.address.street;
+               //     model.name = response.data.zestimate.response.address.street;
 
-                    console.log(model.name);
-                    model.zipcode = response.data.zestimate.response.address.zipcode;
+               //     console.log(model.name);
+                //    model.zipcode = response.data.zestimate.response.address.zipcode;
 
                 })
 

@@ -43,9 +43,14 @@ function updateWidget(widgetId, widget) {
         .update({_id: widgetId}, {$set: widget});
 }
 
-function deleteWidget(widgetId) {
+function deleteWidget(pageId, widgetId) {
     return widgetModel
-        .remove({_id: widgetId});
+        .remove({_id: widgetId})
+        .then(function () {
+            return pageModel
+                .deleteWidget(pageId, widgetId);
+            return;
+        });
 }
 
 function updateWidgetUrl(widgetId, url) {
@@ -73,7 +78,7 @@ function widgetReorder(pageId,start,end){
                         if (i == start)
                             widgets[i].order = end;
                         else if (start > end) {
-                            widgets[i].order += i + 1;
+                            widgets[i].order = i + 1;
                         }
                         else {
                             widgets[i].order = i - 1;

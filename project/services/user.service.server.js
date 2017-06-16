@@ -1,23 +1,16 @@
 var app = require('../../express');
 
-var userModel = require('../model/user/user.model.server');
+var usersModel = require('../models/user/user.model.server');
 
-var users = [
-{_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder",  email: "alice@abc.com"},
-{_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley", email: "bob@abc.com"  },
-{_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia", email: "charly@abc.com"  },
-{_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi", email: "jannuzi@abc.com" }
-];
-
-app.get('/api/fyh/user/:userId', findUserById);
-app.get('/api/fyh/user', findAllUsers);
-app.post('/api/fyh/user', createUser);
-app.put('/api/fyh/user/:userId', updateUser);
-app.delete('/api/fyh/user/:userId', deleteUser);
+app.get('/api/assignment/user/:userId', findUserById);
+app.get('/api/assignment/user', findAllUsers);
+app.post('/api/assignment/user', createUser);
+app.put('/api/assignment/user/:userId', updateUser);
+app.delete('/api/assignment/user/:userId', deleteUser);
 
 function createUser(req, res) {
     var user = req.body;
-    userModel
+    usersModel
         .createUser(user)
         .then(function (user) {
             res.json(user);
@@ -29,7 +22,7 @@ function createUser(req, res) {
 function deleteUser(req, res) {
 
     var userId = req.params.userId;
-    userModel
+    usersModel
         .deleteUser(userId)
         .then(function (status) {
             res.send(status);
@@ -39,7 +32,7 @@ function deleteUser(req, res) {
 function updateUser(req, res) {
 
     var user = req.body;
-    userModel
+    usersModel
         .updateUser(req.params.userId, user)
         .then(function (status) {
             res.send(status);
@@ -52,7 +45,7 @@ function findAllUsers(req, res) {
     var username = req.query['username'];
     var password = req.query.password;
     if(username && password) {
-        userModel
+        usersModel
             .findUserByCredentials(username, password)
             .then(function (user) {
                 if(user) {
@@ -62,7 +55,7 @@ function findAllUsers(req, res) {
                 }
             });
     } else if(username) {
-        userModel
+        usersModel
             .findUserByUsername(username)
             .then(function (user) {
                 if(user) {
@@ -72,7 +65,7 @@ function findAllUsers(req, res) {
                 }
             });
     } else {
-        userModel
+        usersModel
             .findAllUsers()
             .then(function (users) {
                 res.json(users);
@@ -86,7 +79,7 @@ function findUserById(req, res) {
 
     var userId = req.params['userId'];
 
-    userModel
+    usersModel
         .findUserById(userId)
         .then(function (user) {
             res.json(user);

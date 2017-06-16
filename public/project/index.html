@@ -2,6 +2,9 @@
 <html lang="en" ng-app="WAMA">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="../assignment/vendor/jquery/jquery.js"></script>
     <script src="../assignment/vendor/jquery/jquery-ui.js"></script>
     <script src="../assignment/vendor/angular/angular.min.js"></script>
@@ -17,15 +20,15 @@
 
 
     <!--user views-->
-    <script src="views/user/login.view.client.html"></script>
+    <script src="views/user/templates/login.view.client.html"></script>
     <script src="views/user/register.view.client.html"></script>
     <script src="views/user/profile.view.client.html"></script>
     <script src="views/user/profile-edit.view.client.html"></script>
 
 
     <!-- user controllers-->
-    <script src="views/user/login.controller.client.js"></script>
-    <script src="views/user/register.controller.client.js"></script>
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
 
 
     <script src ="controllers/search.controller.client.js"></script>
@@ -39,13 +42,26 @@
 
     <!-- Custom styles for this template -->
     <link href="../assignment/vendor/bootstrap/theme.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet"/>
     <link href="./css/profile.style.css" rel="stylesheet"/>
     <link href="./css/profile-edit.css" rel="stylesheet"/>
 
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <script src="assets/css/style.css"></script>
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -58,6 +74,16 @@
 
 
     </div>
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <!--[if lt IE 10]>
+    <script src="assets/js/placeholder.js"></script>
+    <![endif]-->
 
 </body>
 </html>

@@ -21,7 +21,7 @@ app.post('/api/assignment/page/:pageId/widget', createWidget);
 app.put('/api/assignment/widget/:widgetId', updateWidget);
 app.put('/api/page/:pageId/widget', WidgetReOrder);
 app.get ('/api/getwidget', findWidgetTypes);
-app.delete('/api/assignment/widget/:widgetId', deleteWidget);
+app.delete('/api/assignment/page/:pageId/widget/:widgetId', deleteWidget);
 app.post("/api/upload/", upload.single('myFile'), uploadImage);
 
 function findWidgetTypes(req, res) {
@@ -99,7 +99,9 @@ function createWidget(req, res) {
     var widget = req.body;
     console.log("creating widget");
     widgetModel.findAllWidgetsForPage(pageId).then(function (results) {
+        console.log(results);
         widget.order =results.length;
+        console.log(results.length);
         widgetModel.createWidget(pageId, widget)
             .then(
                 function (widget) {
@@ -123,8 +125,9 @@ function deleteWidget(req, res) {
 // res.sendStatus(404);
 
     var widgetId = req.params['widgetId'];
+    var pageId = req.params['pageId'];
     widgetModel
-        .deleteWidget(widgetId)
+        .deleteWidget(pageId, widgetId)
         .then(function (status) {
                 res.sendStatus(200);
             }, function (error) {
