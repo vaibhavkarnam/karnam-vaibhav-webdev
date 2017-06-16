@@ -17,10 +17,24 @@ function userService($http) {
         findUserbyUsername: findUserbyUsername,
         findUserbyCredentials : findUserbyCredentials,
         updateUser: updateUser,
-        deleteUser:deleteUser
+        deleteUser:deleteUser,
+        login: login
     };
 
     return api;
+
+
+    function login(username, password) {
+        var url = "/api/assignment/graduate/login";
+        var credentials = {
+            username: username,
+            password: password
+        };
+        return $http.post(url, credentials)
+            .then(function (response) {
+                return response.data;
+            });
+    }
 
     function createUser(user) {
 

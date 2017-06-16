@@ -2,7 +2,9 @@ var express1 = require ('express');
 var app = express1();
 
 var app = require('./express');
-
+var cookieParser = require('cookie-parser');
+var session      = require('express-session');
+var passport = require('passport');
 
 var bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
@@ -16,6 +18,11 @@ app.use(bodyParser.xml({
         explicitArray: false // Only put nodes in array if >1
     }
 }));
+
+app.use(cookieParser());
+app.use(session({ secret: "put some text here" }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // configure a public directory to host static content
 app.use(express1.static(__dirname + '/public'));

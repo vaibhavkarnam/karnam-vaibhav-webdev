@@ -12,7 +12,8 @@ function loginController($location, userService) {
     function login(username, password) {
 
         userService
-            .findUserbyCredentials(username, password)
+            //.findUserbyCredentials(username, password)
+            .login(username, password)
             .then(
                 function (found) {
 
