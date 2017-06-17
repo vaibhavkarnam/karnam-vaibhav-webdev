@@ -7,7 +7,7 @@
 
         $routeProvider
             .when('/', {
-                templateUrl: 'home.html'
+                templateUrl: 'views/home/home.html'
             })
             .when('/login', {
                 templateUrl: 'views/user/templates/login.view.client.html',

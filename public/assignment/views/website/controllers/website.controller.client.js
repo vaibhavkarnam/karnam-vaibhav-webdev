@@ -7,11 +7,12 @@ angular
 
 
 
-function EditWebsiteController($routeParams, websiteService, $location){
+function EditWebsiteController($routeParams, currentUser,  websiteService, $location){
 
     var model = this;
 
-    model.userId = $routeParams['userId'];
+    model.userId = currentUser._id;
+    // model.userId = $routeParams['userId'];
     model.websiteId = $routeParams['websiteId'];
     model.websiteDelete = websiteDelete;
     model.websiteUpdate = websiteUpdate;
@@ -50,12 +51,12 @@ function EditWebsiteController($routeParams, websiteService, $location){
 }
 
 
-function WebsiteListController($routeParams, websiteService){
+function WebsiteListController($routeParams, currentUser, websiteService){
 
     var model = this;
 
-    model.userId = $routeParams['userId'];
-
+   // model.userId = $routeParams['userId'];
+    model.userId = currentUser._id;
     function init() {
 
         websiteService
@@ -71,11 +72,12 @@ function WebsiteListController($routeParams, websiteService){
 }
 
 
-function NewWebsiteController($routeParams, websiteService, $location){
+function NewWebsiteController($routeParams, currentUser, websiteService, $location){
 
     var model = this;
 
-    model.userId = $routeParams['userId'];
+    model.userId = currentUser._id;
+  //  model.userId = $routeParams['userId'];
     model.createWebsite = createWebsite;
 
     function init() {

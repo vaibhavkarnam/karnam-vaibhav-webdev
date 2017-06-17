@@ -6,15 +6,7 @@
     function configuration($routeProvider) {
 
         $routeProvider
-            .when('/', {
-                templateUrl: 'home.html'
-            })
             .when('/login', {
-                templateUrl: 'views/user/templates/login.view.client.html',
-                controller: 'loginController',
-                controllerAs: 'model'
-            })
-            .when('/', {
                 templateUrl: 'views/user/templates/login.view.client.html',
                 controller: 'loginController',
                 controllerAs: 'model'
@@ -29,11 +21,30 @@
                 controller: 'registerController',
                 controllerAs: 'model'
             })
-            .when('/user/:userId', {
+            .when('/user/profile', {
                 templateUrl: 'views/user/templates/profile.view.client.html',
                 controller: 'profileController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
             })
     }
 
+    function checkLoggedIn(userService, $q, $location) {
+        var deferred = $q.defer();
+
+        userService
+            .loggedin()
+            .then(function (user) {
+                if(user === '0') {
+                    deferred.reject();
+                    $location.url('/login');
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+
+        return deferred.promise;
+    }
 })();

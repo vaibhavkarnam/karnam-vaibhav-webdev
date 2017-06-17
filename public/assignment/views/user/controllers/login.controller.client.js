@@ -19,7 +19,7 @@ function loginController($location, userService) {
 
                     if(found != null ){
                         //model.message = "Welcome " + username;
-                        $location.url('/user/' + found._id)
+                        $location.url('/user/profile');
                 }
 
                 },

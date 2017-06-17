@@ -35,10 +35,10 @@ function register(username, password, password2) {
         };
 
        return userService
-            .createUser(newUser);
+            .register(newUser);
     })
          .then(function (user) {
-             $location.url('/user/' + user._id);
+             $location.url('/user/profile');
          });
 
 }
