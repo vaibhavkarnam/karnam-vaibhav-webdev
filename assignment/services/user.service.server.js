@@ -38,8 +38,8 @@ app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['email']
 
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: '/assignment/index.html#!/user/profile',
-        failureRedirect: '/assignment/index.html#!/login'
+        successRedirect: '/assignment/index.html',
+        failureRedirect: '/assignment/'+'index.html#!/login'
     }));
 
 
