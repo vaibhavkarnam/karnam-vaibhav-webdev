@@ -7,6 +7,8 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
+var bcrypt = require("bcrypt-nodejs");
+
 var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
@@ -17,7 +19,8 @@ var googleConfig = {
 var facebookConfig = {
     clientID     : process.env.FACEBOOK_CLIENT_ID,
     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL,
+    profileFields : ['id', 'emails','name']
 };
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -35,7 +38,6 @@ app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
         successRedirect: '/assignment/index.html#!/user/profile',
         failureRedirect: '/assignment/index.html#!/login',
-        profileFields : ['id', 'emails','name']
     }));
 
 
@@ -68,6 +70,7 @@ function logout(req, res) {
 
 function register(req, res) {
     var userObj = req.body;
+    userObj.password = bcrypt.hashSync(userObj.password);
     userModel
         .createUser(userObj)
         .then(function (user) {
@@ -99,14 +102,16 @@ function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username, password)
         .then(function (user) {
-            if(user) {
-                done(null, user);
-            } else {
-                done(null, false);
+                if(user && bcrypt.compareSync(password, user.password)) {
+                    return done(null, user);
+                } else {
+                    return done(null, false);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
             }
-        }, function (error) {
-            done(error, false);
-        });
+            );
 }
 
 function login(req, res) {
