@@ -280,7 +280,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
                             token: token
                         }
                     };
-                    return userModel.createUser(newGoogleUser );
+                    return userModel.createUser(newGoogleUser);
                 }
             },
             function(err) {
