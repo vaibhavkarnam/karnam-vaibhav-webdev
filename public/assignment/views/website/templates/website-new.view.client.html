@@ -75,7 +75,8 @@
     </ul>
 </div>
 <div class="col-xs-12 col-sm-8">
-<label for="name">Name</label>
+    <label ng-show="model.message" class="alert alert-danger ">{{model.message}}</label>
+    <label for="name">Name</label>
 <input id = "name" ng-model="website.name" class="form-control" value="Blogger" placeholder="facebook"/>
 <label for="description">Description</label>
 <textarea id="description" ng-model="website.description" class="form-control" rows="5" placeholder="Social networking site.

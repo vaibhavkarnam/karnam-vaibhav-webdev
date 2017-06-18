@@ -10,6 +10,14 @@ function loginController($location, userService) {
     model.login = login;
 
     function login(username, password) {
+        if(username === null || typeof username==='undefined'){
+            model.error="username is required";
+            return;
+        }
+        if(password === null || typeof password==='undefined'){
+            model.error="password is required";
+            return;
+        }
 
         userService
             //.findUserbyCredentials(username, password)

@@ -81,6 +81,10 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
     init();
 
     function widgetUpdate(widget) {
+        if(typeof widget.name==='undefined' ||widget.name==='' ){
+            model.error="widget name required";
+            return;
+        }
         WidgetService
             .updateWidget(model.widgetId, widget)
             .then(function (response) {
@@ -146,7 +150,6 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
         }
 
         function createWidget(widget) {
-
             WidgetService
                 .createWidget(model.pageId, {type: widget})
                 .then(function (response) {

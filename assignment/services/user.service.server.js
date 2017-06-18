@@ -104,13 +104,18 @@ function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username, password)
         .then(function (user) {
+          //  console.log("local strategy");
+         //   console.log(user);
                 if(user && bcrypt.compareSync(password, user.password)) {
+                    console.log("successful");
                     return done(null, user);
                 } else {
+               //     console.log("unsuccessful");
                     return done(null, false);
                 }
             },
             function(err) {
+         //   console.log("unsuccessful");
                 if (err) { return done(err); }
             }
             );
@@ -270,7 +275,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
                         firstName: profile.name.givenName,
                         lastName:  profile.name.familyName,
                         email:     email,
-                        google: {
+                        facebook: {
                             id:    profile.id,
                             token: token
                         }

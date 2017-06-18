@@ -22,7 +22,7 @@
 
 
     <!--<div ng-include="model.widgetUrl(widget)"></div> -->
-
+<div ng-show="model.error" class="alert alert-danger"><h3> {{model.error}}</h3></div>
 <div ng-switch="model.widget.type">
 
     <div ng-switch-when="HEADING">

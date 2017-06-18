@@ -20,7 +20,8 @@
 </nav>
 
 <div class="container-fluid">
-<label for="name">Name</label>
+    <label ng-show="model.message"class="alert alert-danger">{{model.message}}</label>
+    <label for="name">Name</label>
 <input id = "name" ng-model="model.page.name" class="form-control" placeholder="Blog Post"/>
 <label for="title">Title</label>
 <input id = "title" ng-model="model.page.description" class="form-control" placeholder="GIZMODO"/>

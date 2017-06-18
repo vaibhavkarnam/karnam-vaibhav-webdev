@@ -18,6 +18,12 @@ function register(username, password, password2) {
         return;
     }
 
+    if(password === null || typeof password==='undefined'||
+        password2 === null || typeof password2==='undefined'){
+        model.error="password fields are required";
+        return;
+    }
+
     if(password !== password2 || password === null || typeof password === 'undefined'){
 
         model.error = "passwords must match";

@@ -41,6 +41,10 @@ function EditWebsiteController($routeParams, currentUser,  websiteService, $loca
      }
 
      function websiteUpdate(websiteId, website) {
+         if(model.website.name===""||model.website.name===null ||typeof model.website.name==="undefined"){
+             model.message="Website name cannot be left blank";
+             return;
+         }
          websiteService
              .updateWebsite(websiteId, website)
              .then(function () {
@@ -93,6 +97,10 @@ function NewWebsiteController($routeParams, currentUser, websiteService, $locati
     function createWebsite(website) {
          //website.developerId = model.userId;
          //website._id = (new Date()).getTime()+"";
+        if(website.name ==="" || website.name===null||typeof website==='undefined'){
+            model.message="Name cannot be empty";
+            return;
+        }
         websiteService
             .createWebsite(model.userId, website)
             .then(function () {

@@ -39,6 +39,10 @@ function profileController($location, currentUser, userService) {
     }
 
     function updateUser(user) {
+        if(user.username=== ""|| user.username=== null || typeof user.username ==='undefined'){
+            model.message="User name cannot be empty";
+            return ;
+        }
         userService
             .updateUser(user._id, user)
             .then(function () {
