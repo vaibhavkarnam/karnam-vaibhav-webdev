@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WAMA')
+        .module('fyh')
         .controller('searchController', searchController);
 
 

@@ -1,6 +1,6 @@
 
 (function () {
     angular
-        .module('WAMA',['ngRoute']);
+        .module('fyh',['ngRoute']);
 
 })();

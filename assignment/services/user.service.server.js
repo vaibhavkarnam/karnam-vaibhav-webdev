@@ -28,18 +28,12 @@ var facebookConfig = {
     profileFields : ['id', 'emails','name']
 };
 
-passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
-
-passport.use(new GoogleStrategy(googleConfig, googleStrategy));
-
-
-
-app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
+app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: '/assignment/index.html',
-        failureRedirect: '/assignment/'+'index.html#!/login'
+        successRedirect: '/assignment/iindex.html#!/user/profile',
+        failureRedirect: '/assignment/index.html#!/login'
     }));
 
 
@@ -64,6 +58,12 @@ app.get('/auth/google/callback',
         successRedirect: '/assignment/index.html#!/user/profile',
         failureRedirect: '/assignment/index.html#!/login'
     }));
+
+
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+
 
 function logout(req, res) {
     req.logout();
@@ -102,23 +102,23 @@ function admin(req, res) {
 
 function localStrategy(username, password, done) {
     userModel
-        .findUserByCredentials(username, password)
+        .findUserByUsername(username)
         .then(function (user) {
-          //  console.log("local strategy");
-         //   console.log(user);
-                if(user && bcrypt.compareSync(password, user.password)) {
-                    console.log("successful");
-                    return done(null, user);
-                } else {
-               //     console.log("unsuccessful");
-                    return done(null, false);
-                }
-            },
-            function(err) {
-         //   console.log("unsuccessful");
-                if (err) { return done(err); }
+            if (!user) {
+                return done(null, false);
             }
-            );
+            if (user.username === username && bcrypt.compareSync(password, user.password)) {
+                return done(null, user);
+            } else {
+                return done(null, false);
+            }
+        }, function (err) {
+            if (err) {
+                return done(err);
+            } else {
+                return done(null, false);
+            }
+        });
 }
 
 function login(req, res) {

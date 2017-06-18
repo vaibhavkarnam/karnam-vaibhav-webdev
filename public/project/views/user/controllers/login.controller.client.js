@@ -1,34 +1,43 @@
 (function () {
-angular
-    .module('WAMA')
-    .controller('loginController', loginController);
+    angular
+        .module('WAM')
+        .controller('loginController', loginController);
 
-function loginController($location, userService) {
+    function loginController($location, userService) {
 
-    var model = this;
+        var model = this;
 
-    model.login = login;
+        model.login = login;
 
-    function login(username, password) {
+        function login(username, password) {
+            if(username === null || typeof username==='undefined'){
+                model.error="username is required";
+                return;
+            }
+            if(password === null || typeof password==='undefined'){
+                model.error="password is required";
+                return;
+            }
 
-        userService
-            .findUserbyCredentials(username, password)
-            .then(
-                function (found) {
+            userService
+            //.findUserbyCredentials(username, password)
+                .login(username, password)
+                .then(
+                    function (found) {
 
-                    if(found != null ){
-                        //model.message = "Welcome " + username;
-                        $location.url('/user/' + found._id)
-                }
+                        if(found != null ){
+                            //model.message = "Welcome " + username;
+                            $location.url('/user/profile');
+                        }
 
-                },
-                function (error) {
+                    },
+                    function (error) {
 
-                    model.message = "Sorry " + username + " not found";
-                });
+                        model.message = "Sorry " + username + " not found";
+                    });
 
+        }
     }
-}
 
 
 })();

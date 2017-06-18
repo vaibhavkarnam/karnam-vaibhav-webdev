@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WAMA')
+        .module('fyh')
         .config(configuration);
 
     function configuration($routeProvider) {
@@ -21,11 +21,6 @@
                 controller: 'registerController',
                 controllerAs: 'model'
             })
-            .when('/profile/view', {
-                templateUrl: 'views/user/profile.view.client.html',
-                controller: 'registerController',
-                controllerAs: 'model'
-            })
             .when('/profile/edit', {
                 templateUrl: 'views/user/profile-edit.view.client.html',
                 controller: 'registerController',
@@ -40,7 +35,34 @@
     templateUrl: 'views/propertyDetails.view.client.html',
     controller: 'propertyDetailsController',
     controllerAs: 'model'
-});
+})
+            .when('/user/profile/view', {
+                templateUrl: 'views/user/profile.view.client.html',
+                controller: 'profileController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            });
     }
+
+    function checkLoggedIn(userService, $q, $location) {
+        var deferred = $q.defer();
+
+        userService
+            .loggedin()
+            .then(function (user) {
+                if(user === '0') {
+                    deferred.reject();
+                    $location.url('/login');
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+
+        return deferred.promise;
+    }
+
+
 
 })();

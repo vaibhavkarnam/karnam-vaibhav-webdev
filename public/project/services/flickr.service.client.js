@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WAMA')
+        .module('fyh')
         .service('searchService', searchService)
         .service('resultsService', resultsService);
 
