@@ -263,36 +263,27 @@ function googleStrategy(token, refreshToken, profile, done) {
 function facebookStrategy(token, refreshToken, profile, done) {
     userModel
         .findUserByFacebookId(profile.id)
-        .then(
-            function(user) {
-                if(user) {
-                    return done(null, user);
-                } else {
-                    var email = profile.emails[0].value;
-                    var emailParts = email.split("@");
-                    var newGoogleUser  = {
-                        username:  emailParts[0],
-                        firstName: profile.name.givenName,
-                        lastName:  profile.name.familyName,
-                        email:     email,
-                        facebook: {
-                            id:    profile.id,
-                            token: token
-                        }
-                    };
-                    return userModel.createUser(newGoogleUser);
-                }
-            },
-            function(err) {
-                if (err) { return done(err); }
+        .then(function (user) {
+            if (!user) {
+                var newUser = {
+                    username: profile.displayName,
+                    facebook: {
+                        id: profile.id,
+                        token: token
+                    }
+                };
+
+                return userModel
+                    .createUser(newUser)
+                    .then(function (response) {
+                        return done(null, response);
+                    })
+            } else {
+                return userModel
+                    .updateFacebookToken(user._id, profile.id, token)
+                    .then(function (response) {
+                        return done(null, user);
+                    })
             }
-        )
-        .then(
-            function(user){
-                return done(null, user);
-            },
-            function(err){
-                if (err) { return done(err); }
-            }
-        );
+        })
 }
