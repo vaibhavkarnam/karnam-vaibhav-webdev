@@ -1,6 +1,6 @@
 var app = require('../../express');
 
-var userModel = require('../model/user/user.model.server');
+var userModel = require('../models/user/user.model.server');
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
