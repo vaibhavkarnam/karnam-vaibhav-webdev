@@ -270,7 +270,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
                 } else {
                     var email = profile.emails[0].value;
                     var emailParts = email.split("@");
-                    var newFacebookUser = {
+                    var newGoogleUser  = {
                         username:  emailParts[0],
                         firstName: profile.name.givenName,
                         lastName:  profile.name.familyName,
@@ -280,7 +280,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
                             token: token
                         }
                     };
-                    return userModel.createUser(newFacebookUser);
+                    return userModel.createUser(newGoogleUser );
                 }
             },
             function(err) {
