@@ -7,6 +7,11 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+
 var bcrypt = require("bcrypt-nodejs");
 
 var googleConfig = {
@@ -23,16 +28,13 @@ var facebookConfig = {
     profileFields : ['id', 'emails','name']
 };
 
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
-var FacebookStrategy = require('passport-facebook').Strategy;
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
-passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 
-app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
 
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
@@ -261,7 +263,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
                 if(user) {
                     return done(null, user);
                 } else {
-                    var email = profile.email[0].value;
+                    var email = profile.emails[0].value;
                     var emailParts = email.split("@");
                     var newFacebookUser = {
                         username:  emailParts[0],
@@ -273,7 +275,7 @@ function facebookStrategy(token, refreshToken, profile, done) {
                             token: token
                         }
                     };
-                    return userModel.createUser(newGoogleUser);
+                    return userModel.createUser(newFacebookUser);
                 }
             },
             function(err) {
