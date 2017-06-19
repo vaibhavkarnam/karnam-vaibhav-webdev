@@ -8,25 +8,30 @@ passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
 
-//var FacebookStrategy = require('passport-facebook').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 
 var bcrypt = require("bcrypt-nodejs");
 
 
-// var facebookConfig = {
-//     clientID     : process.env.FACEBOOK_CLIENT_ID,
-//     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-//     callbackURL  : process.env.FACEBOOK_CALLBACK_URL,
-// };
-//
-// app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-//
-// app.get('/auth/facebook/callback',
-//     passport.authenticate('facebook', {
-//         successRedirect: '/assignment/iindex.html#!/user/profile',
-//         failureRedirect: '/assignment/index.html#!/login'
-//     }));
+var facebookConfig = {
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL,
+    profileFields : ['id', 'emails', 'name']
+
+};
+
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+
+
+app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
+
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect: '/assignment/index.html#!/user/profile',
+        failureRedirect: '/assignment/index.html#!/login'
+    }));
 
 
 app.get('/api/assignment/user/:userId', findUserById);
@@ -43,8 +48,6 @@ app.post ('/api/assignment/graduate/logout', logout);
 app.post ('/api/assignment/graduate/register', register);
 
 
-
-//passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 
 
@@ -208,30 +211,30 @@ function deserializeUser(user, done) {
 
 
 
-// function facebookStrategy(token, refreshToken, profile, done) {
-//     userModel
-//         .findUserByFacebookId(profile.id)
-//         .then(function (user) {
-//             if (!user) {
-//                 var newUser = {
-//                     username: profile.displayName,
-//                     facebook: {
-//                         id: profile.id,
-//                         token: token
-//                     }
-//                 };
-//
-//                 return userModel
-//                     .createUser(newUser)
-//                     .then(function (response) {
-//                         return done(null, response);
-//                     })
-//             } else {
-//                 return userModel
-//                     .updateFacebookToken(user._id, profile.id, token)
-//                     .then(function (response) {
-//                         return done(null, user);
-//                     })
-//             }
-//         })
-// }
+function facebookStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByFacebookId(profile.id)
+        .then(function (user) {
+            if (!user) {
+                var newUser = {
+                    username: profile.displayName,
+                    facebook: {
+                        id: profile.id,
+                        token: token
+                    }
+                };
+
+                return userModel
+                    .createUser(newUser)
+                    .then(function (response) {
+                        return done(null, response);
+                    })
+            } else {
+                return userModel
+                    .updateFacebookToken(user._id, profile.id, token)
+                    .then(function (response) {
+                        return done(null, user);
+                    })
+            }
+        })
+}

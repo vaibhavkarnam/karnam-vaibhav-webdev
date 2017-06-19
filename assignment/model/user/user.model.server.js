@@ -12,19 +12,19 @@ userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.deleteWebsite = deleteWebsite;
-userModel.findUserByGoogleId = findUserByGoogleId;
+//userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = userModel;
 
 
 function findUserByFacebookId(facebookId) {
-    return userModel.findOne({'facebook.id': facebookId});
+    return userModel
+        .findOne({'facebook.id':facebookId});
 }
-
-function findUserByGoogleId(googleId) {
-    return userModel.findOne({'google.id' : googleId});
-}
+// function findUserByGoogleId(googleId) {
+//     return userModel.findOne({'google.id' : googleId});
+// }
 
 function deleteWebsite(userId, websiteId) {
     console.log(userId);
