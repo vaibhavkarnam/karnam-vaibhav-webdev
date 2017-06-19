@@ -83,7 +83,11 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location, curr
     init();
 
     function widgetUpdate(widget) {
-        if(typeof widget.name==='undefined' ||widget.name==='' ){
+        if(typeof widget==='undefined'){
+            model.error="widget name required";
+            return;
+        }
+        if(typeof widget.name==='undefined' ||widget.name===''|| widget.name===null ){
             model.error="widget name required";
             return;
         }

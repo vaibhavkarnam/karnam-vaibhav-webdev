@@ -29,7 +29,7 @@
                 </a>
             </div>
         <p class="navbar-text pull-right">
-            <a href="#!/website" ng-click = "model.createWebsite(website)" class="navbar-link">
+            <a ng-click = "model.createWebsite(website)" class="navbar-link">
   <span class="glyphicon glyphicon-ok">
   </span>
             </a>
@@ -74,8 +74,9 @@
         </li>
     </ul>
 </div>
-<div class="col-xs-12 col-sm-8">
     <label ng-show="model.message" class="alert alert-danger ">{{model.message}}</label>
+<div class="col-xs-12 col-sm-8">
+
     <label for="name">Name</label>
 <input id = "name" ng-model="website.name" class="form-control" value="Blogger" placeholder="facebook"/>
 <label for="description">Description</label>

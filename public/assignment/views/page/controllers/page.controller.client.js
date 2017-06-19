@@ -53,7 +53,11 @@ function EditPageController($routeParams, PageService, $location, currentUser){
     init();
 
     function pageUpdate(pageId, page) {
-        if(page.name===""||typeof page.name==='undefined'||page.name===null){
+        if(typeof model.page==='undefined'){
+            model.message="Page name cannot be left blank";
+            return;
+        }
+        if(model.page.name===""||typeof model.page.name==='undefined'||model.page.name===null){
             model.message="Page name cannot be left blank";
             return;
         }
@@ -94,7 +98,11 @@ function NewPageController($routeParams, PageService, $location, currentUser){
     function createPage(page) {
        // page._id = (new Date()).getTime()+"";
        // page.websiteId = model.websiteId;
-        if(model.page.name===""|| typeof model.page.name==='undefined'|| model.page.name===null){
+        if(typeof page==='undefined'){
+            model.message="Page name cannot be left blank";
+            return;
+        }
+        if(page.name===""|| typeof page.name==='undefined'|| page.name===null){
             model.message="Page name cannot be left blank";
             return;
         }

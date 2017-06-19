@@ -55,7 +55,6 @@
     <li ng-repeat="website in model.websites" class="list-group-item">
         <div class="row">
             <div class="col-lg-5 col-md-7 col-xs-9">
-                <label ng-show="model.message" class="alert alert-danger ">{{model.message}}</label>
                 <a href="#!/website/{{model.websiteId}}/page">
                     {{website.name}}
                 </a>
@@ -75,6 +74,7 @@
     </li>
 </ul>
 </div>
+    <div ng-show="model.message" class="alert alert-danger ">{{model.message}}</div>
 <div class="col-xs-12 col-sm-8">
 <label for="name">Name</label>
 <input id = "name" ng-model="model.website.name" class="form-control" placeholder="facebook"/>

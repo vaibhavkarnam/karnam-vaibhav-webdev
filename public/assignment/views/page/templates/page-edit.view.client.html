@@ -19,8 +19,11 @@
 </div>
 </nav>
 
+<div container-fluid>
+<div ng-show="model.message"class="alert alert-danger">{{model.message}}</div>
+</div>
 <div class="container-fluid">
-    <label ng-show="model.message"class="alert alert-danger">{{model.message}}</label>
+
     <label for="name">Name</label>
 <input id = "name" ng-model="model.page.name" class="form-control" placeholder="Blog Post"/>
 <label for="title">Title</label>
