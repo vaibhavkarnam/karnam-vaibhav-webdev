@@ -36,7 +36,7 @@ function EditWebsiteController($routeParams, currentUser,  websiteService, $loca
          websiteService
              .deleteWebsite(model.userId, websiteId)
              .then(function () {
-                 $location.url('/user/'+model.userId+'/website');
+                 $location.url('/website');
              });
      }
 
@@ -48,7 +48,7 @@ function EditWebsiteController($routeParams, currentUser,  websiteService, $loca
          websiteService
              .updateWebsite(websiteId, website)
              .then(function () {
-                 $location.url('/user/'+model.userId+'/website/');
+                 $location.url('/website');
              });
 
      }
@@ -104,7 +104,7 @@ function NewWebsiteController($routeParams, currentUser, websiteService, $locati
         websiteService
             .createWebsite(model.userId, website)
             .then(function () {
-                $location.url('/user/'+model.userId+'/website');
+                $location.url('/website');
             });
     }
 }

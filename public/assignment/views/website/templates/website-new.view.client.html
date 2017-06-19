@@ -5,22 +5,22 @@
     <div class="row">
         <div class="col-xs-4 hidden-xs">
             <div class="navbar-brand">
-                <a href="#!/user/{{model.userId}}/website" class="navbar-link">
+                <a href="#!/website" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a href="#!/user/{{model.userId}}/website/new" class="hidden-xs">
+                <a href="#!/website/new" class="hidden-xs">
                     Websites
                 </a>
             </div>
             <p class="navbar-text pull-right">
-                <a href="#!/user/{{model.userId}}/website/new" class="navbar-link">
+                <a href="#!/website/new" class="navbar-link">
 <span class="glyphicon glyphicon-plus">
 </span>
                 </a>
             </p>
         </div>
         <div class="col-xs-12 col-sm-8">
-            <a href="#!/user/{{model.userId}}/website">
+            <a href="#!/website">
                 <span class="glyphicon glyphicon-chevron-left navbar-brand visible-xs"></span>
             </a>
             <div class="navbar-brand pull-left">
@@ -29,7 +29,7 @@
                 </a>
             </div>
         <p class="navbar-text pull-right">
-            <a href="#!/user/{{model.userId}}/website" ng-click = "model.createWebsite(website)" class="navbar-link">
+            <a href="#!/website" ng-click = "model.createWebsite(website)" class="navbar-link">
   <span class="glyphicon glyphicon-ok">
   </span>
             </a>
@@ -55,7 +55,7 @@
         <li ng-repeat="website in model.websites" class="list-group-item">
             <div class="row">
                 <div class="col-lg-5 col-md-7 col-xs-9">
-                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    <a href="#!/website/{{model.websiteId}}/page">
                         {{website.name}}
                     </a>
                 </div>
@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="col-xs-3">
-                    <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                    <a href="#!/website/{{website._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </div>

@@ -5,13 +5,14 @@ angular
 
 
 
-function FlickrImageSearchController($routeParams, $sce, flickrService, WidgetService, $location) {
+function FlickrImageSearchController($routeParams, $sce, flickrService, WidgetService, $location, currentUser) {
     var model = this;
 
     model.searchPhotos = searchPhotos;
     model.selectPhoto = selectPhoto;
 
-     model.userId = $routeParams['userId'];
+    // model.userId = $routeParams['userId'];
+    model.userId=currentUser._id;
      model.websiteId = $routeParams.websiteId;
      model.pageId = $routeParams.pageId;
     // model.trust = trust;
@@ -52,7 +53,7 @@ init();
         WidgetService
             .updateWidget(model.widgetId, model.widget)
             .then(function () {
-                $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+                $location.url('/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
             });
     }
 

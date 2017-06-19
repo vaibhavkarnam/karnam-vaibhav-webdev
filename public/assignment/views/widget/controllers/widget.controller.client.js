@@ -6,10 +6,11 @@ angular
     .controller('NewWidgetController', NewWidgetController)
 
 
-function WidgetListController($routeParams, $sce, WidgetService) {
+function WidgetListController($routeParams, $sce, WidgetService, currentUser) {
     var model = this;
 
-    model.userId = $routeParams['userId'];
+   // model.userId = $routeParams['userId'];
+    model.userId=currentUser._id;
     model.websiteId = $routeParams.websiteId;
     model.pageId = $routeParams.pageId;
     model.trust = trust;
@@ -55,10 +56,11 @@ function WidgetListController($routeParams, $sce, WidgetService) {
 
 }
 
-function EditWidgetController($routeParams, $sce, WidgetService, $location) {
+function EditWidgetController($routeParams, $sce, WidgetService, $location, currentUser) {
     var model = this;
 
-    model.userId = $routeParams['userId'];
+    //model.userId = $routeParams['userId'];
+    model.userId=currentUser._id;
     model.websiteId = $routeParams.websiteId;
 
 
@@ -88,7 +90,7 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
         WidgetService
             .updateWidget(model.widgetId, widget)
             .then(function (response) {
-                $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+                $location.url('/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
             });
 
     }
@@ -97,7 +99,7 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
         WidgetService
             .deleteWidget(model.pageId, widgetId)
             .then(function (response) {
-                $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+                $location.url('/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
             });
 
     }
@@ -122,10 +124,11 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
 }
 
 
-    function NewWidgetController($routeParams, $sce, WidgetService, $location) {
+    function NewWidgetController($routeParams, $sce, WidgetService, $location, currentUser) {
         var model = this;
 
-        model.userId = $routeParams['userId'];
+       // model.userId = $routeParams['userId'];
+        model.userId=currentUser._id;
         model.websiteId = $routeParams.websiteId;
         model.pageId = $routeParams.pageId;
         model.widgetId = $routeParams.wgid;
@@ -156,7 +159,7 @@ function EditWidgetController($routeParams, $sce, WidgetService, $location) {
                     console.log("widget created");
                     var widget = response.data;
                    // var widget_id = widgetId;
-                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget/'+widget._id);
+                    $location.url('/website/'+model.websiteId+'/page/'+model.pageId+'/widget/'+widget._id);
                 });
 
         }

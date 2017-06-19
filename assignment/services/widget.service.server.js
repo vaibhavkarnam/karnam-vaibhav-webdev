@@ -222,7 +222,7 @@ var url = '/assignment/uploads/' + filename;
     widgetModel
         .updateWidgetUrl(widgetId, url)
         .then(function () {
-            var callbackUrl = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+            var callbackUrl = "/assignment/#!/website/" + websiteId + "/page/" + pageId + "/widget";
 
             res.redirect(callbackUrl);
         });
