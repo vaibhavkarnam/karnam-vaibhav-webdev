@@ -14,23 +14,9 @@ userModel.addWebsite = addWebsite;
 userModel.deleteWebsite = deleteWebsite;
 userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.findUserByFacebookId = findUserByFacebookId;
-userModel.updateFacebookToken = updateFacebookToken;
 
 module.exports = userModel;
 
-function updateFacebookToken(userId, facebookId, token) {
-    var facebook = {
-        id: facebookId,
-        token: token
-    };
-
-    return userModel
-        .update({_id: userId}, {
-            $set : {
-                facebook: facebook
-            }
-        });
-}
 
 function findUserByFacebookId(facebookId) {
     return userModel.findOne({'facebook.id': facebookId});

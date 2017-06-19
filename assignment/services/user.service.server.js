@@ -18,13 +18,15 @@ var facebookConfig = {
     clientID     : process.env.FACEBOOK_CLIENT_ID,
     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
     callbackURL  : process.env.FACEBOOK_CALLBACK_URL,
+    profileFields : ['id', 'emails', 'name']
+
 };
 
-app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
 
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: '/assignment/iindex.html#!/user/profile',
+        successRedirect: '/assignment/index.html#!/user/profile',
         failureRedirect: '/assignment/index.html#!/login'
     }));
 
@@ -36,20 +38,12 @@ app.put('/api/assignment/user/:userId', updateUser);
 app.delete('/api/assignment/user/:userId', deleteUser);
 
 
-app.post  ('/api/assignment/graduate/login', passport.authenticate('local'), login);
-app.get   ('/api/assignment/graduate/loggedin', loggedin);
-app.get   ('/api/assignment/graduate/admin', admin);
-app.post  ('/api/assignment/graduate/logout', logout);
-app.post  ('/api/assignment/graduate/register', register);
+app.post ('/api/assignment/graduate/login', passport.authenticate('local'),login);
+app.get ('/api/assignment/graduate/loggedin', loggedin);
+app.get ('/api/assignment/graduate/admin', admin);
+app.post ('/api/assignment/graduate/logout', logout);
+app.post ('/api/assignment/graduate/register', register);
 
-
-
-app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-        successRedirect: '/assignment/index.html#!/user/profile',
-        failureRedirect: '/assignment/index.html#!/login'
-    }));
 
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
@@ -62,14 +56,14 @@ function logout(req, res) {
 }
 
 function register(req, res) {
-    var userObj = req.body;
-    userObj.password = bcrypt.hashSync(userObj.password);
+    var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
     userModel
-        .createUser(userObj)
+        .createUser(user)
         .then(function (user) {
             req
                 .login(user, function (status) {
-                    res.send(status);
+                    res.json(user);
                 });
         });
 }
@@ -113,7 +107,8 @@ function localStrategy(username, password, done) {
 }
 
 function login(req, res) {
-    res.json(req.user);
+    var user = req.user;
+    res.json(user);
 }
 
 function createUser(req, res) {
@@ -218,27 +213,36 @@ function deserializeUser(user, done) {
 function facebookStrategy(token, refreshToken, profile, done) {
     userModel
         .findUserByFacebookId(profile.id)
-        .then(function (user) {
-            if (!user) {
-                var newUser = {
-                    username: profile.displayName,
-                    facebook: {
-                        id: profile.id,
-                        token: token
-                    }
-                };
-
-                return userModel
-                    .createUser(newUser)
-                    .then(function (response) {
-                        return done(null, response);
-                    })
-            } else {
-                return userModel
-                    .updateFacebookToken(user._id, profile.id, token)
-                    .then(function (response) {
-                        return done(null, user);
-                    })
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newfbUser = {
+                        username:  emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName:  profile.name.familyName,
+                        email:     email,
+                        facebook: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newfbUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
             }
-        })
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
 }

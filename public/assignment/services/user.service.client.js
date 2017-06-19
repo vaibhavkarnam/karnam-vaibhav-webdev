@@ -46,17 +46,22 @@ function userService($http) {
             });
     }
 
-    function login(username, password) {
-        var url = "/api/assignment/graduate/login";
-        var credentials = {
-            username: username,
-            password: password
+
+       // console.log("client login");
+    function login(username,password) {
+        var url="/api/assignment/graduate/login";
+        credentials={
+            username:username,
+            password:password
         };
-        return $http.post(url, credentials)
+        return $http.post(url,credentials)
             .then(function (response) {
                 return response.data;
             });
     }
+
+
+
 
 
     function loggedin() {
