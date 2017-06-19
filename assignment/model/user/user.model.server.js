@@ -12,11 +12,15 @@ userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.deleteWebsite = deleteWebsite;
-//userModel.findUserByGoogleId = findUserByGoogleId;
+userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = userModel;
 
+function findUserByGoogleId(googleId) {
+    return userModel
+        .findOne({'google.id':googleId});
+}
 
 function findUserByFacebookId(facebookId) {
     return userModel
