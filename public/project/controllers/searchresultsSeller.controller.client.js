@@ -290,20 +290,13 @@
         }
 
 
+
         function logout() {
             userService
                 .logout()
-                .then(
-                    function (response) {
-                        $location.url("/main");
-                        currentUser = null
-                    },
-                    function () {
-                        $location.url("/main");
-                        currentUser = null
-                    }
-                );
-
+                .then(function () {
+                    $location.url('/login');
+                });
         }
 
         function unregisterUser() {

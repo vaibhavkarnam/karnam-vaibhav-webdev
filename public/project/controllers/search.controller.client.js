@@ -9,6 +9,7 @@
         var model = this;
 
         model.searchAddress = searchAddress;
+        model.logout = logout;
         function searchAddress(address) {
         //console.log(address);
         var street = address.split(",")[0];
@@ -68,6 +69,13 @@
      }
 
 
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
 
 
 

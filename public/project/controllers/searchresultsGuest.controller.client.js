@@ -9,6 +9,7 @@
         var model = this;
         model.searchProperty = searchProperty;
         model.venueId = $routeParams.zpid;
+        model.logout = logout;
 
 
         function init() {
@@ -137,7 +138,14 @@
                 })
         }
 
-        
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
 
 
         

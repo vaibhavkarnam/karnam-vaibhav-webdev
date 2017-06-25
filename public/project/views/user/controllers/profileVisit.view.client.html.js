@@ -95,6 +95,13 @@
                 );
         }
 
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
 
         function requestDeny() {
             userService
@@ -226,21 +233,7 @@
         }
 
 
-        function logout() {
-            userService
-                .logout()
-                .then(
-                    function (response) {
-                        $location.url("/main");
-                        $rootScope.currentUser = null
-                    },
-                    function () {
-                        $location.url("/main");
-                        $rootScope.currentUser = null
-                    }
-                );
 
-        }
 
         function unregisterUser() {
             userService
