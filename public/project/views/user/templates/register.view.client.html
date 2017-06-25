@@ -1,6 +1,6 @@
 
 		<!-- Top menu -->
-		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+		<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
@@ -9,24 +9,19 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">Join Us!</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="top-navbar-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<span class="li-text">
-								Put some text or
 							</span> 
-							<a href="#"><strong>links</strong></a> 
+							<a href="#"><strong>or login with:</strong></a>
 							<span class="li-text">
-								here, or some icons: 
 							</span> 
 							<span class="li-social">
-								<a href="#"><i class="fa fa-facebook"></i></a> 
-								<a href="#"><i class="fa fa-twitter"></i></a> 
-								<a href="#"><i class="fa fa-envelope"></i></a> 
-								<a href="#"><i class="fa fa-skype"></i></a>
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
 							</span>
 						</li>
 					</ul>
@@ -35,7 +30,7 @@
 		</nav>
 
         <!-- Top content -->
-        <div class="top-content">
+        <div class="top-content register">
         	
             <div class="inner-bg">
                 <div class="container">
@@ -49,15 +44,15 @@
                         </div>
                     </div>
                     <div class="row">
-                    	<div class="col-md-6 phone">
+                    	<div class="col-sm-6 hidden-xs phone">
 							<img src="./assets-reg/img/iphone.png" alt="iphone">
 
 						</div>
                         <div class="col-sm-5 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3>Register to our App</h3>
-                            		<p>Fill in the form below to get instant access:</p>
+                        			<h3 id="loginh3">Register to our App</h3>
+                            		<p id="loginp">Fill in the form below to get instant access:</p>
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-pencil"></i>
@@ -66,22 +61,36 @@
                             <div class="form-bottom">
 			                    <form role="form" action="" method="post" class="registration-form">
 			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-first-name">First name</label>
-			                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+			                    		<label class="sr-only" for="form-first-name">username</label>
+			                        	<input type="text" ng-model="username" name="form-first-name" placeholder="username" class="form-first-name form-control" id="form-first-name">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-last-name">Last name</label>
-			                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+			                        	<label class="sr-only" for="form-last-name">password</label>
+			                        	<input type="text" ng-model="password" name="form-last-name" placeholder="password" class="form-last-name form-control" id="form-last-name">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-email">Email</label>
-			                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+			                        	<label class="sr-only" for="form-email">verify password</label>
+			                        	<input type="text"  ng-model="password2" placeholder="Verify password" class="form-email form-control" id="form-email">
 			                        </div>
-			                        <button type="submit" class="btn">Sign me up!</button>
-			                    </form>
+									<label class="sr-only">Choose your role</label>
+									<div class="radio">
+										<label><input id ="Buyer" type="radio" ng-model="role" value="BUYER">Buyer</label>
+									</div>
+									<div class="radio">
+										<label><input id="Seller" type="radio" ng-model="role" value="SELLER">Seller</label>
+									</div>
+									<a ng-click="model.register(username, password, password2, role)" class="btn btn-primary btn-block">Register</a>			                    </form>
 		                    </div>
+							<div class="col-sm-6 col-sm-offset-3 ">
+								<h3 id="notuser" >already a user? login:</h3>
+								<div class="social-login-buttons">
+									<a href="#!/login" class="btn btn-block btn-success" >
+										<i ></i> Login
+									</a>
+								</div>
+							</div>
                         </div>
-                    </div>
+
                 </div>
             </div>
             

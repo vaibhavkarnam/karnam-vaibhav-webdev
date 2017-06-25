@@ -1,5 +1,249 @@
 
-body {
+.profile.card {
+	padding-top: 20px;
+	margin: 10px 0 20px 0;
+	background-color: rgba(214, 224, 226, 0.2);
+	border-top-width: 0;
+	border-bottom-width: 2px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.profile.card .profile.card-heading {
+	padding: 0 20px;
+	margin: 0;
+}
+
+.profile.card .profile.card-heading.simple {
+	font-size: 20px;
+	font-weight: 300;
+	color: #777;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.profile.card .profile.card-heading.image img {
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	margin-right: 15px;
+	vertical-align: top;
+	border: 0;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.profile.card .profile.card-heading.image .profile.card-heading-header {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.profile.profile.card .profile.card-heading.image .profile.card-heading-header h3 {
+	margin: 0;
+	font-size: 14px;
+	line-height: 16px;
+	color: #262626;
+}
+
+.profile.profile.card .profile.card-heading.image .profile.card-heading-header span {
+	font-size: 12px;
+	color: #999999;
+}
+
+.profile.card .profile.card-body {
+	padding: 0 20px;
+	margin-top: 20px;
+}
+
+.profile.card .profile.card-media {
+	padding: 0 20px;
+	margin: 0 -14px;
+}
+
+.profile.card .profile.card-media img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.profile.card .profile.card-actions {
+	min-height: 30px;
+	padding: 0 20px 20px 20px;
+	margin: 20px 0 0 0;
+}
+
+.profile.card .profile.card-comments {
+	padding: 20px;
+	margin: 0;
+	background-color: #f8f8f8;
+}
+
+.profile.card .profile.card-comments .comments-collapse-toggle {
+	padding: 0;
+	margin: 0 20px 12px 20px;
+}
+
+.profile.card .profile.card-comments .comments-collapse-toggle a,
+.profile.card .profile.card-comments .comments-collapse-toggle span {
+	padding-right: 5px;
+	overflow: hidden;
+	font-size: 12px;
+	color: #999;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.profile.card-comments .profile.media-heading {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.profile.card.people {
+	position: relative;
+	display: inline-block;
+	width: 170px;
+	height: 300px;
+	padding-top: 0;
+	margin-left: 20px;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.profile.card.people:first-child {
+	margin-left: 0;
+}
+
+.profile.card.people .profile.card-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 170px;
+	height: 150px;
+	background-color: #ffffff;
+}
+
+.profile.card.people .profile.card-top.green {
+	background-color: #53a93f;
+}
+
+.profile.card.people .profile.card-top.blue {
+	background-color: #427fed;
+}
+
+.profile.card.people .profile.card-info {
+	position: absolute;
+	top: 150px;
+	display: inline-block;
+	width: 100%;
+	height: 101px;
+	overflow: hidden;
+	background: #ffffff;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.profile.card.people .profile.card-info .profile.title {
+	display: block;
+	margin: 8px 14px 0 14px;
+	overflow: hidden;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 18px;
+	color: #404040;
+}
+
+.profile.card.people .profile.card-info .profile.desc {
+	display: block;
+	margin: 8px 14px 0 14px;
+	overflow: hidden;
+	font-size: 12px;
+	line-height: 16px;
+	color: #737373;
+	text-overflow: ellipsis;
+}
+
+.profile.card.people .profile.card-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: inline-block;
+	width: 100%;
+	padding: 10px 20px;
+	line-height: 29px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.profile.card.hovercard {
+	position: relative;
+	padding-top: 0;
+	overflow: hidden;
+	text-align: center;
+	background-color: rgba(214, 224, 226, 0.2);
+}
+
+.profile.card.hovercard .profile.cardheader {
+	background: url("http://lorempixel.com/850/280/nature/4/");
+	background-size: cover;
+	height: 135px;
+}
+
+.profile.card.hovercard .profile.avatar {
+	position: relative;
+	top: -50px;
+	margin-bottom: -50px;
+}
+
+.profile.card.hovercard .profile.avatar img {
+	width: 100px;
+	height: 100px;
+	max-width: 100px;
+	max-height: 100px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: 5px solid rgba(255,255,255,0.5);
+}
+
+.profile.card.hovercard .profile.info {
+	padding: 4px 8px 10px;
+}
+
+.profile.card.hovercard .profile.info .profile.title {
+	margin-bottom: 4px;
+	font-size: 24px;
+	line-height: 1;
+	color: #262626;
+	vertical-align: middle;
+}
+
+.profile.card.hovercard .profile.info .profile.desc {
+	overflow: hidden;
+	font-size: 12px;
+	line-height: 20px;
+	color: #737373;
+	text-overflow: ellipsis;
+}
+
+.profile.card.hovercard .profile.bottom {
+	padding: 0 20px;
+	margin-bottom: 17px;
+}
+
+.profile.btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+
+
+.login.body, .register.body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;
@@ -8,15 +252,15 @@ body {
     text-align: center;
 }
 
-strong { font-weight: 500; }
+.login.strong, .register.strong { font-weight: 500; }
 
-a, a:hover, a:focus {
+.login.a,.register.a, .login.a:hover, .register.a:hover, .login.a:focus, .register.a:focus {
 	color: #19b9e7;
 	text-decoration: none;
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
-h1, h2 {
+.login.h1, .register.h2, .login.h1, .register.h1 {
 	margin-top: 10px;
 	font-size: 38px;
     font-weight: 100;
@@ -24,16 +268,16 @@ h1, h2 {
     line-height: 50px;
 }
 
-h3 {
+.login.h3, .register.h3 {
 	font-size: 22px;
     font-weight: 300;
-    color: #555;
+    color: black;
     line-height: 30px;
 }
 
 img { max-width: 100%; }
 
-.medium-paragraph {
+.login.medium-paragraph, .register.medium-paragraph {
 	font-size: 18px;
 	line-height: 32px;
 }
@@ -44,7 +288,7 @@ img { max-width: 100%; }
 ::selection { background: #19b9e7; color: #fff; text-shadow: none; }
 
 
-.btn-link-1 {
+.login.btn-link-1, .register.btn-link-1 {
 	display: inline-block;
 	height: 50px;
 	margin: 0 5px;
@@ -56,9 +300,9 @@ img { max-width: 100%; }
     color: #fff;
     -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 }
-.btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active { outline: 0; opacity: 0.6; color: #fff; }
+.login.btn-link-1:hover,.register.btn-link-1:hover, .login.btn-link-1:focus,.register.btn-link-1:focus, .login.btn-link-1:active,  .register.btn-link-1:active{ outline: 0; opacity: 0.6; color: #fff; }
 
-.btn-link-2 {
+.login.btn-link-2, .register.btn-link-2 {
 	display: inline-block;
 	height: 50px;
 	margin: 0 5px;
@@ -71,58 +315,86 @@ img { max-width: 100%; }
     color: #fff;
     -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 }
-.btn-link-2:hover, .btn-link-2:focus, 
-.btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
+.login.btn-link-2:hover, .login.btn-link-2:focus, .register.btn-link-2:hover, .register.btn-link-2:focus,
+.login.btn-link-2:active, .login.btn-link-2:active:focus, .register.btn-link-2:active, .register.btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
 
 
 /***** Top menu *****/
 
-.navbar {
+.login.navbar, .register.navbar {
 	padding-top: 10px;
 	background: #333;
 	background: rgba(51, 51, 51, 0.3);
 	border: 0;
 	-o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
-.navbar.navbar-no-bg { background: none; }
+.login.navbar.navbar-no-bg, .register.navbar.navbar-no-bg { background: none; }
 
-ul.navbar-nav {
+.login.ul.navbar-nav, .register.ul.navbar-nav {
 	font-size: 16px;
 	color: #fff;
 }
 
-.navbar-inverse ul.navbar-nav li { padding-top: 8px; padding-bottom: 8px; }
+.login.navbar-inverse .login.ul.navbar-nav li, .register.navbar-inverse .register.ul.navbar-nav li  { padding-top: 8px; padding-bottom: 8px; }
 
-.navbar-inverse ul.navbar-nav li .li-text { opacity: 0.8; }
+.login.navbar-inverse .login.ul.navbar-nav li .login.li-text, .login.register-inverse .register.ul.navbar-nav li .register.li-text { opacity: 0.8; }
 
-.navbar-inverse ul.navbar-nav li a { display: inline; padding: 0; color: #fff; }
-.navbar-inverse ul.navbar-nav li a:hover { color: #fff; opacity: 1; border-bottom: 1px dotted #fff; }
-.navbar-inverse ul.navbar-nav li a:focus { color: #fff; outline: 0; opacity: 1; border-bottom: 1px dotted #fff; }
+.login.navbar-inverse .login.ul.navbar-nav .login.li .login.a { display: inline; padding: 0; color: #fff; }
+.register.navbar-inverse .register.ul.navbar-nav .register.li .register.a { display: inline; padding: 0; color: #fff; }
+.login.navbar-inverse .login.ul.navbar-nav .login.li .login.a:hover { color: #fff; opacity: 1; border-bottom: 1px dotted #fff; }
+.login.navbar-inverse .login.ul.navbar-nav .login.li .login.a:focus { color: #fff; outline: 0; opacity: 1; border-bottom: 1px dotted #fff; }
+.register.navbar-inverse .register.ul.navbar-nav .register.li .register.a:hover { color: #fff; opacity: 1; border-bottom: 1px dotted #fff; }
+.register.navbar-inverse .register.ul.navbar-nav .register.li .register.a:focus { color: #fff; outline: 0; opacity: 1; border-bottom: 1px dotted #fff; }
 
-.navbar-inverse ul.navbar-nav li .li-social a {
+.login.navbar-inverse .login.ul.navbar-nav .login.li .login.li-social a {
 	margin: 0 5px;
 	font-size: 28px;
 	vertical-align: middle;
 }
-.navbar-inverse ul.navbar-nav li .li-social a:hover, 
-.navbar-inverse ul.navbar-nav li .li-social a:focus { border: 0; color: #19b9e7; }
+.login.navbar-inverse .login.ul.navbar-nav .login.li .login.li-social .login.a:hover,
+.login.navbar-inverse .login.ul.navbar-nav .login.li .login.li-social .login.a:focus { border: 0; color: #19b9e7; }
 
-.navbar-brand {
+.login.navbar-brand {
+	width: 123px;
+	background: url(../img/logo.png) left center no-repeat;
+	text-indent: -99999px;
+}
+
+.register.navbar-inverse .register.ul.navbar-nav .register.li .register.li-social a {
+	margin: 0 5px;
+	font-size: 28px;
+	vertical-align: middle;
+}
+.register.navbar-inverse .register.ul.navbar-nav .register.li .register.li-social .register.a:hover,
+.register.navbar-inverse .register.ul.navbar-nav .register.li .register.li-social .register.a:focus { border: 0; color: #19b9e7; }
+
+.register.navbar-brand {
 	width: 123px;
 	background: url(../img/logo.png) left center no-repeat;
 	text-indent: -99999px;
 }
 
 
+#loginh3, #loginp{
+	color: black;
+}
+
+#notuser, #loginwith{
+	color: whitesmoke;
+}
+
 /***** Top content *****/
+#loginrow{
+	margin-bottom: -30px;
+}
 
 .inner-bg {
     padding: 60px 0 150px 0;
+	margin-top: -40px;
 }
 
 .top-content .text {
-	padding-bottom: 60px;
-	color: #fff;
+	color: black;
 }
 
 .top-content .text h1 { color: #fff; }
@@ -144,7 +416,6 @@ ul.navbar-nav {
 }
 
 .top-content .form-box {
-	padding-top: 80px;
 }
 
 .form-top {
@@ -168,7 +439,7 @@ ul.navbar-nav {
 	width: 25%;
 	padding-top: 5px;
 	font-size: 66px;
-	color: #ddd;
+	color: black;
 	line-height: 100px;
 	text-align: right;
 }
@@ -197,11 +468,17 @@ ul.navbar-nav {
 
 @media (max-width: 767px) {
 	
-	.navbar { padding-top: 0; }
-	.navbar.navbar-no-bg { background: #333; background: rgba(51, 51, 51, 0.9); }
-	.navbar-brand { height: 60px; margin-left: 15px; }
-	.navbar-collapse { border: 0; }
-	.navbar-toggle { margin-top: 12px; }
+	.login.navbar { padding-top: 0; }
+	.login.navbar.navbar-no-bg { background: #333; background: rgba(51, 51, 51, 0.9); }
+	.login.navbar-brand { height: 60px; margin-left: 15px; }
+	.login.navbar-collapse { border: 0; }
+	.login.navbar-toggle { margin-top: 12px; }
+
+	.register.navbar { padding-top: 0; }
+	.register.navbar.navbar-no-bg { background: #333; background: rgba(51, 51, 51, 0.9); }
+	.register.navbar-brand { height: 60px; margin-left: 15px; }
+	.register.navbar-collapse { border: 0; }
+	.register.navbar-toggle { margin-top: 12px; }
 	
 	.inner-bg { padding: 60px 0 110px 0; }
 	.top-content .top-big-link { margin-top: 25px; }
@@ -227,8 +504,12 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 	
 	/* logo */
-    .navbar-brand {
+    .login.navbar-brand {
     	background-image: url(../img/logo@2x.png) !important; background-repeat: no-repeat !important; background-size: 123px 49px !important;
     }
-	
+
+	.register.navbar-brand {
+		background-image: url(../img/logo@2x.png) !important; background-repeat: no-repeat !important; background-size: 123px 49px !important;
+	}
 }
+

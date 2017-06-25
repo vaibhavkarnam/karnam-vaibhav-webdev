@@ -1,6 +1,6 @@
 
 (function () {
     angular
-        .module('fyh',['ngRoute']);
+        .module('fyh',['ngRoute', 'vsGoogleAutocomplete']);
 
 })();

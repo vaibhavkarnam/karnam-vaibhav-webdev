@@ -1,0 +1,110 @@
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+							<span class="li-text">
+                                <a href="#!/login"> <strong>LOGIN</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                                <a href="#!/register"> <strong>REGISTER</strong></a>
+							</span>
+                </li>
+                <li>
+                    <a href="#"><strong>or login with:</strong></a>
+                    <span class="li-text">
+							</span>
+                    <span class="li-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+							</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+							<span class="li-text">
+                                <a href="#!/profile/edit"> <strong>LOGIN</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                                <a href="#!/register"> <strong>REGISTER</strong></a>
+							</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div id="searchResultPage" class="container-fluid">
+    <div class="thumbnail">
+        <div class="row container-fluid">
+            <div class="col-xs-12 col-md-3">
+                <div ng-hide="!model.imgURL"><image id="venueImage" ng-src="{{model.imgURL}}" class="img-rounded"></image></div>
+                <div ng-hide="model.imgURL"> <img src="./assets/img/backgrounds/buyer.jpg"></div>
+            </div>
+            <div class="col-xs-12 col-md-8 col-md-offset-1 " style="text-align: left">
+                <div ng-hide="!model.Street"><h3 id="street">{{model.Street}}</h3></div>
+                <div ng-hide="!model.zipcode"><h4>Zipcode : {{model.zipcode}}</h4></div>
+                <div ng-hide="!model.city"><h4>City : {{model.city}}</h4></div>
+                <div ng-hide="!model.state"><h4>State : {{model.state}}</h4></div>
+                <div ng-hide="!model.rentestimate"><h4>Rent estimate : {{model.rentestimate}}</h4></div>
+                <div ng-hide="!model.homedetails"><h4>Home details : <a href="{{model.homedetails}}">{{model.homedetails}}</a></h4></div>
+            <div ng-hide="!model.photogallery"><h4> Gallery : <a href="{{ model.photogallery}}">{{ model.photogallery}}</a></h4></div>
+                <div ng-hide="!model.comparables"><a>Comparables : <a href="{{model.comparables}}"></a> {{model.comparables}}</a></h4></div>
+                <div ng-hide="!model.bedrooms"> <h4>Bedrooms : {{model.bedrooms}}</h4></div>
+                <div ng-hide="!model.bathrooms"> <h4>Bathrooms : {{model.bathrooms}}</h4></div>
+                <div ng-hide="!model.squarefeet"> <h4>Squarefeet : {{model.squarefeet}}</h4></div>
+                <div ng-hide="!model.bathrooms"> <h4>Bathrooms : {{model.bathrooms}}</h4></div>
+                <div ng-hide="!model.parking"> <h4>Parking : {{model.parking}}</h4></div>
+                <div ng-hide="!model.heating"> <h4>Heating : {{model.heating}}</h4></div>
+                <div ng-hide="!model.cooling"> <h4>Cooling : {{model.cooling}}</h4></div>
+                <div ng-show="model.appliances"> <h4>Appliances : {{model.appliances}}</h4></div>
+                <div ng-show="model.finishedSqFt"> <h4>Square Feet : {{model.finishedSqFt}}</h4></div>
+                <div ng-hide="!model.yearBuilt"> <h4>Year Built : {{model.yearBuilt}}</h4></div>
+                <div ng-hide="!model.numFloors"> <h4>Number of floors : {{model.numFloors}}</h4></div>
+                <div ng-hide="!model.basement"> <h4>Basement Type : {{model.basement}}</h4></div>
+                <div ng-hide="!model.view"> <h4>View around house : {{model.view}}</h4></div>
+                <div ng-hide="!model.heatingsys"> <h4>Heating system : {{model.heatingsys}}</h4></div>
+                <div ng-hide="!model.rooms"> <h4>Rooms : {{model.rooms}}</h4></div>
+                <div ng-hide="!model.neighborhood"> <h4>Neighbourhood : {{model.neighborhood}}</h4></div>
+                <div ng-hide="!model.elementarySchool"> <h4>Neighbourhood Schools: {{model.elementarySchool}}</h4></div>
+                <div ng-hide="!model.floorcovering"> <h4>Floor covering : {{model.floorcovering}}</h4></div>
+                <div ng-hide="!model.description"> <h4>Description : {{model.description}}</h4></div>
+                <div ng-show="model.error"><h4>{{model.error}}</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

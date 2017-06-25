@@ -7,11 +7,25 @@
 
         $routeProvider
         .when('/', {
-            templateUrl: 'views/search.view.client.html',
-            controller: 'searchController',
+            templateUrl: 'views/home/home.html',
+            controller: 'searchControllerHome',
             controllerAs: 'model'
         })
-            .when('/login', {
+            .when("/admin", {
+                templateUrl: "views/admin/admin-login.view.client.html",
+                controller: "AdminController",
+                controllerAs: "model"
+            })
+            .when("/admin/login", {
+                templateUrl: "views/admin/admin.view.client.html",
+                controller: "AdminController",
+                controllerAs: "model"
+            })
+            .otherwise({
+                redirectTo: "/"
+            })
+
+    .when('/login', {
                 templateUrl: 'views/user/templates/login.view.client.html',
                 controller: 'loginController',
                 controllerAs: 'model'
@@ -22,37 +36,66 @@
                 controllerAs: 'model'
             })
             .when('/profile/edit', {
-                templateUrl: 'views/user/profile-edit.view.client.html',
-                controller: 'registerController',
-                controllerAs: 'model'
-            })
-        .when('/searchresults/:zpid', {
-                        templateUrl: 'views/searchresults.view.client.html',
-                        controller: 'searchresultsController',
-                        controllerAs: 'model'
-                    })
-.when('/searchresults/:zpid/details', {
-    templateUrl: 'views/propertyDetails.view.client.html',
-    controller: 'propertyDetailsController',
-    controllerAs: 'model'
-})
-            .when('/user/profile/view', {
-                templateUrl: 'views/user/profile.view.client.html',
+                templateUrl: 'views/user/templates/profile-edit.view.client.html',
                 controller: 'profileController',
                 controllerAs: 'model',
                 resolve: {
                     currentUser: checkLoggedIn
                 }
-            });
+            })
+            .when('/profile/view', {
+                templateUrl: 'views/user/templates/profile-view.view.client.html',
+                controller: 'profileController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when('/profile/friend/:id', {
+                templateUrl: 'views/user/templates/profileVisit.view.client.html',
+                controller: 'profileControllerVisit',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when('/searchresults/:zpid', {
+                templateUrl: 'views/searchResults/searchResults.view.client.html',
+                controller: 'searchresultsController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when('/searchresultsguest/:zpid', {
+                templateUrl: 'views/searchResults/searchResultsGuest.view.client.html',
+                controller: 'searchresultsGuestController',
+                controllerAs: 'model'
+            })
+            .when('/searchResultsSeller/:zpid', {
+                templateUrl: 'views/searchResults/searchResultsSeller.view.client.html',
+                controller: 'searchresultsSellerController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+
+            })
+                    .when('/searchresults/:zpid/details', {
+                        templateUrl: 'views/propertyDetails.view.client.html',
+                        controller: 'propertyDetailsController',
+                        controllerAs: 'model'
+                    });
+
     }
 
     function checkLoggedIn(userService, $q, $location) {
         var deferred = $q.defer();
-
         userService
             .loggedin()
             .then(function (user) {
                 if(user === '0') {
+                 //   console.log("unresolved");
                     deferred.reject();
                     $location.url('/login');
                 } else {

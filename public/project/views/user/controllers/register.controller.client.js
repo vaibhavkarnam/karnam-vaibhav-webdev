@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WAM')
+        .module('fyh')
         .controller('registerController', registerController);
 
 
@@ -10,7 +10,7 @@
 
         model.register = register;
 
-        function register(username, password, password2) {
+        function register(username, password, password2, role) {
 
             if(username === null || username === '' || typeof username === 'undefined'){
 
@@ -29,7 +29,6 @@
                 model.error = "passwords must match";
                 return;
             }
-
             userService
                 .findUserbyUsername(username)
                 .then(function () {
@@ -37,14 +36,13 @@
                 },function () {
                     var newUser = {
                         username: username,
-                        password: password
+                        password: password,
+                        roles: role
                     };
-
                     return userService
-                        .register(newUser);
-                })
+                        .register(newUser);})
                 .then(function (user) {
-                    $location.url('/user/profile');
+                    $location.url('/profile/edit');
                 });
 
         }

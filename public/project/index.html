@@ -22,19 +22,33 @@
     <!--user views-->
     <script src="views/user/templates/login.view.client.html"></script>
     <script src="views/user/templates/register.view.client.html"></script>
-    <script src="views/user/profile.view.client.html"></script>
+    <script src="views/user/templates/profile-view.view.client.html"></script>
+    <script src="views/user/templates/profile-edit.view.client.html"></script>
     <script src="views/user/profile-edit.view.client.html"></script>
 
 
     <!-- user controllers-->
     <script src="views/user/controllers/login.controller.client.js"></script>
     <script src="views/user/controllers/register.controller.client.js"></script>
-
+    <script src="views/user/controllers/profile-edit.controller.client.js"></script>
+    <script src="views/user/controllers/profileVisit.view.client.html.js"></script>
 
     <script src ="controllers/search.controller.client.js"></script>
     <script src="controllers/searchresults.controller.client.js"></script>
     <script src="controllers/propertyDetails.controller.client.js"></script>
+    <script src="controllers/searchresultsSeller.controller.client.js"></script>
+    <script src="views/admin/controllers/admin.controller.client.js"></script>
+    <script src="views/home/home.controller.client.js"></script>
+    <script src="controllers/searchresultsGuest.controller.client.js"></script>
+
+
+    <!-- services-->
+    <script src="services/user.service.client.js"></script>
     <script src = "services/flickr.service.client.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="googleapi/dist/vs-google-autocomplete.js"></script>
+
 
     <link href="../assignment/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -52,11 +66,8 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets-reg/css/form-elements.css">
-    <link rel="stylesheet" href="assets-reg/css/style.css">
-
     <link rel="shortcut icon" href="assets/ico/favicon.png">
     <link rel="image" href="assets-reg/img/iphone.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
@@ -64,7 +75,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
-    <script src="assets/css/style.css"></script>
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">

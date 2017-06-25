@@ -1,0 +1,149 @@
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+							<span class="li-text">
+                                <a href="#!/profile/edit"> <strong>PROFILE</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                                <a href="model.logout()"> <strong>LOG OUT</strong></a>
+							</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="searchResultPage" class="container-fluid">
+    <div class="thumbnail">
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div ng-hide="!model.imgURL"><image id="venueImage" ng-src="{{model.imgURL}}" class="img-rounded"></image></div>
+                <div ng-hide="model.imgURL"> <img src="./assets/img/backgrounds/buyer.jpg"></div>
+            </div>
+            <div class="col-xs-12 col-md-8 col-md-offset-1 con" style="text-align: left">
+                <div ng-hide="!model.Street"><h3 id="street">{{model.Street}}</h3></div>
+                <div ng-hide="!model.zipcode"><h4>Zipcode : {{model.zipcode}}</h4></div>
+                <div ng-hide="!model.city"><h4>City : {{model.city}}</h4></div>
+                <div ng-hide="!model.state"><h4>State : {{model.state}}</h4></div>
+                <div ng-hide="!model.rentestimate"><h4>Rent estimate : {{model.rentestimate}}</h4></div>
+                <div ng-hide="!model.homedetails"><h4>Home details : <a href="{{model.homedetails}}">{{model.homedetails}}</a></h4></div>
+                <div ng-hide="!model.photogallery"><h4> Gallery : <a href="{{ model.photogallery}}">{{ model.photogallery}}</a></h4></div>
+                <div ng-hide="!model.comparables"><a>Comparables : <a href="{{model.comparables}}"></a> {{model.comparables}}</a></h4></div>
+                <div ng-hide="!model.bedrooms"> <h4>Bedrooms : {{model.bedrooms}}</h4></div>
+                <div ng-hide="!model.bathrooms"> <h4>Bathrooms : {{model.bathrooms}}</h4></div>
+                <div ng-hide="!model.squarefeet"> <h4>Squarefeet : {{model.squarefeet}}</h4></div>
+                <div ng-hide="!model.bathrooms"> <h4>Bathrooms : {{model.bathrooms}}</h4></div>
+                <div ng-hide="!model.parking"> <h4>Parking : {{model.parking}}</h4></div>
+                <div ng-hide="!model.heating"> <h4>Heating : {{model.heating}}</h4></div>
+                <div ng-hide="!model.cooling"> <h4>Cooling : {{model.cooling}}</h4></div>
+                <div ng-show="model.appliances"> <h4>Appliances : {{model.appliances}}</h4></div>
+                <div ng-show="model.finishedSqFt"> <h4>Square Feet : {{model.finishedSqFt}}</h4></div>
+                <div ng-hide="!model.yearBuilt"> <h4>Year Built : {{model.yearBuilt}}</h4></div>
+                <div ng-hide="!model.numFloors"> <h4>Number of floors : {{model.numFloors}}</h4></div>
+                <div ng-hide="!model.basement"> <h4>Basement Type : {{model.basement}}</h4></div>
+                <div ng-hide="!model.view"> <h4>View around house : {{model.view}}</h4></div>
+                <div ng-hide="!model.heatingsys"> <h4>Heating system : {{model.heatingsys}}</h4></div>
+                <div ng-hide="!model.rooms"> <h4>Rooms : {{model.rooms}}</h4></div>
+                <div ng-hide="!model.neighborhood"> <h4>Neighbourhood : {{model.neighborhood}}</h4></div>
+                <div ng-hide="!model.elementarySchool"> <h4>Neighbourhood Schools: {{model.elementarySchool}}</h4></div>
+                <div ng-hide="!model.floorcovering"> <h4>Floor covering : {{model.floorcovering}}</h4></div>
+                <div ng-hide="!model.description"> <h4>Description : {{model.description}}</h4></div>
+                <div ng-show="model.error"><h4>{{model.error}}</h4></div>
+                </div>
+
+                <a style="text-decoration: none" ng-show="model.user && model.isNotFavorite"
+                   ng-click="model.addFavorite()"><h4>Follow House <i class="fa fa-bookmark"
+                                                                            aria-hidden="true"></i></h4></a>
+                <a style="text-decoration: none" ng-show="model.user && model.isFavorite"
+                   ng-click="model.removeFavorite()"><h4>Remove from Following<i class="fa fa-bookmark"
+                                                                                    aria-hidden="true"></i></h4></a>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid">
+    <div class="thumbnail" id="venueBodyThumbnail">
+        <div id="tabs" class="container-fluid">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" data-target="#tips"><h5>Comments</h5></a></li>
+                <li><a data-toggle="pill" data-target="#photos"><h5>Photos</h5></a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="tips" class="tab-pane fade in active">
+                    <div class="row">
+                        <h4>Add Comment</h4>
+                    </div>
+                    <div class="row">
+                        <form>
+                            <textarea type="text"
+                                      rows="3"
+                                      name="commentValue"
+                                      id="commentValue"
+                                      ng-model="commentValue"
+                                      required class="form-control">
+                            </textarea>
+                            <button ng-click="model.addComment(commentValue)" class="btn btn-block btn-success">Done</button>
+                        </form>
+                    </div>
+                    <div ng-hide="model.cmters.length === 0" id="usersCommentsHead" class="row">
+                        <strong><h4>User comments</h4></strong>
+                    </div>
+                    <div ng-show="model.cmters.length === 0" class="row">
+                        <strong><h4>No user comments. Add a comment</h4></strong>
+                    </div>
+                    <div id="commentsList" class="row" ng-repeat="comment in model.cmters | orderBy: '-commentedOn'">
+                        <div class="col-xs-4 col-md-1">
+                            <image href="#/user/friend/{{comment.commentedUser._id}}"
+                                   id="commentImage" ng-src="{{comment.commentedUser.displayPicture}}"></image>
+                        </div>
+                        <div id="commentBlockId" class="col-xs-8 col-md-11">
+                            <div id="commentedUser" class="row">
+                                <a href="#/user/friend/{{comment.commentedUser._id}}">
+                                    <h4><strong>{{comment.commentedUser.firstName}}</strong></h4>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div id="commentValueID" class="col-xs-7 col-md-9">
+                                    {{comment.value}}
+                                </div>
+                                <div ng-show="comment.commentedUser._id === currentUser._id" class="col-xs-1 col-md-1">
+                                    <button id="deleteButton" ng-click="model.deleteComment(comment)"
+                                            class="btn btn-block btn-danger pull-right">Delete
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h5>{{model.convertDate(comment.commentedOn)}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="photos" class="tab-pane fade">
+                    <div id="photosList" class="col-xs-12 col-sm-6 col-md-4" ng-repeat="img in model.photosURL">
+                        <div class="thumbnail">
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <image id="searchImage" ng-src="{{img}}"></image>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

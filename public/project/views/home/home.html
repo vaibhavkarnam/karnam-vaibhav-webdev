@@ -1,0 +1,118 @@
+
+<!-- Top menu -->
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="index.html">Find Your House</a>-->
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+							<span class="li-text">
+                                <a href="#!/login" id ="homelogin"><strong>LOGIN</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                       <a href="#!/register" id ="homereg"><strong>REGISTER</strong></a>
+							</span>
+
+                </li>
+                <li>
+                    <span class="li-text">
+                         <a href="#!/contact" id ="contactus"><strong>CONTACT</strong></a>
+							</span>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Top content -->
+<div class="top-content register">
+
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>FIND YOUR HOUSE</strong> </h1>
+                    <div class="description">
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 hidden-xs phone">
+                <div class="row">
+                    <div class="rc-white-background hidden-xs">
+                        <div class="text-center rc-font-color-black">
+                            <!--<a class="rc-font-color-black">-->
+                            <h3>
+                                Explore exciting options to rent your house
+                            </h3>
+                            <div class="rc-deal-image visible-lg visible-md">
+                            <img src="./assets/img/backgrounds/seller.jpg">
+                            </div>
+                            <!--Designed by freepik.com-->
+                            <!--</a>-->
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="rc-white-background hidden-xs">
+                            <div class="text-center rc-font-color-black">
+                                <!--<a class="rc-font-color-black">-->
+                                <h3>
+                                    Find your Dream house now!
+                                </h3>
+                                <div class="rc-deal-image visible-lg visible-md">
+                                <img src="./assets/img/backgrounds/buyer.jpg">
+                                </div>
+                                <!--Designed by freepik.com-->
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3 id="loginh3">Search Property</h3>
+                            <p id="loginp">Fill in the address to get instant details:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="" method="post" class="registration-form">
+                            <div class="form-group">
+                                <label class="sr-only" >Start Typing your address</label>
+                                <input class="form-username form-control" vs-google-autocomplete="options"
+                                       ng-model="address"
+                                       name="address"
+                                       type="text"
+                                       placeholder="1 Parker Hill Boston MA"></div>
+
+                            <a ng-click="model.searchAddress(address)" class="btn btn-primary btn-block"> Get Details!</a>
+                        </form>
+                        <h4>{{model.error}}</h4>
+                    </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+

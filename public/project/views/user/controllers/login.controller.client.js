@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WAM')
+        .module('fyh')
         .controller('loginController', loginController);
 
     function loginController($location, userService) {
@@ -27,7 +27,7 @@
 
                         if(found != null ){
                             //model.message = "Welcome " + username;
-                            $location.url('/user/profile');
+                            $location.url('/profile/edit');
                         }
 
                     },
