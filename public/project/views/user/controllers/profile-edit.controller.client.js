@@ -324,30 +324,39 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
                 //    console.log(response);
 
-                model.data = response.root.children[2].children[0].children[0];
-                console.log(model.data);
+                model.data = response.root.children;
 
-                model.Street =  response.root.children[2].children[0].children[0].children[2].children[0].content;
-                model.zipcode =  response.root.children[2].children[0].children[0].children[2].children[1].content;
-                model.city =  response.root.children[2].children[0].children[0].children[2].children[2].content;
+                if(model.data.length >= 2){
+                    model.Street =  response.root.children[2].children[0].children[0].children[2].children[0].content;
+                    model.zipcode =  response.root.children[2].children[0].children[0].children[2].children[1].content;
+                    model.city =  response.root.children[2].children[0].children[0].children[2].children[2].content;
 
-                model.state =  response.root.children[2].children[0].children[0].children[2].children[3].content;
+                    model.state =  response.root.children[2].children[0].children[0].children[2].children[3].content;
 
-                model.zpid = response.root.children[2].children[0].children[0].children[0].content;
-                console.log(model.zpid);
+                    model.zpid = response.root.children[2].children[0].children[0].children[0].content;
+                    console.log(model.zpid);
 
-                model.details =  response.root.children[2].children[0].children[0].children[1].children[0].content;
-                model.map =  response.root.children[2].children[0].children[0].children[1].children[1].content;
-                model.comparables =  response.root.children[2].children[0].children[0].children[1].children[2].content;
-
-
-                model.rentestimate =  response.root.children[2].children[0].children[0].children[3].children[0].content;
-                model.updated =  response.root.children[2].children[0].children[0].children[3].children[1].content;
+                    model.details =  response.root.children[2].children[0].children[0].children[1].children[0].content;
+                    model.map =  response.root.children[2].children[0].children[0].children[1].children[1].content;
+                    model.comparables =  response.root.children[2].children[0].children[0].children[1].children[2].content;
 
 
+                    model.rentestimate =  response.root.children[2].children[0].children[0].children[3].children[0].content;
+                    model.updated =  response.root.children[2].children[0].children[0].children[3].children[1].content;
 
 
-                $location.url('/searchresults/'+model.zpid);
+
+
+                    $location.url('/searchresults/'+model.zpid);
+
+                }
+                // console.log(model.data);
+                else
+                {
+                    model.error = "Could not find details for this house." +
+                        "Please enter a different address";
+                }
+
 
             });
 

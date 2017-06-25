@@ -329,7 +329,7 @@
 }
 
 #commentValue {
-    width: 94%;
+    width: 100%;
 }
 
 #venueBodyThumbnail {
@@ -366,7 +366,6 @@
 }
 
 #commentValueID {
-    margin-left: 10px;
     margin-top: -4px;
     padding-right: 0px;
     padding-left: 0px;

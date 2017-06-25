@@ -48,6 +48,9 @@ strong { font-weight: 500; }
 	color: black;
 }
 
+#Contactstext{
+	text-align: left;
+}
 
 a, a:hover, a:focus {
 	color: #19b9e7;

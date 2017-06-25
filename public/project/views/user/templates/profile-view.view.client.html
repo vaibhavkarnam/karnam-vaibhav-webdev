@@ -77,7 +77,8 @@
             <div class="thumbnail">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3">
-                        <img id="venueImage" ng-src="{{model.user.displayPicture}}" class="img-rounded">
+                        <img ng-show="model.user.displayPicture" id="venueImage" ng-src="{{model.user.displayPicture}}" class="img-rounded">
+                        <img ng-hide="model.user.displayPicture" src="./assets/img/backgrounds/user.png" class="img-rounded">
                     </div>
                     <div id="profileDetails" class="col-xs-12 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1">
                         <h2>{{model.user.firstName}} {{model.user.lastName}}</h2>
@@ -243,7 +244,7 @@
                                            name="friendName"
                                            type="text"
                                            required
-                                           placeholder="Friend's username">
+                                           placeholder="Enter username">
                                 </div>
                                 <div class="col-md-4">
                                     <button type="submit"
@@ -260,7 +261,7 @@
                     <div>
                         <h4>Displaying result for your Contact search</h4>
                     </div>
-                    <div class="row">
+                    <div id ="Contactstext" class="row">
                         <a href="#!/profile/friend/{{model.friendSearch._id}}">
                             <div class="col-xs-4 col-md-1">
                                 <image id="commentImage" ng-src="{{model.friendSearch.displayPicture}}"></image>
@@ -312,10 +313,10 @@
                             </a>
                         </div>
                         <div class="row">
-                            <button ng-click="model.requestAccept(item._id)" class="btn btn-primary requestButton">
+                            <button ng-click="model.requestAccept(item._id)" class="btn btn-block btn-primary requestButton">
                                 Accept
                             </button>
-                            <button ng-click="model.requestDeny(item._id)" class="btn btn-default requestButton">
+                            <button ng-click="model.requestDeny(item._id)" class="btn btn-block btn-danger requestButton">
                                 Reject
                             </button>
                         </div>

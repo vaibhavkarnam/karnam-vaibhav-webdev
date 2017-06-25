@@ -40,7 +40,7 @@
         <div id="editprofile" class="col-xs-12 col-sm-3 col-md-3">
             <div class="thumbnail">
                 <div ng-show="{{model.user.displayPicture}}"><img id="searchImage" ng-src="{{model.user.displayPicture}}" class="img-rounded"></div>
-                <div ng-show="{{model.user.displayPicture}}"><img src="./assets/img/backgrounds/user.png"></div>
+                <div ng-hide="{{model.user.displayPicture}}"><img src="./assets/img/backgrounds/user.png"></div>
                 <form action="/api/project/uploads" method="post" enctype="multipart/form-data">
                     <input required name="myImgFile" type="file" class="form-control"
                            placeholder="Add a display picture"/>

@@ -69,15 +69,15 @@ app.put("/api/project/deleteNote", deleteNote);
 
 var multer = require('multer');
 var upload = multer({dest: __dirname + '/../../public/uploads'});
-app.post("/api/project/uploads", upload.single('myImgFile'), uploadImage);
+app.post("/project", upload.single('myImgFile'), uploadImage);
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 function deleteImage(req, res) {
     var userId = req.params.userId;
-    var url = "images/defaultDisplayPic.jpg";
+  //  var url = "images/defaultDisplayPic.jpg";
     userProjectModel
-        .uploadImage(userId, url)
+        .uploadImage(userId)
         .then(
             function (stats) {
                 res.send(stats);

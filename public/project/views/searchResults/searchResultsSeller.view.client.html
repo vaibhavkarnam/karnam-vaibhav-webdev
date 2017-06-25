@@ -36,7 +36,7 @@
 
 <div id="searchResultPage" class="container-fluid">
     <div class="thumbnail">
-        <div class="row">
+        <div class="row container-fluid">
             <div class="col-xs-12 col-md-3">
                 <div ng-hide="!model.imgURL"><image id="venueImage" ng-src="{{model.imgURL}}" class="img-rounded"></image></div>
                 <div ng-hide="model.imgURL"> <img src="./assets/img/backgrounds/buyer.jpg"></div>
@@ -62,8 +62,10 @@
             </div>
         </div>
     </div>
-    <div class="thumbnail" id="venueBodyThumbnail">
-        <div id="tabs" class="container-fluid">
+
+<div class="container-fluid">
+    <div class="thumbnail container-fluid" id="venueBodyThumbnail">
+        <div id="tabs">
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" data-target="#tips"><h5>Tips/Comments</h5></a></li>
                 <li><a data-toggle="pill" data-target="#photos"><h5>Photos</h5></a></li>
@@ -83,7 +85,7 @@
                                       ng-model="commentValue"
                                       required class="form-control">
                             </textarea>
-                            <button ng-click="model.addComment(commentValue)" class="btn btn-primary">Done</button>
+                            <button ng-click="model.addComment(commentValue)" class="btn btn-block btn-primary">Done</button>
                         </form>
                     </div>
                     <div ng-hide="model.cmters.length === 0" id="usersCommentsHead" class="row">
@@ -109,7 +111,7 @@
                                 </div>
                                 <div ng-show="comment.commentedUser._id === currentUser._id" class="col-xs-1 col-md-1">
                                     <button id="deleteButton" ng-click="model.deleteComment(comment)"
-                                            class="btn btn-primary pull-right">Delete
+                                            class="btn btn-block btn-danger pull-right">Delete
                                     </button>
                                 </div>
                             </div>

@@ -72,8 +72,8 @@
         init();
 
         function requestAccept() {
-            console.log(friendId);
-            console.log(currentUser._id);
+           // console.log(friendId);
+           // console.log(currentUser._id);
             userService
                 .removeFromFriendRequest(currentUser._id, friendId)
                 .then(
