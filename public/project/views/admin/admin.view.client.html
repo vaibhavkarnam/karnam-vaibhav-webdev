@@ -1,20 +1,49 @@
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+							<span class="li-text">
+                                <a href="#!/profile/edit"> <strong>PROFILE</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                                <a ng-click="model.logout()"> <strong>LOG OUT</strong></a>
+							</span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container-fluid">
     <div class="thumbnail">
-        <h3>Welcome Admin, </h3>
+        <h3>Admin Page</h3>
         <div id="tabs" class="container">
             <ul class="nav nav-pills">
                 <li class="active"><a data-toggle="pill" data-target="#user"><h5>User Details</h5></a></li>
-                <li><a data-toggle="pill" data-target="#venue"><h5>Venue Details</h5></a></li>
+                <li><a data-toggle="pill" data-target="#venue"><h5>House Details</h5></a></li>
                 <li><a data-toggle="pill" data-target="#newuser"><h5>New User</h5></a></li>
             </ul>
             <div class="tab-content">
                 <div id="user" class="tab-pane fade in active">
                     <div id="adminUserList">
                         <div ng-show="model.users.length == 0">
-                            <h3>No Users have Signed Up Yet.. </h3>
+                            <h3>No Users have Signed Up</h3>
                         </div>
                         <div ng-hide="model.users.length == 0">
-                            <h3>Displaying {{model.users.length}} users</h3>
+                            <h3>Showing {{model.users.length}} users</h3>
                         </div>
                         <div id="adminUserSection" ng-repeat="user in model.users">
                             <div class="row">
@@ -42,11 +71,11 @@
                                     </form>
                                     <div>
                                         <button id="deleteAdminButton" ng-click="model.deleteUser(user)"
-                                                class="btn btn-primary">Delete User
+                                                class="btn btn-block btn-danger">Delete User
                                         </button>
                                     </div>
                                     <button id="editAdminButton" ng-click="model.updateUser(user)"
-                                            class="btn btn-success">Update User
+                                            class="btn btn-block btn-success">Update User
                                     </button>
 
 
@@ -59,10 +88,10 @@
                 <div id="venue" class="tab-pane fade">
                     <div id="adminVenueList">
                         <div ng-show="model.venues.length == 0">
-                            <h3>No Venues Have Been Updated Yet.. </h3>
+                            <h3>No Houses Have Been Listed Yet.. </h3>
                         </div>
                         <div ng-hide="model.venues.length == 0">
-                            <h3>Displaying {{model.venues.length}} Venues</h3>
+                            <h3>Showing {{model.venues.length}} Houses</h3>
                         </div>
                         <div id="adminVenueSection" ng-repeat="venue in model.venues">
                             <div class="row">
@@ -76,7 +105,7 @@
                                     </div>
                                     <div class="col-xs-8 col-md-3">
                                         <button id="deleteVenueAdminButton" ng-click="model.deleteVenue(venue.venueId)"
-                                                class="btn btn-primary">Delete Venue
+                                                class="btn btn-block btn-danger">Delete House
                                         </button>
                                     </div>
                                 </div>
@@ -88,7 +117,7 @@
                     <div ng-show="model.error"
                          class="errorAlert alert alert-danger"
                          role="alert">
-                        <p><strong>Error !! </strong> {{model.error}}</p>
+                        <p><strong></strong> {{model.error}}</p>
                     </div>
                     <form>
                         <div class="form-group">
@@ -134,7 +163,7 @@
                         </div>
                         <button type="submit"
                                 ng-click="model.register(user)"
-                                class="btn btn-block btn-success">Create
+                                class="btn btn-block btn-primary">Create User
                         </button>
                     </form>
                 </div>

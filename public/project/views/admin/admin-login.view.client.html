@@ -1,4 +1,27 @@
-
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="top-navbar-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+                    <span class="li-text">
+                    <a href="#!/profile/view" class="navbar-link">
+                       <strong>BACK</strong>
+                    </a>
+                    </span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
         <div class="top-content login">
         	
             <div class="inner-bg">
@@ -15,7 +38,7 @@
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div id ="loginform" class="form-top-left">
-                        			<h3 id="loginh3" >Login to our site</h3>
+                        			<h3 id="loginh3" >Login to our site with Admin access</h3>
                             		<p id="loginp" >Enter your username and password to log on:</p>
                         		</div>
                         		<div class="form-top-right">
@@ -32,32 +55,13 @@
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" ng-model="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
 			                        </div>
-									<a ng-click="model.login(username, password)"
+									<a ng-click="model.adminLogin(username, password)"
 									   class="btn btn-primary btn-block">Login</a>
 			                    </form>
 		                    </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 ">
-                        	<h3 id="loginwith" >...or login with:</h3>
-                        	<div class="social-login-buttons">
-	                        	<a class="btn btn-block btn-success" href="/auth/project/facebook">
-	                        		<i class="fa fa-facebook"></i> Facebook
-	                        	</a>
-	                        	<a class="btn btn-block btn-danger" href="/auth/project/google">
-	                        		<i class="fa fa-google-plus"></i> Google
-	                        	</a>
-                        	</div>
-							<div class="col-sm-6 col-sm-offset-3 ">
-								<h3 id="notuser" >not a user? register:</h3>
-								<div class="social-login-buttons">
-									<a href="#!/register" class="btn btn-block btn-info" >
-										<i ></i> Register
-									</a>
-								</div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             

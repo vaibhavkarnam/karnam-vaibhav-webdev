@@ -10,6 +10,7 @@
         model.adminLogin = adminLogin;
         model.register = register;
         model.updateUser = updateUser;
+        model.logout = logout;
         function updateUser(user) {
             userService
                 .updateUser(user._id, user)
@@ -102,6 +103,13 @@
                 )
         }
 
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
 
         function deleteUser(user) {
             var confirmation = confirm("Are you sure to delete this user ?");
