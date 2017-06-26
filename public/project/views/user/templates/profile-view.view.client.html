@@ -116,7 +116,7 @@
                 </li>
                 </ul>
             </div>
-            <div ng-show="model.user.roles.indexOf('SELLER') =-1">
+            <div ng-show="model.user.roles.indexOf('SELLER') <-1">
                 <ul class="nav nav-pills nav-justified">
                     <li class="active"><a data-toggle="pill" data-target="#timeline">Posts</a></li>
                     <li><a data-toggle="pill" data-target="#favorites">Liked Houses({{model.user.favorites.length}})</a></li>
@@ -179,6 +179,8 @@
             </div>
             <div id="favorites" class="tab-pane fade">
                 <div>
+                    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                     <form>
                         <div class="form-top">
                         <div class="form-top-left">
@@ -264,8 +266,10 @@
                                             ng-click="model.findFriend(friendName)"
                                             class="btn btn-block btn-success">Find Contacts
                                     </button>
+                                    <a href="#!/profile/view/seller"
+                                       class="btn btn-block btn-primary">Seller List
+                                    </a>
                                 </div>
-
                             </div>
                         </div>
                     </form>

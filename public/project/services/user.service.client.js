@@ -27,8 +27,8 @@ function userService($http) {
         deleteImage: deleteImage,
         addNote:addNote,
         deleteNote:deleteNote,
-        getUsers:getUsers
-
+        getUsers:getUsers,
+        findUserBySellerId:findUserBySellerId
 
 };
 
@@ -194,6 +194,15 @@ function userService($http) {
         var url = "/api/user";
         return $http.get(url)
             .then(function (response) {
+                return response.data;
+            });
+    }
+    function findUserBySellerId() {
+       // console.log("serviec");
+        var url = "/api/project/seller";
+        return $http.get(url)
+            .then(function (response) {
+              //  console.log(response.data);
                 return response.data;
             });
     }

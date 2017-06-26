@@ -18,7 +18,6 @@
                 model.error="password is required";
                 return;
             }
-
             userService
             //.findUserbyCredentials(username, password)
                 .login(username, password)

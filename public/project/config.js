@@ -51,6 +51,14 @@
                     currentUser: checkLoggedIn
                 }
             })
+            .when('/profile/view/seller', {
+                templateUrl: 'views/searchResults/templates/seller-list.view.client.html',
+                controller: 'sellerController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
             .when('/profile/friend/:id', {
                 templateUrl: 'views/user/templates/profileVisit.view.client.html',
                 controller: 'profileControllerVisit',

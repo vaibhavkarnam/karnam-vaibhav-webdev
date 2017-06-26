@@ -127,11 +127,11 @@
             resultsService
                 .searchResults(venueId)
                 .then(function (response) {
-                    console.log(response);
+                  //  console.log(response);
 
                     model.name = response.zestimate.response.address.street;
 
-                    console.log(model.name);
+                 //   console.log(model.name);
                     model.zipcode = response.zestimate.response.address.zipcode
 
                     $location.url('/searchresultsguest/'+model.venueId);

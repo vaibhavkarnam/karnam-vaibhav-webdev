@@ -42,6 +42,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
+							<div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+							<div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                         	<div class="form-top">
                         		<div id ="loginform" class="form-top-left">
                         			<h3 id="loginh3" >Login to our site</h3>
@@ -54,12 +56,12 @@
                             <div class="form-bottom">
 			                    <form role="form" action="" method="post" class="login-form">
 			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" ng-model="username" name="form-username" placeholder="Username" class="form-username form-control" id="form-username">
+			                    		<label class="sr-only" >Username</label>
+			                        	<input type="text" ng-model="username" name="form-username" placeholder="Username" class="form-control">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" ng-model="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+			                        	<label class="sr-only">Password</label>
+			                        	<input type="password" ng-model="password" name="form-password" placeholder="Password" class="form-control">
 			                        </div>
 									<a ng-click="model.login(username, password)"
 									   class="btn btn-primary btn-block">Login</a>

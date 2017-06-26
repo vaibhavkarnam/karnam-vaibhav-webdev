@@ -23,11 +23,11 @@
 
         function searchAddress(street1,street2,street3,city,state) {
 
-            console.log(street1);
-            console.log(street2);
-            console.log(street3);
-            console.log(city);
-            console.log(state);
+          //  console.log(street1);
+          //  console.log(street2);
+          //  console.log(street3);
+          //  console.log(city);
+          //  console.log(state);
 
 
 
@@ -92,8 +92,8 @@
 
 
         function deleteVenue(venueId) {
-            console.log("venue Id");
-            console.log(venueId);
+            //console.log("venue Id");
+          //  console.log(venueId);
             return $http.delete("/api/project/venue/" + venueId);
         }
 

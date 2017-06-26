@@ -37,9 +37,9 @@
                     {
                         if(model.src[i].name === "address")
                         {
-                         console.log(model.src[i].name);
+                      //   console.log(model.src[i].name);
                             model.Street =  model.src[i].children[0].content;
-                            console.log(model.Street);
+                         //   console.log(model.Street);
                             model.zipcode =  model.src[i].children[1].content;
                              model.city =  model.src[i].children[2].content;
                              model.state =  model.src[i].children[3].content;
@@ -140,11 +140,11 @@
             resultsService
                 .searchResults(venueId)
                 .then(function (response) {
-                    console.log(response);
+               //     console.log(response);
 
                     model.name = response.zestimate.response.address.street;
 
-                    console.log(model.name);
+                  //  console.log(model.name);
                     model.zipcode = response.zestimate.response.address.zipcode
 
                     $location.url('/searchresults/'+model.venueId);

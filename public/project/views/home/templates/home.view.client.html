@@ -74,6 +74,8 @@
                     </div>
                 </div>
                 <div class="col-sm-5 form-box">
+                    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                     <div class="form-top">
                         <div class="form-top-left">
                             <h3 id="loginh3">Search Property</h3>

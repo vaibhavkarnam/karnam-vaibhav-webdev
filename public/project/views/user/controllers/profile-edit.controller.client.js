@@ -30,7 +30,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
             .findUserById(model.userId)
             .then(function (response) {
                 model.user = response;
-                console.log(model.user);
+              //  console.log(model.user);
                 model.fRequests = [];
                 for (var i in model.user.friendRequest) {
                     fetchUserDetails(model.user.friendRequest[i]);
@@ -44,7 +44,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                     fetchNoteDetails(model.user.notes[i]);
                 }
 
-                console.log(model.fRequests);
+              //  console.log(model.fRequests);
             });
 
         // model.user = angular.copy(userService.findUserbyId(model.userId));
@@ -186,13 +186,13 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
 
     function requestAccept(friendId) {
-        console.log(model.userId);
-        console.log(friendId);
+      //  console.log(model.userId);
+     //   console.log(friendId);
         userService
             .removeFromFriendRequest(model.userId, friendId)
             .then(
                 function (response) {
-                    console.log(response);
+                 //   console.log(response);
                     userService
                         .addFriend(model.userId, friendId)
                         .then(
@@ -299,7 +299,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
             .then(
                 function (response) {
                     model.friendSearch = response;
-                    console.log(response);
+                //    console.log(response);
                 },
                 function (error) {
                     model.friendSearch = null;
@@ -308,6 +308,10 @@ function profileController($routeParams, $route, $location, currentUser, userSer
     }
 
     function searchAddress(address) {
+        if(address === null || typeof address==='undefined'){
+            model.error="address is required";
+            return;
+        }
        // console.log(address);
         var street = address.split(",")[0];
         var street1 =street.split(" ")[0];
@@ -336,7 +340,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                     model.state =  response.root.children[2].children[0].children[0].children[2].children[3].content;
 
                     model.zpid = response.root.children[2].children[0].children[0].children[0].content;
-                    console.log(model.zpid);
+              //      console.log(model.zpid);
 
                     model.details =  response.root.children[2].children[0].children[0].children[1].children[0].content;
                     model.map =  response.root.children[2].children[0].children[0].children[1].children[1].content;
@@ -368,7 +372,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
 
     function searchAddressZestimate(address) {
-        console.log(address);
+     //   console.log(address);
        var street = address.split(",")[0];
        var street1 =street.split(" ")[0];
         var street2 =street.split(" ")[1];
@@ -384,10 +388,10 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                 //  data = data.substring(0,data.length - 1);
                 // data =
 
-                    console.log(response);
+              //      console.log(response);
 
                 model.data = response.root.children[2].children[0].children[0];
-                console.log(model.data);
+           //     console.log(model.data);
 
                 model.Street =  response.root.children[2].children[0].children[0].children[2].children[0].content;
                 model.zipcode =  response.root.children[2].children[0].children[0].children[2].children[1].content;
@@ -396,7 +400,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                 model.state =  response.root.children[2].children[0].children[0].children[2].children[3].content;
 
                 model.zpid = response.root.children[2].children[0].children[0].children[0].content;
-                console.log(model.zpid);
+             //   console.log(model.zpid);
 
                 model.details =  response.root.children[2].children[0].children[0].children[1].children[0].content;
                 model.map =  response.root.children[2].children[0].children[0].children[1].children[1].content;

@@ -26,11 +26,11 @@
             resultsService
                 .searchResults(zpid)
                 .then(function (response) {
-                    console.log(response.data);
+                 //   console.log(response.data);
 
                     model.name = response.data.zestimate.response.address.street;
 
-                    console.log(model.name);
+                  //  console.log(model.name);
                     model.zipcode = response.data.zestimate.response.address.zipcode;
                 })
         }

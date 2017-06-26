@@ -42,7 +42,7 @@
                      model.state =  response.root.children[2].children[0].children[0].children[2].children[3].content;
 
                      model.zpid = response.root.children[2].children[0].children[0].children[0].content;
-                     console.log(model.zpid);
+                 //    console.log(model.zpid);
 
                      model.details =  response.root.children[2].children[0].children[0].children[1].children[0].content;
                      model.map =  response.root.children[2].children[0].children[0].children[1].children[1].content;

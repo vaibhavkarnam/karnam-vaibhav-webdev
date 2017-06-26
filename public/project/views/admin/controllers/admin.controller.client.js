@@ -96,7 +96,7 @@
                 .findVenueById(venueId)
                 .then(
                     function (response) {
-                        console.log(response);
+                     //   console.log(response);
                         var venueDetails = response.data;
                         model.venues.push(venueDetails);
                     }

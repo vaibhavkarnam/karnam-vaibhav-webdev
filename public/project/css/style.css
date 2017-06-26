@@ -19,6 +19,10 @@ select.form-control{
     color: black;
 }
 
+#sellerlist{
+    background: white;
+}
+
 #img{
     padding: 5px;
 }

@@ -66,6 +66,7 @@ app.put("/api/project/removeFromFriendRequest", removeFromFriendRequest);
 app.put("/api/project/deleteImage/:userId", deleteImage);
 app.put("/api/project/addNote", addNote);
 app.put("/api/project/deleteNote", deleteNote);
+app.get("/api/project/seller", findUserBySellerId);
 
 var multer = require('multer');
 var upload = multer({dest: __dirname + '/../../public/uploads'});
@@ -389,6 +390,16 @@ function findUserById(req, res) {
         });
 }
 
+function findUserBySellerId(req, res) {
+   // var userId = req.params['userId'];
+    console.log("servivv");
+    userProjectModel
+        .getSellers()
+        .then(function (users) {
+            console.log(users);
+            res.json(users);
+        });
+}
 
 
 function serializeUser(user, done) {

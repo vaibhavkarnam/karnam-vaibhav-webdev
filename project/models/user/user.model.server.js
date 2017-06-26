@@ -24,6 +24,7 @@ userProjectModel.uploadImage = uploadImage;
 userProjectModel.addNote = addNote;
 userProjectModel.deleteNote = deleteNote;
 userProjectModel.getUsers =getUsers;
+userProjectModel.getSellers =getSellers;
 
 module.exports = userProjectModel;
 
@@ -41,6 +42,14 @@ function uploadImage(userId, url) {
 
 function getUsers() {
     return userProjectModel.find();
+}
+
+
+function getSellers() {
+   // console.log("inside model");
+    return userProjectModel.find(
+        {roles: 'SELLER'}
+    );
 }
 
 function addNote(userId, note) {

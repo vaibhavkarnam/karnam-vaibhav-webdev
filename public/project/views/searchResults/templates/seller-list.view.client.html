@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse navbar-no-bg register" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+							<span class="li-text">
+                                <a href="#!/profile/edit"> <strong>PROFILE</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                                <a ng-click="model.logout()"> <strong>LOG OUT</strong></a>
+							</span>
+                </li>
+                <li>
+                    <span class="li-text">
+                    <a href="#!/profile/view" class="navbar-link">
+                       <strong>BACK</strong>
+                    </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="sellerlist" class="container-fluid">
+    <div id="commentsList" class="row" ng-repeat="seller in model.sellers | orderBy: '-createdOn'">
+        <div class="col-xs-4 col-md-1">
+            <image ng-show="seller.displayPicture" href="#!/profile/friend/{{note.writerDetails._id}}" id="commentImage"
+                   ng-src="{{seller.displayPicture}}"></image>
+        </div>
+        <div class="col-xs-7 col-md-11">
+            <div id="postedBy" class="row">
+                <a href="#!/profile/friend/{{seller._id}}">
+                    <h4><strong>{{seller.firstName}} {{seller.lastName}}</strong></h4>
+                </a>
+            </div>
+            <div class="row">
+                <h5>{{model.convertDate(note.createdOn)}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
