@@ -214,18 +214,44 @@
                     <h4>{{model.error}}</h4>
                     <div class="favoritesCount" ng-show="model.user.favorites.length === 0">
                         <strong><h4>
+                            <div ng-show="model.currentUser.roles.indexOf('SELLER') > -1">
                             You haven't Listed any houses. Search locations to add it to your
                             List.
+                            </div>
+                            <div ng-show="model.currentUser.roles.indexOf('BUYER') > -1">
+                                You haven't Followed any house. Search locations to add it to your
+                                List.
+                            </div>
+                            <div ng-show="model.user.roles.indexOf('BUYER') <= -1 && model.user.roles.indexOf('SELLER') <= -1">
+                                You haven't Followed any house. Search locations to add it to your
+                                List.
+                            </div>
                         </h4></strong>
                     </div>
                     <div class="favoritesCount" ng-show="model.user.favorites.length == 1">
                         <strong><h4>
-                            You have Listed 1 location.
+                            <div ng-show="model.currentUser.roles.indexOf('SELLER') > -1">
+                                You have Listed 1 location.
+                            </div>
+                            <div ng-show="model.currentUser.roles.indexOf('BUYER') > -1">
+                                You are Following 1 location.
+                            </div>
+                            <div ng-show="model.user.roles.indexOf('BUYER') <= -1 && model.user.roles.indexOf('SELLER') <= -1">
+                                You are Following 1 location.
+                            </div>
                         </h4></strong>
                     </div>
                     <div class="favoritesCount" ng-show="model.user.favorites.length > 1">
                         <strong><h4>
-                            You have marked {{model.user.favorites.length}} locations as Listed.
+                            <div ng-show="model.currentUser.roles.indexOf('SELLER') > -1">
+                                You have marked {{model.user.favorites.length}} locations as Listed.
+                            </div>
+                            <div ng-show="model.currentUser.roles.indexOf('BUYER') > -1">
+                                You have marked {{model.user.favorites.length}} locations as Following.
+                            </div>
+                            <div ng-show="model.user.roles.indexOf('BUYER') <= -1 && model.user.roles.indexOf('SELLER') <= -1">
+                                You have marked {{model.user.favorites.length}} locations as Following.
+                            </div>
                         </h4></strong>
                     </div>
                 </div>

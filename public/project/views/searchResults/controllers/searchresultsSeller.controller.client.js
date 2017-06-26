@@ -151,7 +151,7 @@
                    // console.log(model.name);
                     model.zipcode = response.zestimate.response.address.zipcode
 
-                    $location.url('/searchresults/'+model.venueId);
+                    $location.url('/searchResultsSeller/'+model.venueId);
                 })
         }
 
@@ -190,19 +190,19 @@
                     function (error) {
                         model.removeFavoriteStatus = false;
                         $route.reload();
-                        $location.url("/searchresults/" + model.venueId);
+                        $location.url("/searchResultsSeller/" + model.venueId);
                     }
                 )
                 .then(
                     function (response) {
                         model.removeFavoriteStatus = true;
                         $route.reload();
-                        $location.url("/searchresults/" + model.venueId);
+                        $location.url("/searchResultsSeller/" + model.venueId);
                     },
                     function (error) {
                         model.removeFavoriteStatus = false;
                         $route.reload();
-                        $location.url("/searchresults/" + model.venueId);
+                        $location.url("/searchResultsSeller/" + model.venueId);
                     }
                 );
         }
@@ -225,19 +225,19 @@
                         function (error) {
                             model.addFavoriteStatus = false;
                             $route.reload();
-                            $location.url("/serachresults/" + model.venueId);
+                            $location.url("/searchResultsSeller/" + model.venueId);
                         }
                     )
                     .then(
                         function (response) {
                             model.addFavoriteStatus = true;
                             $route.reload();
-                            $location.url("/searchresults/" + model.venueId);
+                            $location.url("/searchResultsSeller/" + model.venueId);
                         },
                         function (error) {
                             model.addFavoriteStatus = false;
                             $route.reload();
-                            $location.url("/searchresults/" + model.venueId);
+                            $location.url("/searchResultsSeller/" + model.venueId);
                         }
                     );
             } else {
@@ -258,12 +258,12 @@
                         function (response) {
                             model.addCommentStatus = true;
                             $route.reload();
-                            $location.url("/searchresults/" + model.venueId);
+                            $location.url("/searchResultsSeller/" + model.venueId);
                         },
                         function (error) {
                             model.addCommentStatus = false;
                             $route.reload();
-                            $location.url("/searchresults/" + model.venueId);
+                            $location.url("/searchResultsSeller/" + model.venueId);
                         }
                     );
             } else {
@@ -279,12 +279,12 @@
                     function (response) {
                         model.deleteCommentStatus = true;
                         $route.reload();
-                        $location.url("/searchresults/" + model.venueId);
+                        $location.url("/searchResultsSeller/" + model.venueId);
                     },
                     function (error) {
                         model.deleteCommentStatus = false;
                         $route.reload();
-                        $location.url("/searchresults/" + model.venueId);
+                        $location.url("/searchResultsSeller/" + model.venueId);
                     }
                 );
         }
