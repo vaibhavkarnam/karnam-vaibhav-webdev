@@ -114,7 +114,7 @@
                 </li>
                 </ul>
             </div>
-            <div ng-show="model.user.roles.indexOf('BUYER') <= -1">
+            <div ng-show="model.user.roles.indexOf('BUYER') <= -1 && model.user.roles.indexOf('SELLER') <= -1">
                 <ul class="nav nav-pills nav-justified">
                     <li class="active"><a data-toggle="pill" data-target="#timeline">Posts</a></li>
                     <li><a data-toggle="pill" data-target="#favorites">Followed Houses({{model.user.favorites.length}})</a></li>
@@ -204,6 +204,9 @@
                                 <div ng-show="model.currentUser.roles.indexOf('SELLER') > -1">
                                 <a ng-click="model.searchAddressZestimate(address)" class="btn btn-primary btn-block">Get Rent Estimate</a>
                                 </div>
+                            <div ng-show="model.user.roles.indexOf('BUYER') <= -1 && model.user.roles.indexOf('SELLER') <= -1">
+                                <a ng-click="model.searchAddress(address)" class="btn btn-primary btn-block">Find Details</a>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -296,7 +299,7 @@
                     </div>
                     <div class="row" ng-repeat="item in model.frnds">
                         <div class="col-xs-4 col-md-1">
-                            <a href="#/user/friend/{{item._id}}">
+                            <a href="#!/profile/friend/{{item._id}}">
                                 <image id="commentImage" ng-src="{{item.displayPicture}}"></image>
                             </a>
                         </div>

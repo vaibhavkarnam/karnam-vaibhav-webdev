@@ -250,11 +250,11 @@ function profileController($routeParams, $route, $location, currentUser, userSer
             .then(
                 function (response) {
                     $location.url("/main");
-                    $rootScope.currentUser = null
+                    model.currentUser = null
                 },
                 function () {
                     $location.url("/main");
-                    $rootScope.currentUser = null
+                    model.currentUser = null
                 }
             );
 
@@ -268,11 +268,11 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                 .then(
                     function (response) {
                         $location.url("/main");
-                        $rootScope.currentUser = null
+                        model.currentUser = null
                     },
                     function (error) {
                         model.error = "Unable to remove user";
-                        $rootScope.currentUser = null
+                        model.currentUser = null
                     }
                 );
         }
@@ -372,6 +372,10 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
 
     function searchAddressZestimate(address) {
+        if(address === null || typeof address==='undefined'){
+            model.error="address is required";
+            return;
+        }
      //   console.log(address);
        var street = address.split(",")[0];
        var street1 =street.split(" ")[0];

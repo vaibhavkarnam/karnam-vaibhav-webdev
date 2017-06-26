@@ -5,7 +5,7 @@
 
 
 
-    function searchresultsGuestController($routeParams, $route, resultsService, $location, VenueService) {
+    function searchresultsGuestController($routeParams, $route, resultsService, $location, HouseService) {
         var model = this;
         model.searchProperty = searchProperty;
         model.venueId = $routeParams.zpid;
@@ -90,8 +90,8 @@
                         }
         });
 
-            VenueService
-                .findVenueById(model.venueId)
+            HouseService
+                .findHouseById(model.venueId)
                 .then(
                     function (response) {
                         var venue = response.data;

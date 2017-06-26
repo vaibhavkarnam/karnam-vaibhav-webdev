@@ -2,44 +2,44 @@ var mongoose = require("mongoose");
 var VenueSchemaProject = require("./house.schema.server");
 var venueModelProject = mongoose.model("venueModelProject", VenueSchemaProject);
 
-venueModelProject.createVenue = createVenue;
-venueModelProject.findVenueById = findVenueById;
-venueModelProject.findVenueByVenueId = findVenueByVenueId;
-venueModelProject.updateVenue = updateVenue;
+venueModelProject.createHouse = createHouse;
+venueModelProject.findHouseById = findHouseById;
+venueModelProject.findHouseByHouseId = findHouseByHouseId;
+venueModelProject.updateHouse = updateHouse;
 venueModelProject.addComment = addComment;
 venueModelProject.deleteComment = deleteComment;
 venueModelProject.addFavoriteOf = addFavoriteOf;
 venueModelProject.removeFavoriteOf = removeFavoriteOf;
 venueModelProject.isFavoriteOf = isFavoriteOf;
-venueModelProject.deleteVenue = deleteVenue;
-venueModelProject.getAllVenue = getAllVenue;
+venueModelProject.deleteHouse = deleteHouse;
+venueModelProject.getAllHouse = getAllHouse;
 
 
     module.exports = venueModelProject;
 
-    function deleteVenue(venueId) {
+    function deleteHouse(venueId) {
         return venueModelProject.remove({"venueId": venueId});
     }
 
-    function getAllVenue() {
+    function getAllHouse() {
         return venueModelProject.find();
     }
 
-    function findVenueByVenueId(venueId) {
+    function findHouseByHouseId(venueId) {
         console.log("from model");
         console.log(venueId);
         return venueModelProject.findOne({"venueId": venueId});
     }
 
-    function createVenue(venue) {
+    function createHouse(venue) {
         return venueModelProject.create(venue);
     }
 
-    function findVenueById(vId) {
+    function findHouseById(vId) {
         return venueModelProject.findById(vId);
     }
 
-    function updateVenue(venueId, venue) {
+    function updateHouse(venueId, venue) {
         delete venue._id;
         return venueModelProject
             .update(

@@ -3,10 +3,10 @@
         .module("fyh")
         .controller("AdminController", AdminController);
 
-    function AdminController($location, searchService, $route, VenueService, userService) {
+    function AdminController($location, searchService, $route, HouseService, userService) {
         var model = this;
         model.deleteUser = deleteUser;
-        model.deleteVenue = deleteVenue;
+        model.deleteHouse = deleteHouse;
         model.adminLogin = adminLogin;
         model.register = register;
         model.updateUser = updateUser;
@@ -59,8 +59,8 @@
                     }
                 );
 
-            VenueService
-                .getAllVenue()
+            HouseService
+                .getAllHouse()
                 .then(
                     function (response) {
                       //  console.log(response.data)
@@ -69,7 +69,7 @@
                             model.venues = [];
                             for (var i in model.ven) {
                             //    console.log(model.ven[i].venueId);
-                                getVenueDetails(model.ven[i].venueId);
+                                getHouseDetails(model.ven[i].venueId);
                             }
                         } else {
                             model.venues = [];
@@ -91,9 +91,9 @@
             }
         }
 
-        function getVenueDetails(venueId) {
-            VenueService
-                .findVenueById(venueId)
+        function getHouseDetails(venueId) {
+            HouseService
+                .findHouseById(venueId)
                 .then(
                     function (response) {
                      //   console.log(response);
@@ -130,19 +130,19 @@
         }
 
 
-        function deleteVenue(venueId) {
+        function deleteHouse(venueId) {
             var confirmation = confirm("Are you sure to delete this venue ?");
             if (confirmation) {
-                VenueService
-                    .deleteVenue(venueId)
+                HouseService
+                    .deleteHouse(venueId)
                     .then(
                         function (res) {
                             $route.reload();
-                            model.deleteVenueStatus = true;
+                            model.deleteHouseStatus = true;
                         },
                         function (error) {
                             $route.reload();
-                            model.deleteVenueStatus = false;
+                            model.deleteHouseStatus = false;
                         }
                     );
             }

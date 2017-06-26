@@ -26,7 +26,7 @@
 
                         if(found != null ){
                             //model.message = "Welcome " + username;
-                            $location.url('/profile/edit');
+                            $location.url('/profile/view');
                         }
 
                     },

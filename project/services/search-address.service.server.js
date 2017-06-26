@@ -13,16 +13,16 @@ var venueModelProject = require('../models/houses/house.model.server');
 app.get('/api/searchAddress/:street1/:street2/:street3/:city/:state', searchQuery);
 app.get('/api/results/:zpid', getDetails);
 app.get('/api/searchResults/:zpid', getDetailsSeller);
-app.post("/api/project/venue", createVenue);
-app.get("/api/project/venue/:venueId", findVenueById);
-app.put("/api/project/venue/:venueId", updateVenue);
-app.put("/api/project/venue/:venueId/addComment", addComment);
-app.put("/api/project/venue/:venueId/deleteComment", deleteComment);
-app.put("/api/project/venue/:venueId/addFavorite", addFavoriteOf);
-app.put("/api/project/venue/:venueId/removeFavorite", removeFavoriteOf);
-app.get("/api/project/venue/:venueId/isFavoriteOf/:userId", isFavoriteOf);
-app.get("/api/project/admin/venues", getAllVenue);
-app.delete("/api/project/venue/:venueId", deleteVenue);
+app.post("/api/project/house", createHouse);
+app.get("/api/project/house/:venueId", findHouseById);
+app.put("/api/project/house/:venueId", updateHouse);
+app.put("/api/project/house/:venueId/addComment", addComment);
+app.put("/api/project/house/:venueId/deleteComment", deleteComment);
+app.put("/api/project/house/:venueId/addFavorite", addFavoriteOf);
+app.put("/api/project/house/:venueId/removeFavorite", removeFavoriteOf);
+app.get("/api/project/house/:venueId/isFavoriteOf/:userId", isFavoriteOf);
+app.get("/api/project/admin/houses", getAllHouse);
+app.delete("/api/project/house/:venueId", deleteHouse);
 
 var API_ID = process.env.ID;
 
@@ -163,9 +163,9 @@ function searchAddress(street1, street2, street3, city, state) {
 }
 
 
-function getAllVenue(req, res) {
+function getAllHouse(req, res) {
     venueModelProject
-        .getAllVenue()
+        .getAllHouse()
         .then(
             function (venues) {
              //   console.log(venues);
@@ -177,12 +177,12 @@ function getAllVenue(req, res) {
         )
 }
 
-function deleteVenue(req, res) {
+function deleteHouse(req, res) {
     var venueId = req.params.venueId;
     console.log("deleted");
     console.log(venueId);
     venueModelProject
-        .deleteVenue(venueId)
+        .deleteHouse(venueId)
         .then(
             function (stats) {
                 console.log("deleted");
@@ -217,7 +217,7 @@ function addFavoriteOf(req, res) {
         favoriteOf: [userId]
     };
     venueModelProject
-        .findVenueByVenueId(venueId)
+        .findHouseByHouseId(venueId)
         .then(
             function (venueCheck) {
                 if (venueCheck) {
@@ -233,7 +233,7 @@ function addFavoriteOf(req, res) {
                         );
                 } else {
                     venueModelProject
-                        .createVenue(venue)
+                        .createHouse(venue)
                         .then(
                             function (response) {
                                 res.send(response);
@@ -287,7 +287,7 @@ function addComment(req, res) {
         comments: [comment]
     }
     venueModelProject
-        .findVenueByVenueId(venueId)
+        .findHouseByHouseId(venueId)
         .then(
             function (venueCheck) {
                 if (venueCheck) {
@@ -303,7 +303,7 @@ function addComment(req, res) {
                         );
                 } else {
                     venueModelProject
-                        .createVenue(venue)
+                        .createHouse(venue)
                         .then(
                             function (response) {
                                 res.send(response);
@@ -317,10 +317,10 @@ function addComment(req, res) {
         );
 }
 
-function createVenue(req, res) {
+function createHouse(req, res) {
     var venue = req.body;
     venueModelProject
-        .createVenue(venue)
+        .createHouse(venue)
         .then(
             function (venue) {
                 res.json(venue);
@@ -331,10 +331,10 @@ function createVenue(req, res) {
         );
 }
 
-function findVenueById(req, res) {
+function findHouseById(req, res) {
     var venueId = req.params.venueId;
     venueModelProject
-        .findVenueByVenueId(venueId)
+        .findHouseByHouseId(venueId)
         .then(
             function (venue) {
                 res.json(venue);
@@ -346,16 +346,16 @@ function findVenueById(req, res) {
 }
 
 
-function updateVenue(req, res) {
+function updateHouse(req, res) {
     var venueId = req.params.venueId;
     var venue = req.body;
     venueModelProject
-        .findVenueByVenueId(venueId)
+        .findHouseByHouseId(venueId)
         .then(
             function (venueCheck) {
                 if (venueCheck) {
                     venueModelProject
-                        .updateVenue(venueId, venue)
+                        .updateHouse(venueId, venue)
                         .then(
                             function (stats) {
                                 res.send(stats);
@@ -366,7 +366,7 @@ function updateVenue(req, res) {
                         );
                 } else {
                     venueModelProject
-                        .createVenue(venue)
+                        .createHouse(venue)
                         .then(
                             function (response) {
                                 res.send(response);

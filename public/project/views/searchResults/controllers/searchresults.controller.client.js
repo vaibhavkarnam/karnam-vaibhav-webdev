@@ -5,7 +5,7 @@
 
 
 
-    function searchresultsController($routeParams, $route, resultsService, $location, currentUser, VenueService, userService) {
+    function searchresultsController($routeParams, $route, resultsService, $location, currentUser, HouseService, userService) {
         var model = this;
         model.searchProperty = searchProperty;
         model.venueId = $routeParams.zpid;
@@ -103,8 +103,8 @@
                         }
                         }
         });
-            VenueService
-                .findVenueById(model.venueId)
+            HouseService
+                .findHouseById(model.venueId)
                 .then(
                     function (response) {
                         var venue = response.data;
@@ -180,7 +180,7 @@
                 .removeFavorite(currentUser._id, model.venueId)
                 .then(
                     function (response) {
-                        return VenueService
+                        return HouseService
                             .removeFavoriteOf(model.venueId, currentUser._id);
                     },
                     function (error) {
@@ -215,7 +215,7 @@
                     .addFavorite(currentUser._id, venue)
                     .then(
                         function (response) {
-                            return VenueService
+                            return HouseService
                                 .addFavoriteOf(model.venueId, currentUser._id);
                         },
                         function (error) {
@@ -248,7 +248,7 @@
                     commentedBy: currentUser._id,
                     commentedOn: Date.now()
                 };
-                VenueService
+                HouseService
                     .addComment(model.venueId, comment)
                     .then(
                         function (response) {
@@ -269,7 +269,7 @@
 
 
         function deleteComment(comment) {
-            VenueService
+            HouseService
                 .deleteComment(model.venueId, comment)
                 .then(
                     function (response) {

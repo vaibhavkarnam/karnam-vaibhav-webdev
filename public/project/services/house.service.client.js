@@ -3,7 +3,7 @@
         .module('fyh')
         .service('searchService', searchService)
         .service('resultsService', resultsService)
-        .service('VenueService', VenueService)
+        .service('HouseService', HouseService)
         .service('resultsServiceSeller', resultsServiceSeller);
 
 
@@ -16,8 +16,6 @@
 
 
         this.searchAddress = searchAddress;
-
-       // var urlBase = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT";
 
        var url =  "/api/searchAddress/:street1/:street2/:street3/:city/:state";
 
@@ -77,66 +75,66 @@
         }
     }
 
-    function VenueService($http) {
+    function HouseService($http) {
 
-        this.createVenue = createVenue,
-            this.findVenueById = findVenueById,
-            this.updateVenue = updateVenue,
+        this.createHouse = createHouse,
+            this.findHouseById = findHouseById,
+            this.updateHouse = updateHouse,
             this.addComment = addComment,
             this.deleteComment = deleteComment,
             this.addFavoriteOf = addFavoriteOf,
             this.removeFavoriteOf = removeFavoriteOf,
             this.isFavoriteOf = isFavoriteOf,
-            this.getAllVenue = getAllVenue,
-            this.deleteVenue = deleteVenue;
+            this.getAllHouse = getAllHouse,
+            this.deleteHouse = deleteHouse;
 
 
-        function deleteVenue(venueId) {
+        function deleteHouse(venueId) {
             //console.log("venue Id");
           //  console.log(venueId);
-            return $http.delete("/api/project/venue/" + venueId);
+            return $http.delete("/api/project/house/" + venueId);
         }
 
-        function getAllVenue() {
-            return $http.get("/api/project/admin/venues");
+        function getAllHouse() {
+            return $http.get("/api/project/admin/houses");
         }
 
         function isFavoriteOf(venueId, userId) {
-            return $http.get("/api/project/venue/" + venueId + "/isFavoriteOf/" + userId);
+            return $http.get("/api/project/house/" + venueId + "/isFavoriteOf/" + userId);
         }
 
         function removeFavoriteOf(venueId, userId) {
             var body = {
                 userId: userId
             }
-            return $http.put("/api/project/venue/" + venueId + "/removeFavorite", body);
+            return $http.put("/api/project/house/" + venueId + "/removeFavorite", body);
         }
 
         function addFavoriteOf(venueId, userId) {
             var body = {
                 userId: userId
             }
-            return $http.put("/api/project/venue/" + venueId + "/addFavorite", body);
+            return $http.put("/api/project/house/" + venueId + "/addFavorite", body);
         }
 
         function deleteComment(venueId, comment) {
-            return $http.put("/api/project/venue/" + venueId + "/deleteComment", comment);
+            return $http.put("/api/project/house/" + venueId + "/deleteComment", comment);
         }
 
         function addComment(venueId, comment) {
-            return $http.put("/api/project/venue/" + venueId + "/addComment", comment);
+            return $http.put("/api/project/house/" + venueId + "/addComment", comment);
         }
 
-        function updateVenue(venueId, venue) {
-            return $http.put("/api/project/venue/" + venueId, venue);
+        function updateHouse(venueId, venue) {
+            return $http.put("/api/project/house/" + venueId, venue);
         }
 
-        function findVenueById(venueId) {
-            return $http.get("/api/project/venue/" + venueId);
+        function findHouseById(venueId) {
+            return $http.get("/api/project/house/" + venueId);
         }
 
-        function createVenue(venue) {
-            return $http.post("/api/project/venue", venue);
+        function createHouse(venue) {
+            return $http.post("/api/project/house", venue);
         }
 
 
