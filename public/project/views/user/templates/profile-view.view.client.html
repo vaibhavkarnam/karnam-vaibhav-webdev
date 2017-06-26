@@ -140,8 +140,10 @@
                 </div>
                 <div id="commentsList" class="row" ng-repeat="note in model.nts | orderBy: '-createdOn'">
                     <div class="col-xs-4 col-md-1">
-                        <image href="#!/profile/friend/{{note.writerDetails._id}}" id="commentImage"
+                        <image ng-show="note.writerDetails.displayPicture" href="#!/profile/friend/{{note.writerDetails._id}}" id="commentImage"
                                ng-src="{{note.writerDetails.displayPicture}}"></image>
+                        <img ng-hide="note.writerDetails.displayPicture" src="./assets/img/backgrounds/user.png" class="img-rounded">
+
                     </div>
                     <div class="col-xs-7 col-md-11">
                         <div id="postedBy" class="row">
@@ -220,6 +222,7 @@
                         <div class="thumbnail">
                             <div class="embed-responsive embed-responsive-4by3">
                                 <a href="#!/searchresults/{{item.venueId}}">
+                                    <div ng-hide="model.imgURL"> <img src="./assets/img/backgrounds/buyer.jpg"></div>
                                     <image id="searchImage" ng-src="{{item.venueImage}}"></image>
                                 </a>
                             </div>
@@ -264,7 +267,8 @@
                     <div id ="Contactstext" class="row">
                         <a href="#!/profile/friend/{{model.friendSearch._id}}">
                             <div class="col-xs-4 col-md-1">
-                                <image id="commentImage" ng-src="{{model.friendSearch.displayPicture}}"></image>
+                                <image ng-hide="!model.friendSearch.displayPicture" id="commentImage" ng-src="{{model.friendSearch.displayPicture}}"></image>
+                                <img ng-hide="model.friendSearch.displayPicture" src="./assets/img/backgrounds/user.png" class="img-rounded">
                             </div>
                             <div class="col-xs-8 col-md-5">
                                 <h4>{{model.friendSearch.firstName}} {{model.friendSearch.lastName}}</h4>

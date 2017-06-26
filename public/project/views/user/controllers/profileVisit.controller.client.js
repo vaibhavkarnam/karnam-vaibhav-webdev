@@ -25,6 +25,7 @@
                 .findUserById(friendId)
                 .then(function (response) {
                     model.user = response;
+                    model.role = model.user[0];
                     if (currentUser) {
                         userService
                             .findUserById(currentUser._id)

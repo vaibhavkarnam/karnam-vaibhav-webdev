@@ -69,7 +69,7 @@ app.put("/api/project/deleteNote", deleteNote);
 
 var multer = require('multer');
 var upload = multer({dest: __dirname + '/../../public/uploads'});
-app.post("/project", upload.single('myImgFile'), uploadImage);
+app.post('/api/project/uploads', upload.single('myImgFile'), uploadImage);
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
@@ -108,7 +108,7 @@ function uploadImage(req, res) {
         .then(
             function (stats) {
                 res
-                    .redirect("#!/profile/edit");
+                    .redirect('/project/#!/profile/edit');
             },
             function (error) {
                 res.send(error);
