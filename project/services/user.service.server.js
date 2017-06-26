@@ -340,6 +340,7 @@ function updateUser(req, res) {
     userProjectModel
         .updateUser(req.params.userId, user)
         .then(function (status) {
+            //console.log("in serser");
             res.send(status);
         });
 }

@@ -162,7 +162,7 @@ function userService($http) {
        return $http.post(url, user)
            .then(function (response) {
                return response.data;
-           })
+           });
 
     }
 
@@ -172,7 +172,7 @@ function userService($http) {
         return $http.get(url)
             .then(function (response) {
                 return response.data;
-            })
+            });
     }
 
     function findUserById(userId) {
@@ -180,7 +180,7 @@ function userService($http) {
        return $http.get(url)
            .then(function (response) {
                return response.data;
-           })
+           });
     }
 
     function findUserbyCredentials(username, password) {
@@ -188,24 +188,24 @@ function userService($http) {
         return $http.get(url)
             .then(function (response) {
                 return response.data;
-            })
+            });
     }
     function findAllUsers() {
         var url = "/api/user";
         return $http.get(url)
             .then(function (response) {
                 return response.data;
-            })
+            });
     }
 
 
     function updateUser(userId, user) {
-
         var url = "/api/user/"+userId;
         return $http.put(url, user)
-            .then(function (response) {
-                return response.data;
-            })
+            .then(function (status) {
+            //    console.log("accepted")
+                return status;
+            });
 
     }
 
@@ -215,7 +215,7 @@ function userService($http) {
         return $http.delete(url)
             .then(function (response) {
                 return response.data;
-            })
+            });
 
     }
 }

@@ -57,7 +57,7 @@
                     function (error) {
                         model.users = [];
                     }
-                )
+                );
 
             VenueService
                 .getAllVenue()

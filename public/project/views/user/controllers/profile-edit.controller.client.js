@@ -67,9 +67,14 @@ function profileController($routeParams, $route, $location, currentUser, userSer
         }
         userService
             .updateUser(user._id, user)
-            .then(function () {
-                model.message = "User updated successfully";
-            })
+            .then( function () {
+                    model.message = "Updated successfully";
+                    $route.reload();
+                },
+                function (error) {
+                    model.error = "Unable to update user"
+                }
+            );
     }
 
     function deleteUser(user) {
@@ -79,7 +84,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                 $location.url('/')
             }, function () {
                 model.error = "unable to unregister you";
-            })
+            });
     }
 
     function renderUser(user) {
@@ -106,10 +111,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
     }
 
     function deleteImage() {
-        model.imgDeleteError = null;
-        if (model.user.displayPicture == "images/defaultDisplayPic.jpg") {
-            model.imgDeleteError = "Cannot delete the default image";
-        } else {
+
             userService
                 .deleteImage(model.user._id)
                 .then(
@@ -121,7 +123,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                         model.imgDeleteError = "Unable to delete the image";
                         $route.reload();
                     })
-        }
+
     }
 
     function addNote(noteValue) {
