@@ -42,7 +42,7 @@
                     return userService
                         .register(newUser);})
                 .then(function (user) {
-                    $location.url('/profile/edit');
+                    $location.url('/profile/view');
                 });
 
         }
