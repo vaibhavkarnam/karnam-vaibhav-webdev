@@ -138,12 +138,12 @@
                         </div>
                         <div id="commentsList" class="row" ng-repeat="note in model.nts | orderBy: '-createdOn'">
                             <div class="col-xs-4 col-md-1">
-                                <image href="#/user/friend/{{note.writerDetails._id}}" id="commentImage"
+                                <image href="#!/profile/friend/{{note.writerDetails._id}}" id="commentImage"
                                        ng-src="{{note.writerDetails.displayPicture}}"></image>
                             </div>
                             <div class="col-xs-7 col-md-11">
                                 <div id="postedBy" class="row">
-                                    <a href="#/user/friend/{{note.writerDetails._id}}">
+                                    <a href="#!/profile/friend/{{note.writerDetails._id}}">
                                         <h4><strong>{{note.writerDetails.firstName}}</strong></h4>
                                     </a>
                                 </div>
@@ -152,9 +152,9 @@
                                         {{note.value}}
                                     </div>
                                     <div class="col-xs-1 col-md-1">
-                                        <button ng-show="model.xplrUsr && (note.writtenBy == model.xplrUsr._id)"
+                                        <button ng-show="model.currentUser && (note.writtenBy == model.currentUser._id)"
                                                 id="deleteButton"
-                                                ng-click="model.deleteNote(note)" class="btn btn-primary pull-right">
+                                                ng-click="model.deleteNote(note)" class="btn btn-danger pull-right">
                                             Delete
                                         </button>
                                     </div>
@@ -196,7 +196,7 @@
                                         </a>
                                     </div>
                                     <div class="caption">
-                                        <a class="noDecoration" href="#/venue/{{item.venueId}}">
+                                        <a class="noDecoration" href="#!/searchresults/{{item.venueId}}">
                                             <h4>{{item.venueName | limitTo:33}}</h4>
                                         </a>
                                     </div>
@@ -219,13 +219,13 @@
                             </div>
                             <div class="row" ng-repeat="item in model.frnds">
                                 <div class="col-xs-4 col-md-1">
-                                    <a href="#/user/friend/{{item._id}}">
+                                    <a href="#!/profile/friend/{{item._id}}">
                                         <image id="commentImage" ng-src="{{item.displayPicture}}"></image>
                                     </a>
                                 </div>
                                 <div id="commentBlockId" class="col-xs-8 col-md-11">
                                     <div id="commentedUser" class="row">
-                                        <a href="#/user/friend/{{item._id}}">
+                                        <a href="#!/profile/friend/{{item._id}}">
                                             <h4><strong>{{item.firstName}} {{item.lastName}}</strong></h4>
                                         </a>
                                     </div>

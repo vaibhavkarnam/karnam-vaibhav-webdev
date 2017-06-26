@@ -19,6 +19,10 @@ select.form-control{
     color: black;
 }
 
+#img{
+    padding: 5px;
+}
+
 #generalnav, nav.navbar.navbar-default.navbar-fixed-top{
     padding-right: 15px;
 }

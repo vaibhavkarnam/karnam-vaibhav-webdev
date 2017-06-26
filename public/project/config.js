@@ -7,17 +7,17 @@
 
         $routeProvider
         .when('/', {
-            templateUrl: 'views/home/home.html',
+            templateUrl: 'views/home/templates/home.view.client.html',
             controller: 'searchControllerHome',
             controllerAs: 'model'
         })
             .when("/admin", {
-                templateUrl: "views/admin/admin-login.view.client.html",
+                templateUrl: "views/admin/templates/admin-login.view.client.html",
                 controller: "AdminController",
                 controllerAs: "model"
             })
             .when("/admin/login", {
-                templateUrl: "views/admin/admin.view.client.html",
+                templateUrl: "views/admin/templates/admin.view.client.html",
                 controller: "AdminController",
                 controllerAs: "model"
             })
@@ -60,7 +60,7 @@
                 }
             })
             .when('/searchresults/:zpid', {
-                templateUrl: 'views/searchResults/searchResults.view.client.html',
+                templateUrl: 'views/searchResults/templates/searchResults.view.client.html',
                 controller: 'searchresultsController',
                 controllerAs: 'model',
                 resolve: {
@@ -68,12 +68,12 @@
                 }
             })
             .when('/searchresultsguest/:zpid', {
-                templateUrl: 'views/searchResults/searchResultsGuest.view.client.html',
+                templateUrl: 'views/searchResults/templates/searchResultsGuest.view.client.html',
                 controller: 'searchresultsGuestController',
                 controllerAs: 'model'
             })
             .when('/searchResultsSeller/:zpid', {
-                templateUrl: 'views/searchResults/searchResultsSeller.view.client.html',
+                templateUrl: 'views/searchResults/templates/searchResultsSeller.view.client.html',
                 controller: 'searchresultsSellerController',
                 controllerAs: 'model',
                 resolve: {

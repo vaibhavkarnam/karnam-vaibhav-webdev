@@ -267,7 +267,7 @@
                     <div id ="Contactstext" class="row">
                         <a href="#!/profile/friend/{{model.friendSearch._id}}">
                             <div class="col-xs-4 col-md-1">
-                                <image ng-hide="!model.friendSearch.displayPicture" id="commentImage" ng-src="{{model.friendSearch.displayPicture}}"></image>
+                                <image id="img" ng-hide="!model.friendSearch.displayPicture" id="commentImage" ng-src="{{model.friendSearch.displayPicture}}"></image>
                                 <img ng-hide="model.friendSearch.displayPicture" src="./assets/img/backgrounds/user.png" class="img-rounded">
                             </div>
                             <div class="col-xs-8 col-md-5">
@@ -316,12 +316,10 @@
                                 <h4><strong>{{item.firstName}} {{item.lastName}}</strong></h4>
                             </a>
                         </div>
-                        <div class="row">
-                            <button ng-click="model.requestAccept(item._id)" class="btn btn-block btn-primary requestButton">
-                                Accept
+                        <div class="row container-fluid">
+                            <button ng-click="model.requestAccept(item._id)" class="btn btn-primary requestButton glyphicon glyphicon-ok">
                             </button>
-                            <button ng-click="model.requestDeny(item._id)" class="btn btn-block btn-danger requestButton">
-                                Reject
+                            <button ng-click="model.requestDeny(item._id)" class="btn btn-danger requestButton glyphicon glyphicon-remove">
                             </button>
                         </div>
                     </div>
