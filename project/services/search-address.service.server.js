@@ -24,6 +24,7 @@ app.get("/api/project/venue/:venueId/isFavoriteOf/:userId", isFavoriteOf);
 app.get("/api/project/admin/venues", getAllVenue);
 app.delete("/api/project/venue/:venueId", deleteVenue);
 
+var API_ID = process.env.ID;
 
 function getDetails(req, res) {
     var zpid     = req.params.zpid;
@@ -41,12 +42,12 @@ function getDetails(req, res) {
 function findDetails(zpid) {
     var parser = new xml2js.Parser({explicitArray : false});
     var deferred = q.defer();
+    var pathvar = '/webservice/GetUpdatedPropertyDetails.htm?zws-id=API_KEY&zpid='+zpid;
+    var newpathvar = pathvar.replace("API_KEY",API_ID);
     https.get({
-        //   http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&address=STREET1+STREET2+STREET3&citystatezip=CITY%2C+STATE"
+        //   http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=&address=STREET1+STREET2+STREET3&citystatezip=CITY%2C+STATE"
         host: 'www.zillow.com',
-        path: '/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&zpid='+zpid,
-        headers: {
-        }
+        path: newpathvar
     }, function(response) {
         var body = '';
         response.on('data', function(d) {
@@ -85,12 +86,12 @@ function getDetailsSeller(req, res) {
 function findDetailsSeller(zpid) {
     var parser = new xml2js.Parser({explicitArray : false});
     var deferred = q.defer();
+    var pathvardet = '/webservice/GetZestimate.htm?zws-id=API_KEY&zpid='+zpid;
+    var newpathvardet = pathvardet.replace("API_KEY",API_ID);
     https.get({
-        //   http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&address=STREET1+STREET2+STREET3&citystatezip=CITY%2C+STATE"
+        //   http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=&address=STREET1+STREET2+STREET3&citystatezip=CITY%2C+STATE"
         host: 'www.zillow.com',
-        path: '/webservice/GetZestimate.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&zpid='+zpid,
-        headers: {
-        }
+        path: newpathvardet
     }, function(response) {
         var body = '';
         response.on('data', function(d) {
@@ -134,12 +135,12 @@ function searchQuery(req, res) {
 function searchAddress(street1, street2, street3, city, state) {
     var parser = new xml2js.Parser({explicitArray : false});
     var deferred = q.defer();
+    var pathqr = '/webservice/GetSearchResults.htm?zws-id=API_KEY&address='+street1+'+'+street2+'+'+street3+'&citystatezip='+city+'%2C'+state;
+    var newpathqr =  pathqr.replace('API_KEY',API_ID);
     https.get({
-     //   http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&address=STREET1+STREET2+STREET3&citystatezip=CITY%2C+STATE"
+     //   http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=&address=STREET1+STREET2+STREET3&citystatezip=CITY%2C+STATE"
         host: 'www.zillow.com',
-        path: '/webservice/GetSearchResults.htm?zws-id=X1-ZWz1966qi8632j_1r7kw&address='+street1+'+'+street2+'+'+street3+'&citystatezip='+city+'%2C'+state,
-         headers: {
-    }
+        path: newpathqr
     }, function(response) {
         var body = '';
         response.on('data', function(d) {

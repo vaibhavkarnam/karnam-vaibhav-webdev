@@ -33,7 +33,7 @@
                  model.data = response.root.children;
 
 
-                 if(model.data.length >= 2){
+                 if(model.data.length > 2){
 
                      model.Street =  response.root.children[2].children[0].children[0].children[2].children[0].content;
                      model.zipcode =  response.root.children[2].children[0].children[0].children[2].children[1].content;

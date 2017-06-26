@@ -38,8 +38,9 @@
                // console.log(model.data);
                 // console.log(response.root);
                  model.data = response.root.children;
+                 console.log(model.data);
 
-                 if(model.data.length >= 2) {
+                 if(model.data.length > 2) {
                      model.Street = response.root.children[2].children[0].children[0].children[2].children[0].content;
                      model.zipcode = response.root.children[2].children[0].children[0].children[2].children[1].content;
                      model.city = response.root.children[2].children[0].children[0].children[2].children[2].content;

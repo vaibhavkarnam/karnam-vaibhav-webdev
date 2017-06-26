@@ -33,8 +33,9 @@
     </div>
 </nav>
 
-
-<div id="sellerlist" class="container-fluid">
+<div class="container-fluid">
+<div id="sellerlist">
+    <h2 id="sellers">SELLERS</h2>
     <div id="commentsList" class="row" ng-repeat="seller in model.sellers | orderBy: '-createdOn'">
         <div class="col-xs-4 col-md-1">
             <image ng-show="seller.displayPicture" href="#!/profile/friend/{{note.writerDetails._id}}" id="commentImage"

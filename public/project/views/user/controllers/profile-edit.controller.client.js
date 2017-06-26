@@ -332,7 +332,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
                 model.data = response.root.children;
 
-                if(model.data.length >= 2){
+                if(model.data.length > 2){
                     model.Street =  response.root.children[2].children[0].children[0].children[2].children[0].content;
                     model.zipcode =  response.root.children[2].children[0].children[0].children[2].children[1].content;
                     model.city =  response.root.children[2].children[0].children[0].children[2].children[2].content;
@@ -390,8 +390,12 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
               //      console.log(response);
 
-                model.data = response.root.children[2].children[0].children[0];
+            //    model.data = response.root.children[2].children[0].children[0];
            //     console.log(model.data);
+
+                model.data = response.root.children;
+
+                if(model.data.length > 2){
 
                 model.Street =  response.root.children[2].children[0].children[0].children[2].children[0].content;
                 model.zipcode =  response.root.children[2].children[0].children[0].children[2].children[1].content;
@@ -415,6 +419,14 @@ function profileController($routeParams, $route, $location, currentUser, userSer
 
 
                 $location.url('/searchResultsSeller/'+model.zpid);
+
+                }
+                // console.log(model.data);
+                else
+                {
+                    model.error = "Could not find details for this house." +
+                        "Please enter a different address";
+                }
 
             });
 
