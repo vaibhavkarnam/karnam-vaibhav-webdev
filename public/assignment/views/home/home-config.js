@@ -7,7 +7,7 @@
 
         $routeProvider
             .when('/', {
-                templateUrl: 'views/home/home.html',
+                templateUrl: 'views/home/home.view.client.html',
                 controller: 'mainController',
                 controllerAs: 'model',
                 resolve: {
