@@ -35,8 +35,8 @@
 // app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 // app.get('/auth/google/callback',
 //     passport.authenticate('google', {
-//         successRedirect: '/assignment/index.html#!/user/profile',
-//         failureRedirect: '/assignment/index.html#!/login'
+//         successRedirect: '/assignment/indexold.html#!/user/profile',
+//         failureRedirect: '/assignment/indexold.html#!/login'
 //     }));
 //
 //
@@ -44,8 +44,8 @@
 //
 // app.get('/auth/facebook/callback',
 //     passport.authenticate('facebook', {
-//         successRedirect: '/assignment/index.html#!/user/profile',
-//         failureRedirect: '/assignment/index.html#!/login'
+//         successRedirect: '/assignment/indexold.html#!/user/profile',
+//         failureRedirect: '/assignment/indexold.html#!/login'
 //     }));
 //
 //
