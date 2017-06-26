@@ -3,7 +3,7 @@
         .module("fyh")
         .controller("profileControllerVisit", profileControllerVisit)
 
-    function profileControllerVisit($routeParams, $route, $rootScope, userService, $location, currentUser) {
+    function profileControllerVisit($routeParams, $route, userService, $location, currentUser) {
 
         var model = this;
         model.currentUser = currentUser;
@@ -242,11 +242,11 @@
                 .then(
                     function (response) {
                         $location.url("/main");
-                        $rootScope.currentUser = null
+                        model.currentUser = null
                     },
                     function (error) {
                         model.error = "Unable to remove user"
-                        $rootScope.currentUser = null
+                        model.currentUser = null
                     }
                 );
         }
