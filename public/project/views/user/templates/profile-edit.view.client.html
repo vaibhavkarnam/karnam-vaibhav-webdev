@@ -99,6 +99,13 @@
                                id="last-name"
                                placeholder="Wonderland">
                     </div>
+                    <label class="sr-only">Choose your role</label>
+                    <div class="radio">
+                        <label><input id ="Buyer" type="radio" ng-model="model.user.roles[0]" value="BUYER">Buyer</label>
+                    </div>
+                    <div class="radio">
+                        <label><input id="Seller" type="radio" ng-model="model.user.roles[0]" value="SELLER">Seller</label>
+                    </div>
                     <div class="form-group">
                         <label for="last-name">Phone</label>
                         <input ng-model="model.user.Phone"
