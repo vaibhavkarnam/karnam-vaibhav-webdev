@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
     lastName: String,
     email: String,
     Phone: String,
-    roles: [{type: String, default: 'USER', enum: ['USER', 'SELLER', 'BUYER', 'ADMIN']}],
+    roles: [{type: String, default: 'BUYER', enum: ['USER', 'SELLER', 'BUYER', 'ADMIN']}],
     google:{
         id: String,
         token: String
@@ -34,7 +34,7 @@ var userSchema = mongoose.Schema({
     photos: [String],
     friends: [{type: mongoose.Schema.ObjectId, ref: "userProjectModel"}],
     friendRequest: [{type: mongoose.Schema.ObjectId, ref: "userProjectModel"}],
-    displayPicture: {type: String, default: "images/defaultDisplayPic.jpg"},
+    displayPicture: {type: String, default: "images/user.png"},
     Houses: [{type: mongoose.Schema.Types.ObjectId, ref: "venueModelProject"}],
     dateCreated: {type: Date, default: Date.now}
 }, {collection: "user_project_db"});
