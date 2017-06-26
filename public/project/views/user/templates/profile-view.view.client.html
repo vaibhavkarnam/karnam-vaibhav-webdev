@@ -31,8 +31,6 @@
     </div>
 </nav>
 
-
-
 <!--<div class="container-fluid profile">-->
     <!--<div class="row container-fluid">-->
         <!--<div class="container-fluid">-->
@@ -110,7 +108,7 @@
             <div ng-show="model.user.roles.indexOf('BUYER') >-1">
                 <ul class="nav nav-pills nav-justified">
                 <li class="active"><a data-toggle="pill" data-target="#timeline">Posts</a></li>
-                <li><a data-toggle="pill" data-target="#favorites">Liked Houses({{model.user.favorites.length}})</a></li>
+                <li><a data-toggle="pill" data-target="#favorites">Followed Houses({{model.user.favorites.length}})</a></li>
                 <li><a data-toggle="pill" data-target="#friendsList">Contacts({{model.frnds.length}})</a></li>
                 <li><a data-toggle="pill" data-target="#friendRequests">Contact Requests({{model.fRequests.length}})</a>
                 </li>
@@ -119,12 +117,13 @@
             <div ng-show="model.user.roles.indexOf('BUYER') <= -1">
                 <ul class="nav nav-pills nav-justified">
                     <li class="active"><a data-toggle="pill" data-target="#timeline">Posts</a></li>
-                    <li><a data-toggle="pill" data-target="#favorites">Liked Houses({{model.user.favorites.length}})</a></li>
+                    <li><a data-toggle="pill" data-target="#favorites">Followed Houses({{model.user.favorites.length}})</a></li>
                     <li><a data-toggle="pill" data-target="#friendsList">Contacts({{model.frnds.length}})</a></li>
                     <li><a data-toggle="pill" data-target="#friendRequests">Contact Requests({{model.fRequests.length}})</a>
                     </li>
                 </ul>
             </div>
+        </ul>
 
         <div class="tab-content">
             <div id="timeline" class="tab-pane fade in active">
@@ -132,7 +131,6 @@
                     <form>
                             <textarea type="text"
                                       rows="3"
-                                      name="note"
                                       id="note"
                                       ng-model="noteValue"
                                       placeholder="Whats' on your mind ???"
@@ -197,9 +195,8 @@
                         <label class="sr-only" >Start Typing your address</label>
                         <input class="form-username form-control" vs-google-autocomplete="options"
                         ng-model="address"
-                        name="address"
                         type="text"
-                        placeholder="99 Calumet Street Boston Ma"></div>
+                        placeholder="671 boylston street boston MA"></div>
                         </form>
                             <div ng-show="model.currentUser.roles.indexOf('BUYER') > -1">
                                 <a ng-click="model.searchAddress(address)" class="btn btn-primary btn-block">Find Details</a>
@@ -256,7 +253,6 @@
                                 <div class="col-md-4">
                                     <input ng-model="friendName"
                                            class="form-control"
-                                           name="friendName"
                                            type="text"
                                            required
                                            placeholder="Enter username">
