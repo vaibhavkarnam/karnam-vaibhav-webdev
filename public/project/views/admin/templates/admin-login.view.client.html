@@ -36,6 +36,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
+							<div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+							<div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
                         	<div class="form-top">
                         		<div id ="loginform" class="form-top-left">
                         			<h3 id="loginh3" >Login to our site with Admin access</h3>

@@ -84,6 +84,14 @@
         init();
 
         function adminLogin(adminUsername, adminPassword) {
+            if(adminUsername === null || typeof adminUsername==='undefined'){
+                model.error="username is required";
+                return;
+            }
+            if(adminPassword === null || typeof adminPassword==='undefined'){
+                model.error="password is required";
+                return;
+            }
             if (adminUsername === "admin" && adminPassword === "admin") {
                 $location.url("/admin/login");
             } else {
