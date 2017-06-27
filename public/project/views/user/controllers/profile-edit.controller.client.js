@@ -25,7 +25,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
    // console.log(model.currentUser.roles.indexOf('SELLER'));
 
     function init() {
-        renderUser(currentUser);
+        //renderUser(currentUser);
         userService
             .findUserById(model.userId)
             .then(function (response) {
@@ -60,16 +60,12 @@ function profileController($routeParams, $route, $location, currentUser, userSer
             });
     }
 
-    function updateUser(user) {
-        if (user.username === "" || user.username === null || typeof user.username === 'undefined') {
-            model.message = "User name cannot be empty";
-            return;
-        }
+    function updateUser() {
         userService
-            .updateUser(user._id, user)
+            .updateUser(model.user._id, model.user)
             .then( function () {
                     model.message = "Updated successfully";
-                    $route.reload();
+                    $location.url('/profile/view')
                 },
                 function (error) {
                     model.error = "Unable to update user"
@@ -243,54 +239,6 @@ function profileController($routeParams, $route, $location, currentUser, userSer
         }
     };
 
-
-    function logout() {
-        userService
-            .logout()
-            .then(
-                function (response) {
-                    $location.url("/main");
-                    model.currentUser = null
-                },
-                function () {
-                    $location.url("/main");
-                    model.currentUser = null
-                }
-            );
-
-    }
-
-    function unregisterUser() {
-        var confirmation = confirm("Are you sure to delete your account ?");
-        if (confirmation) {
-            userService
-                .deleteUser(model.userId)
-                .then(
-                    function (response) {
-                        $location.url("/main");
-                        model.currentUser = null
-                    },
-                    function (error) {
-                        model.error = "Unable to remove user";
-                        model.currentUser = null
-                    }
-                );
-        }
-    }
-
-    function updateUser() {
-        userService
-            .updateUser(model.userId, model.user)
-            .then(
-                function (response) {
-                    model.success = "Updated successfully";
-                    $location.url("/user");
-                },
-                function (error) {
-                    model.error = "Unable to update user"
-                }
-            );
-    }
 
 
     function findFriend(friendName) {
