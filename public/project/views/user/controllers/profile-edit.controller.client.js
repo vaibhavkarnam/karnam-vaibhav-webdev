@@ -123,6 +123,10 @@ function profileController($routeParams, $route, $location, currentUser, userSer
     }
 
     function addNote(noteValue) {
+        if(noteValue === "null" || typeof noteValue === 'undefined'){
+            model.noteErr = "please enter text to post";
+            return;
+        }
         var note = {
             value: noteValue,
             createdOn: Date.now(),
@@ -251,6 +255,7 @@ function profileController($routeParams, $route, $location, currentUser, userSer
                 },
                 function (error) {
                     model.friendSearch = null;
+                    model.frndError = "Counld not find user!";
                 }
             )
     }

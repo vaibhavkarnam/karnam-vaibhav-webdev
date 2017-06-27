@@ -242,6 +242,10 @@
         }
 
         function addComment(commentValue) {
+            if(commentValue === 'null' || typeof commentValue ==='undefined'){
+                model.commentErr = "Please enter the text to comment";
+                return;
+            }
             if (currentUser) {
                 var comment = {
                     value: commentValue,

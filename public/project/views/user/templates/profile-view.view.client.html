@@ -128,6 +128,7 @@
         <div class="tab-content">
             <div id="timeline" class="tab-pane fade in active">
                 <div class="row">
+                    <div ng-show="model.noteErr" class="alert alert-danger">{{model.noteErr}}</div>
                     <form>
                             <textarea type="text"
                                       rows="3"
@@ -277,6 +278,9 @@
                 <div class="row">
                     <form>
                         <div class="row">
+                            <div class="container-fluid">
+                            <div ng-show="model.frndError" class="alert alert-danger">{{model.frndError}}</div>
+                            </div>
                             <div class="col-md-8">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">

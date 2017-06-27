@@ -94,6 +94,7 @@
                         <h4>Add Comment</h4>
                     </div>
                     <div class="row">
+                        <div ng-show="model.commentErr" class="alert alert-danger">{{model.commentErr}}</div>
                         <form>
                             <textarea type="text"
                                       rows="3"
