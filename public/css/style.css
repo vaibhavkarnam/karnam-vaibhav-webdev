@@ -840,6 +840,10 @@ footer span.glyphicon.glyphicon-chevron-up {
 }
 }
 
+#homepage{
+	width: 100%;
+}
+
 @media (max-width: 736px) {
 	.mygallery img.img-responsive {
     height: 220px;
